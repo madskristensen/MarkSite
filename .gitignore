@@ -16,7 +16,8 @@ x64/
 x86/
 build/
 bld/
-[Bb]in/
+**/[Bb]in/*.dll
+**/[Bb]in/*.xml
 [Oo]bj/
 
 # Roslyn cache directories
