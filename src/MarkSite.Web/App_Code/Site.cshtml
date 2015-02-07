@@ -1,0 +1,47 @@
+﻿@using MarkSite.Core;
+
+@helper RenderMenu(IEnumerable<MarkdownPage> pages)
+{
+	<ul>
+		@foreach (MarkdownPage page in pages)
+		{
+			<li>
+				@CreateLink(page)
+				@RenderMenu(page.Children)
+			</li>
+		}
+	</ul>
+}
+
+@helper RenderBreadcrumb(MarkdownPage page)
+{
+	List<MarkdownPage> list = new List<MarkdownPage>(new[] { page });
+	while (page.Parent != null)
+	{
+		list.Add(page.Parent);
+		page = page.Parent;
+	}
+
+	<ul id="breadcrumb">
+		@foreach (MarkdownPage item in list.Reverse<MarkdownPage>().Skip(1))
+		{
+            <li>@CreateLink(item)</li>
+		}
+	</ul>
+}
+
+	@helper CreateLink(MarkdownPage page)
+    {
+	List<string> segments = new List<string>(new[] { page.Slug });
+
+	MarkdownPage parent = page.Parent;
+
+	while (parent != null)
+	{
+		segments.Add(parent.Slug);
+		parent = parent.Parent;
+	}
+
+	string path = string.Join("/", segments.Reverse<string>().Skip(1));
+	<a href="/@path">@page.Title</a>
+}

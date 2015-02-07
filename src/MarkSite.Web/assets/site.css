@@ -1,0 +1,56 @@
+﻿body {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 1em;
+	font: 12pt/1.5 georgia;
+}
+
+a {
+	color: cadetblue;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+nav {
+	float: left;
+	margin-right: 3em;
+}
+
+	nav > ul {
+		padding-left: 0;
+		list-style: none;
+	}
+
+	nav ul {
+		list-style: none;
+		padding-left: 13px;
+	}
+
+	nav li {
+		margin: 0;
+	}
+
+main {
+	float: left;
+}
+
+#breadcrumb {
+	list-style: none;
+	padding: 0;
+}
+
+	#breadcrumb li {
+		display: inline;
+	}
+
+		#breadcrumb li:before {
+			content: ' » ';
+		}
+
+footer {
+	clear: both;
+	margin-top: 200px;
+}

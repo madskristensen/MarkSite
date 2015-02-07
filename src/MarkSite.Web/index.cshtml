@@ -1,8 +1,12 @@
 ﻿@{
-    Page.Title = "Title goes here";
+	MarkSite.Core.MarkdownPage page = PageSystem.GetCurrentPage(Request);
+    Page.Title = PageSystem.GetTitle(page);
+	Page.Description = page.Description;
+	Page.Keywords = page.Keywords;
+
     Layout = "_layout.cshtml";
 }
 
-<div>
-    foo
-</div>
+<article>
+	@Html.Raw(page.Content)
+</article>

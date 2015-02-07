@@ -1,10 +1,29 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-        <title>@Page.Title</title>
-        @RenderSection("head", required: false)
-    </head>
-    <body>
-        @RenderBody()
-    </body>
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>@Page.Title - Visual Studio</title>
+	<meta name="description" content="@Page.Description" />
+	<meta name="keywords" content="@Page.Keywords" />
+	<link href="/assets/site.css" rel="stylesheet" />
+</head>
+<body>
+
+	<header>
+		<h1>Web Development with Visual Studio</h1>
+	</header>
+
+	<nav>
+		@Site.RenderMenu(PageSystem.IndexPage.Children)
+	</nav>
+
+	<main>
+		@Site.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+		@RenderBody()
+	</main>
+
+	<footer>
+		My footer
+	</footer>
+</body>
 </html>
