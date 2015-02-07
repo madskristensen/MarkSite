@@ -9,21 +9,24 @@
 </head>
 <body>
 
-	<header>
+	<header role="banner">
 		<h1>Web Development with Visual Studio</h1>
 	</header>
 
 	<nav>
-		@Site.RenderMenu(PageSystem.IndexPage.Children)
+		@Helpers.RenderMenu(PageSystem.IndexPage.Children)
 	</nav>
 
-	<main>
-		@Site.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+	<main role="main">
+		@*@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))*@
 		@RenderBody()
 	</main>
 
-	<footer>
+	<footer role="contentinfo">
 		My footer
 	</footer>
+
+
+	<script src="/assets/menu.js" async></script>
 </body>
 </html>

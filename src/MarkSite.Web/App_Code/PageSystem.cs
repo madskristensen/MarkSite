@@ -1,17 +1,26 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Hosting;
 using MarkSite.Core;
 
 public class PageSystem
 {
-	static PageSystem()
+	public static MarkdownPage IndexPage
 	{
-		IndexPage = GetPages();
-	}
+		get
+		{
+			if (HttpRuntime.Cache["indexpage"] == null)
+			{
+				string[] files = Directory.GetFiles(HostingEnvironment.MapPath("~/pages"), "*.md", SearchOption.AllDirectories);
+				HttpRuntime.Cache.Insert("indexpage", GetPages(), new CacheDependency(files));
+            }
 
-	public static MarkdownPage IndexPage { get; private set; }
+			return (MarkdownPage)HttpRuntime.Cache["indexpage"]; 
+        }
+	}
 
 	private static MarkdownPage GetPages()
 	{
@@ -29,16 +38,22 @@ public class PageSystem
 		if (string.IsNullOrWhiteSpace(raw))
 			return IndexPage;
 
-		string[] segments = raw.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
-
-		MarkdownPage page = IndexPage;
-
-		foreach (string segment in segments)
+		if (HttpRuntime.Cache[raw] == null)
 		{
-			page = page.Children.First(c => c.Slug.Equals(segment, StringComparison.OrdinalIgnoreCase));
+
+			string[] segments = raw.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+
+			MarkdownPage page = IndexPage;
+
+			foreach (string segment in segments)
+			{
+				page = page.Children.First(c => c.Slug.Equals(segment, StringComparison.OrdinalIgnoreCase));
+			}
+
+			HttpRuntime.Cache[raw] = page;
 		}
 
-		return page;
+		return (MarkdownPage)HttpRuntime.Cache[raw];
 	}
 
 	public static string GetTitle(MarkdownPage page)

@@ -2,7 +2,7 @@
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 0 1em;
-	font: 12pt/1.5 georgia;
+	font: 1em/1.35 "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
 }
 
 a {
@@ -10,37 +10,73 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
 nav {
 	float: left;
 	margin-right: 3em;
 }
-
-	nav > ul {
-		padding-left: 0;
-		list-style: none;
-	}
 
 	nav ul {
 		list-style: none;
 		padding-left: 13px;
 	}
 
-	nav li {
+	nav > ul {
 		margin: 0;
+		padding: 0;
+	}
+
+		nav ul ul {
+			display: none;
+		}
+
+		nav ul li a:before {
+			content: '›';
+			color: #888;
+			padding-right: 5px;
+			display: inline-block;
+			text-decoration: none;
+			text-align: left;
+		}
+
+		nav ul li a:only-child:before {
+			content: '';
+		}
+
+	nav .open + ul {
+		display: block;
+	}
+
+	nav .open:before {
+		-moz-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+
+	nav ul a.active {
+		display: block;
+		color: #555;
 	}
 
 main {
 	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+main h1 {
+	margin: 0;
 }
 
 #breadcrumb {
 	list-style: none;
 	padding: 0;
 }
+
+	#breadcrumb a {
+		font-size: .9em;
+	}
 
 	#breadcrumb li {
 		display: inline;

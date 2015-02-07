@@ -7,7 +7,10 @@
 		{
 			<li>
 				@CreateLink(page)
-				@RenderMenu(page.Children)
+				@if (page.Children.Count > 0)
+				{
+					@RenderMenu(page.Children)
+				}
 			</li>
 		}
 	</ul>
@@ -25,15 +28,15 @@
 	<ul id="breadcrumb">
 		@foreach (MarkdownPage item in list.Reverse<MarkdownPage>().Skip(1))
 		{
-            <li>@CreateLink(item)</li>
+			<li>@CreateLink(item)</li>
 		}
 	</ul>
 }
 
-	@helper CreateLink(MarkdownPage page)
-    {
+@helper CreateLink(MarkdownPage page)
+{
 	List<string> segments = new List<string>(new[] { page.Slug });
-
+	string className = page == PageSystem.GetCurrentPage(Request) ? "active" : null;
 	MarkdownPage parent = page.Parent;
 
 	while (parent != null)
@@ -43,5 +46,5 @@
 	}
 
 	string path = string.Join("/", segments.Reverse<string>().Skip(1));
-	<a href="/@path">@page.Title</a>
+	<a href="/@path" class="@className">@page.Title</a>
 }

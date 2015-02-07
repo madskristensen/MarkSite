@@ -5,7 +5,7 @@
 	keywords="html, intellisense"
 />
 
-# HTML Intellisense
+# HTML Validation
 
 1. foo
 2. bar
