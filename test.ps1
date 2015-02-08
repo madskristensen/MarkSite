@@ -10,18 +10,19 @@ foreach($assembly in $assemblies){
     [Reflection.Assembly]::LoadFile($assembly) | Out-Null
 }
 
-echo $folder.FullName
-
 $parser = New-Object MarkSite.Core.Parser
+
+Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
 
 try{
     $page = $parser.Parse($folder.FullName)
+    Write-Host " OK" -ForegroundColor Green
 }
 catch{
-    $_.Exception.InnerException.Message | Write-Host -ForegroundColor Red
+    Write-Host " Fail" -ForegroundColor Red
+    Write-Host $_.Exception.InnerException.Message -ForegroundColor Red
 
     if ($ExitOnError){
         $host.SetShouldExit(1) | Out-Null
-        "Test failed" | Write-Host -ForegroundColor white -BackgroundColor Red
     }
 }
