@@ -5,7 +5,5 @@
 	keywords="css, intellisense"
 />
 
-# Home page
-
 1. foo
 2. bar

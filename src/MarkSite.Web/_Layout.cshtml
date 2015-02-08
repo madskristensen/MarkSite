@@ -10,20 +10,26 @@
 <body>
 
 	<header role="banner">
-		<h1>Web Development with Visual Studio</h1>
+		<div class="container">
+			<a href="/">Web Development with Visual Studio</a>
+		</div>
 	</header>
 
-	<nav>
-		@Helpers.RenderMenu(PageSystem.IndexPage.Children)
-	</nav>
+	<div class="container">
+		<nav>
+			@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+		</nav>
 
-	<main role="main">
-		@*@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))*@
-		@RenderBody()
-	</main>
+		<main role="main">
+			@*@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))*@
+			@RenderBody()
+		</main>
+	</div>
 
 	<footer role="contentinfo">
-		My footer
+		<div class="container">
+			My footer
+		</div>
 	</footer>
 
 

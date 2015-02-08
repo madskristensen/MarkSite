@@ -5,7 +5,5 @@
 	keywords="css, html, javascript"
 />
 
-# Package managers page
-
 1. foo
 2. bar

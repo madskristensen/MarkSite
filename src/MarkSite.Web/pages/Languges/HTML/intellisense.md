@@ -5,8 +5,6 @@
 	keywords="html, intellisense"
 />
 
-# HTML Intellisense
-
 1. *foo*
 2. __bar__
 

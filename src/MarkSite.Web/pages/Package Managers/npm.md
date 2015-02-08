@@ -5,7 +5,5 @@
 	keywords="css, html, javascript"
 />
 
-# npm (Node Package Manager)
-
 1. foo
 2. bar

@@ -1,13 +1,29 @@
 ﻿body {
-	max-width: 960px;
-	margin: 0 auto;
-	padding: 0 1em;
+	margin: 0;
 	font: 1em/1.35 "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
 }
 
 a {
 	color: cadetblue;
 	text-decoration: none;
+}
+
+header {
+	background: #222;
+	color: white;
+	line-height: 50px;
+	font-size: 1.4em;
+	margin-bottom: 50px
+}
+
+header a{
+	color: #fff;
+}
+
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 1em;
 }
 
 nav {
@@ -25,22 +41,22 @@ nav {
 		padding: 0;
 	}
 
-		nav ul ul {
-			display: none;
-		}
+	nav ul ul {
+		display: none;
+	}
 
-		nav ul li a:before {
-			content: '›';
-			color: #888;
-			padding-right: 5px;
-			display: inline-block;
-			text-decoration: none;
-			text-align: left;
-		}
+	nav ul li a:before {
+		content: '›';
+		color: #888;
+		padding-right: 5px;
+		display: inline-block;
+		text-decoration: none;
+		text-align: left;
+	}
 
-		nav ul li a:only-child:before {
-			content: '';
-		}
+	nav ul li a:only-child:before {
+		content: '';
+	}
 
 	nav .open + ul {
 		display: block;
@@ -65,9 +81,9 @@ main {
 	padding: 0;
 }
 
-main h1 {
-	margin: 0;
-}
+	main h1 {
+		margin: 0;
+	}
 
 #breadcrumb {
 	list-style: none;
@@ -88,5 +104,8 @@ main h1 {
 
 footer {
 	clear: both;
-	margin-top: 200px;
+	background: #f1f1f1;
+	padding-top: 1em;
+	margin-top: 3em;
+	height: 150px;
 }

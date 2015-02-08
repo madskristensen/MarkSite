@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -8,21 +9,24 @@ using MarkSite.Core;
 
 public class PageSystem
 {
+	public const string CACHE_KEY = "indexpage";
+
 	public static MarkdownPage IndexPage
 	{
 		get
 		{
-			if (HttpRuntime.Cache["indexpage"] == null)
+			if (HttpRuntime.Cache[CACHE_KEY] == null)
 			{
-				string[] files = Directory.GetFiles(HostingEnvironment.MapPath("~/pages"), "*.md", SearchOption.AllDirectories);
-				HttpRuntime.Cache.Insert("indexpage", GetPages(), new CacheDependency(files));
-            }
+				string folder = ConfigurationManager.AppSettings.Get("folder");
+				string[] files = Directory.GetFiles(HostingEnvironment.MapPath(folder), "*.md", SearchOption.AllDirectories);
+				HttpRuntime.Cache.Insert(CACHE_KEY, Parse(), new CacheDependency(files));
+			}
 
-			return (MarkdownPage)HttpRuntime.Cache["indexpage"]; 
-        }
+			return (MarkdownPage)HttpRuntime.Cache[CACHE_KEY];
+		}
 	}
 
-	private static MarkdownPage GetPages()
+	private static MarkdownPage Parse()
 	{
 		string directory = HostingEnvironment.MapPath("~/pages");
 		Parser parser = new Parser();
@@ -38,22 +42,16 @@ public class PageSystem
 		if (string.IsNullOrWhiteSpace(raw))
 			return IndexPage;
 
-		if (HttpRuntime.Cache[raw] == null)
+		string[] segments = raw.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+
+		MarkdownPage page = IndexPage;
+
+		foreach (string segment in segments)
 		{
-
-			string[] segments = raw.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
-
-			MarkdownPage page = IndexPage;
-
-			foreach (string segment in segments)
-			{
-				page = page.Children.First(c => c.Slug.Equals(segment, StringComparison.OrdinalIgnoreCase));
-			}
-
-			HttpRuntime.Cache[raw] = page;
+			page = page.Children.First(c => c.Slug.Equals(segment, StringComparison.OrdinalIgnoreCase));
 		}
 
-		return (MarkdownPage)HttpRuntime.Cache[raw];
+		return page;
 	}
 
 	public static string GetTitle(MarkdownPage page)

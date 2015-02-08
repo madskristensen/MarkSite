@@ -1,8 +1,8 @@
 ﻿<properties
-	pageTitle="CSS"
+	pageTitle="FTP"
 	description="bla bla bla"
-	slug="css"
-	keywords="css, intellisense"
+	slug="ftp"
+	keywords="ftp"
 />
 
 1. foo

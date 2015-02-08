@@ -61,6 +61,7 @@ namespace MarkSite.Core
 			page.Content = html.Substring(firstChild.End, tree.RootNode.Length - firstChild.End).Trim();
 			page.Keywords = prop.AttrValue("keywords", fileName);
 			page.Slug = prop.AttrValue("slug", fileName);
+			page.DateModified = File.GetLastWriteTime(fileName);
 
 			return page;
 		}

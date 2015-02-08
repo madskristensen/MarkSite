@@ -5,7 +5,5 @@
 	keywords="css, html, javascript"
 />
 
-# Bower
-
 1. foo
 2. bar

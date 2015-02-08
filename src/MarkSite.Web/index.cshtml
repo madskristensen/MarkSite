@@ -1,12 +1,23 @@
 ﻿@{
 	MarkSite.Core.MarkdownPage page = PageSystem.GetCurrentPage(Request);
-    Page.Title = PageSystem.GetTitle(page);
+	Page.Title = PageSystem.GetTitle(page);
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
 
-    Layout = "_layout.cshtml";
+	Layout = "_layout.cshtml";
+
+	if (!Request.IsLocal)
+	{
+		Response.Cache.SetValidUntilExpires(true);
+		Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+		Response.Cache.VaryByParams["path"] = true;
+		Response.Cache.SetLastModified(page.DateModified);
+		Response.AddCacheItemDependency(PageSystem.CACHE_KEY);
+	}
 }
 
 <article>
+	<h1>@page.Title</h1>
+	<p>@page.Description</p>
 	@Html.Raw(page.Content)
 </article>

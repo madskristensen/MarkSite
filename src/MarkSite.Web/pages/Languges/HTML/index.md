@@ -5,7 +5,5 @@
 	keywords="html, intellisense"
 />
 
-# HTML page
-
 1. foo
 2. bar
