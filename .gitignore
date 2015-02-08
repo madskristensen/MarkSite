@@ -17,7 +17,8 @@ x86/
 build/
 bld/
 **/[Bb]in/*.xml
-**/[Bb]in/MarkSite*
+**/[Bb]in/MarkSite*.dll
+**/[Bb]in/Microsoft*core*.dll
 [Oo]bj/
 
 # Roslyn cache directories

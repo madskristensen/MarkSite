@@ -65,11 +65,11 @@ namespace MarkSite.Core
 			tree.RootNode.RemoveChild(0);
 
 			MarkdownPage page = new MarkdownPage();
-			page.Title = prop.AttrValue("pageTitle");
-			page.Description = prop.AttrValue("description");
+			page.Title = AttrValue(prop,"pageTitle");
+			page.Description = AttrValue( prop, "description");
 			page.Content = html.Substring(firstChild.End, tree.RootNode.Length - firstChild.End).Trim();
-			page.Keywords = prop.AttrValue("keywords");
-			page.Slug = prop.AttrValue("slug");
+			page.Keywords = AttrValue(prop, "keywords");
+			page.Slug = AttrValue(prop, "slug");
 			page.DateModified = File.GetLastWriteTime(fileName);
 			page.FileName = fileName;
 
@@ -83,6 +83,12 @@ namespace MarkSite.Core
 			}
 
 			return page;
+		}
+
+		public static string AttrValue(ElementNode element, string attributeName)
+		{
+			AttributeNode attr = element.GetAttribute(attributeName);
+			return attr != null ? attr.Value : null;
 		}
 	}
 }

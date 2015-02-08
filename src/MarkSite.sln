@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22512.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MarkSite.Web", "http://localhost:65261", "{B1D5BDCB-EFFF-4087-A66E-4E84519E2F77}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MarkSite.Web", "MarkSite.Web", "{B1D5BDCB-EFFF-4087-A66E-4E84519E2F77}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
