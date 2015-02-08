@@ -16,9 +16,16 @@
 	}
 }
 
-<article>
+<div id="articleHead">
 	<h1>@page.Title</h1>
 	<p>@page.Description</p>
+</div>
+
+<nav>
+	@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+</nav>
+
+<article>
 	@Html.Raw(page.Content)
 </article>
 

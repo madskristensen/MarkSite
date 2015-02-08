@@ -19,10 +19,25 @@ namespace MarkSite.Core
 		public MarkdownPage Parent { get; set; }
 		public List<MarkdownPage> Children { get; private set; }
 		public string FileName { get; set; }
+		public int Order { get; set; }
 
 		public override string ToString()
 		{
 			return Title;
+		}
+	}
+
+	public class PageComparer : IComparer<MarkdownPage>
+	{
+		public int Compare(MarkdownPage x, MarkdownPage y)
+		{
+			if (x.Order == y.Order)
+				return 0;
+
+			if (x.Order > y.Order)
+				return 1;
+
+			return -1;
 		}
 	}
 }

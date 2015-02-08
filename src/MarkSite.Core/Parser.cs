@@ -42,6 +42,8 @@ namespace MarkSite.Core
 			{
 				RecursiveFindChildren(childDir, newParent);
 			}
+
+			parent.Children.Sort(new PageComparer());
 		}
 
 		private MarkdownPage ParsePage(string fileName)
@@ -63,6 +65,15 @@ namespace MarkSite.Core
 			page.Slug = prop.AttrValue("slug", fileName);
 			page.DateModified = File.GetLastWriteTime(fileName);
 			page.FileName = fileName;
+
+			if (prop.GetAttribute("order") != null)
+			{
+				page.Order = int.Parse(prop.GetAttribute("order").Value);
+			}
+			else
+			{
+				page.Order = int.MaxValue;
+			}
 
 			return page;
 		}

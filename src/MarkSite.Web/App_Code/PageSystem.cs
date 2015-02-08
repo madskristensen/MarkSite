@@ -10,6 +10,7 @@ using MarkSite.Core;
 public class PageSystem
 {
 	public const string CACHE_KEY = "indexpage";
+	private static string _folder = HostingEnvironment.MapPath(ConfigurationManager.AppSettings.Get("pageFolder"));
 
 	public static MarkdownPage IndexPage
 	{
@@ -17,8 +18,7 @@ public class PageSystem
 		{
 			if (HttpRuntime.Cache[CACHE_KEY] == null)
 			{
-				string folder = ConfigurationManager.AppSettings.Get("folder");
-				string[] files = Directory.GetFiles(HostingEnvironment.MapPath(folder), "*.md", SearchOption.AllDirectories);
+				string[] files = Directory.GetFiles(_folder, "*.md", SearchOption.AllDirectories);
 				HttpRuntime.Cache.Insert(CACHE_KEY, Parse(), new CacheDependency(files));
 			}
 
@@ -64,10 +64,7 @@ public class PageSystem
 
 	public static string GetEditPage(MarkdownPage page)
 	{
-		string folder = ConfigurationManager.AppSettings.Get("folder");
-		string path = (HostingEnvironment.MapPath(folder));
-
-        string relative = page.FileName.Replace(path, string.Empty);
+		string relative = page.FileName.Replace(_folder, string.Empty);
 		return string.Format(ConfigurationManager.AppSettings.Get("editUrl"), relative);
 	}
 }

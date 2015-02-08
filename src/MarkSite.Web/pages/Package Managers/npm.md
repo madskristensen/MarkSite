@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="npm"
+	pageTitle="Node Package Manager"
 	description="bla bla bla"
 	slug="npm"
 	keywords="css, html, javascript"

@@ -1,6 +1,6 @@
 ﻿(function () {
 
-	var active = document.querySelector(".active");
+	var active = document.querySelector("nav .active");
 
 	if (active) {
 		while (active.parentNode.parentNode.tagName == "UL") {

@@ -26,7 +26,7 @@
 	}
 
 	<ul id="breadcrumb">
-		@foreach (MarkdownPage item in list.Reverse<MarkdownPage>().Skip(1))
+		@foreach (MarkdownPage item in list.Reverse<MarkdownPage>())
 		{
 			<li>@CreateLink(item)</li>
 		}

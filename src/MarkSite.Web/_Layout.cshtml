@@ -16,12 +16,9 @@
 	</header>
 
 	<div class="container">
-		<nav>
-			@Helpers.RenderMenu(PageSystem.IndexPage.Children)
-		</nav>
+		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
 
 		<main role="main">
-			@*@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))*@
 			@RenderBody()
 		</main>
 	</div>
@@ -31,7 +28,6 @@
 			My footer
 		</div>
 	</footer>
-
 
 	<script src="/assets/menu.js" async></script>
 </body>
