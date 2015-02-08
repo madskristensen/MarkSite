@@ -3,14 +3,14 @@ param(
     [switch]$ExitOnError
 )
 
-$assemblies = Get-ChildItem ".\src\MarkSite.Core\bin\Release\*.dll"
+$assemblies = Get-ChildItem ".\src\output\bin\*.dll"
 $folder = Get-ChildItem ".\src\MarkSite.Web\" -Filter pages | where {$_.Attributes -eq 'Directory'}
 
 foreach($assembly in $assemblies){
     [Reflection.Assembly]::LoadFile($assembly) | Out-Null
 }
 
-$parser = New-Object MarkSite.Core.Parser
+$parser = New-Object PageParser
 
 Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
 

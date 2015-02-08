@@ -8,5 +8,8 @@ build:
   project: src/MarkSite.sln
   verbosity: minimal
 
+build_script:
+  - aspnet_compiler -p MarkSite.Web -v -u output
+
 test_script:
   - ps: ./test.ps1 -ExitOnError

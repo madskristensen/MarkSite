@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Hosting;
-using MarkSite.Core;
 
 public class PageSystem
 {
@@ -29,7 +28,7 @@ public class PageSystem
 	private static MarkdownPage Parse()
 	{
 		string directory = HostingEnvironment.MapPath("~/pages");
-		Parser parser = new Parser();
+		PageParser parser = new PageParser();
 		MarkdownPage index = parser.Parse(directory);
 
 		return index;

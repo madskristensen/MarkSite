@@ -1,6 +1,6 @@
 ﻿@{
 	Layout = "_layout.cshtml";
-	MarkSite.Core.MarkdownPage page = PageSystem.GetCurrentPage(Request);
+	MarkdownPage page = PageSystem.GetCurrentPage(Request);
 
 	Page.Title = PageSystem.GetTitle(page);
 	Page.Description = page.Description;
