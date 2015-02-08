@@ -18,5 +18,5 @@ try{
 }
 catch{
     Write-Host "Fail" -ForegroundColor Red
-    Write-Error $_.Exception.InnerException.Message -ForegroundColor White -BackgroundColor Red
+    Write-Error $_.Exception.InnerException.Message
 }
