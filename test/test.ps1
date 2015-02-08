@@ -1,7 +1,5 @@
 [cmdletbinding()]
-param(
-    [switch]$ExitOnError
-)
+param()
 
 Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
 
@@ -20,9 +18,5 @@ try{
 }
 catch{
     Write-Host "Fail" -ForegroundColor Red
-    Write-Host $_.Exception.InnerException.Message -ForegroundColor Red
-
-    if ($ExitOnError){
-        $host.SetShouldExit(1) | Out-Null
-    }
+    Write-Error $_.Exception.InnerException.Message -ForegroundColor White -BackgroundColor Red
 }

@@ -12,7 +12,7 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 
 - Uses the folder structure to create the menu
 - Convension based file/folder structure
-- Each page has a link to `Edit this page on GitHub
+- Each page has a link to `Edit this page on GitHub`
 - Everything is configurable from `web.config`
 - Each `.md` file has a configurable section for setting:
 	- Title
@@ -25,3 +25,4 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 
 #### Getting started
 
+The website itself is really simple. It only consist of a single `index.cshtml` file
