@@ -1,8 +1,6 @@
 [cmdletbinding()]
 param()
 
-$ErrorActionPreference = "Stop"
-
 Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
 
 $assemblies = Get-ChildItem ".\output\bin\*.dll"
@@ -13,23 +11,24 @@ foreach($assembly in $assemblies){
 }
 
 $parser = New-Object PageParser
-
 $page = $parser.Parse($folder.FullName)
 
-if ($parser.IsValid -eq $false){
+if (!$parser.IsValid){
     Write-Host "Fail" -ForegroundColor Red
     
     foreach($validationMessage in $parser.ValidationMessages){
         [string[]]$params =  $validationMessage.Split("|")
         $message = $params[0].Trim()
-        $filename = $params[1].Trim()
+        $filename = $params[1].Trim().Replace("\", "/")
 
         if (Get-Command Add-AppveyorTest -errorAction SilentlyContinue)
         {
             Add-AppveyorTest $message -Outcome Failed -FileName $filename
+            $Host.SetShouldExit(1)
         }
-
-        Write-Host "$message in $filename" -ForegroundColor White -BackgroundColor Red
+        else {
+            Write-Host "$message in $filename" -ForegroundColor White -BackgroundColor Red
+        }
     }
 }
 else {

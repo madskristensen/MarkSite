@@ -23,18 +23,12 @@ public class PageParser
 	public MarkdownPage Parse(string directory)
 	{
 		BaseDirectory = directory;
-		string index = Path.Combine(directory, _index);
-		MarkdownPage page = ParsePage(index);
-
-		foreach (string dir in GetChildDirectories(directory))
-		{
-			RecursiveFindChildren(dir, page);
-		}
+		MarkdownPage page = RecursiveFindChildren(directory, null);
 
 		return page;
 	}
 
-	private void RecursiveFindChildren(string directory, MarkdownPage parent)
+	private MarkdownPage RecursiveFindChildren(string directory, MarkdownPage parent)
 	{
 		string index = Path.Combine(directory, _index);
 		MarkdownPage newParent = ParsePage(index);
@@ -49,14 +43,18 @@ public class PageParser
 			newParent.Children.Add(child);
 		}
 
-		parent.Children.Add(newParent);
-
 		foreach (string childDir in GetChildDirectories(directory))
 		{
 			RecursiveFindChildren(childDir, newParent);
 		}
 
-		parent.Children.Sort(new PageComparer());
+		if (parent != null)
+		{
+			parent.Children.Add(newParent);
+			parent.Children.Sort(new PageComparer());
+		}
+
+		return newParent;
 	}
 
 	private static IEnumerable<string> GetChildDirectories(string parentDirectory)

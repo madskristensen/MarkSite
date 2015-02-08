@@ -33,7 +33,8 @@ public class PageSystem
 
 		if (!parser.IsValid)
 		{
-			throw new Exception(string.Join(Environment.NewLine, parser.ValidationMessages));
+			var args = parser.ValidationMessages.Select(m => string.Join("in", m.Split('|')));
+			throw new Exception(string.Join(Environment.NewLine, args));
 		}
 
 		return index;
