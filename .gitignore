@@ -16,6 +16,7 @@ x64/
 x86/
 build/
 bld/
+output/
 **/[Bb]in/*.xml
 **/[Bb]in/MarkSite*.dll
 **/[Bb]in/Microsoft*core*.dll
