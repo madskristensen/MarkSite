@@ -27,7 +27,8 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 ### Getting started
 
 The website itself is really simple. It only consist of a single
-`index.cshtml` file.
+`index.cshtml` file. The entire site is build up around Markdown (`.md`) files
+located inside the `pages` directory by default.
 
 #### Folder structure
 
