@@ -2,7 +2,7 @@ version: 1.0.{build}
 configuration: Release
 
 before_build:
-  - nuget restore src/MarkSite.sln
+  - nuget restore
 
 build:
   project: src/MarkSite.sln
