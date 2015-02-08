@@ -21,6 +21,7 @@ catch{
     $_.Exception.InnerException.Message | Write-Host -ForegroundColor Red
 
     if ($ExitOnError){
-        $host.SetShouldExit(1)
+        $host.SetShouldExit(1) | Out-Null
+        "Test failed" | Write-Error
     }
 }
