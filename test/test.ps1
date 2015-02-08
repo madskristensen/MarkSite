@@ -4,7 +4,7 @@ param(
 )
 
 $assemblies = Get-ChildItem ".\src\output\bin\*.dll"
-$folder = Get-ChildItem ".\src\MarkSite.Web\" -Filter pages | where {$_.Attributes -eq 'Directory'}
+$folder = Get-ChildItem ".\src\" -Filter pages | where {$_.Attributes -eq 'Directory'}
 
 foreach($assembly in $assemblies){
     [Reflection.Assembly]::LoadFile($assembly) | Out-Null

@@ -9,7 +9,7 @@ build:
   verbosity: minimal
 
 build_script:
-  - aspnet_compiler -p MarkSite.Web -v -u output
+  - test\aspnet_compiler -p src -v -u output
 
 test_script:
-  - ps: ./test.ps1 -ExitOnError
+  - ps: .\test\test.ps1 -ExitOnError
