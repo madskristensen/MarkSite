@@ -3,6 +3,8 @@ param(
     [switch]$ExitOnError
 )
 
+Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
+
 $assemblies = Get-ChildItem ".\output\bin\*.dll"
 $folder = Get-ChildItem ".\src\" -Filter pages | where {$_.Attributes -eq 'Directory'}
 
@@ -11,8 +13,6 @@ foreach($assembly in $assemblies){
 }
 
 $parser = New-Object PageParser
-
-Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
 
 try{
     $page = $parser.Parse($folder.FullName)

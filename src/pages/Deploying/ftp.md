@@ -2,7 +2,7 @@
 	pageTitle="FTP"
 	description="bla bla bla"
 	slug="ftp"
-	keywords="ftp, deploy"
+	keywords="ftp, deploy, publishing"
 />
 
 1. foo
