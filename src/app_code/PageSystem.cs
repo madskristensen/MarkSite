@@ -31,6 +31,11 @@ public class PageSystem
 		PageParser parser = new PageParser();
 		MarkdownPage index = parser.Parse(directory);
 
+		if (!parser.IsValid)
+		{
+			throw new Exception(string.Join(Environment.NewLine, parser.ValidationMessages));
+		}
+
 		return index;
 	}
 

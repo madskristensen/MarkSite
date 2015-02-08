@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="FTP"
 	description="bla bla bla"
-	slug="ftp"
+	slug=""
 	keywords="ftp, deploy"
 />
 

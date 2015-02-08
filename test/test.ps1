@@ -14,11 +14,24 @@ foreach($assembly in $assemblies){
 
 $parser = New-Object PageParser
 
-try{
-    $page = $parser.Parse($folder.FullName)
-    Write-Host "OK" -ForegroundColor Green
-}
-catch{
+$page = $parser.Parse($folder.FullName)
+
+if ($parser.IsValid -eq $false){
     Write-Host "Fail" -ForegroundColor Red
-    Write-Error $_.Exception.InnerException.Message
+    
+    foreach($validationMessage in $parser.ValidationMessages){
+        [string[]]$params =  $validationMessage.Split("|")
+        $message = $params[0].Trim()
+        $filename = $params[1].Trim()
+
+        if (Get-Command Add-AppveyorTest -errorAction SilentlyContinue)
+        {
+            Add-AppveyorTest $message -Outcome Failed -FileName $filename
+        }
+
+        Write-Host "$message in $filename" -ForegroundColor White -BackgroundColor Red
+    }
+}
+else {
+    Write-Host "OK" -ForegroundColor Green
 }

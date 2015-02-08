@@ -18,9 +18,11 @@ public class PageParser
 
 	public bool IsValid { get; private set; }
 	public List<string> ValidationMessages { get; set; }
+	public string BaseDirectory { get; private set; }
 
 	public MarkdownPage Parse(string directory)
 	{
+		BaseDirectory = directory;
 		string index = Path.Combine(directory, _index);
 		MarkdownPage page = ParsePage(index);
 
@@ -29,9 +31,6 @@ public class PageParser
 			RecursiveFindChildren(dir, page);
 		}
 
-		if (!IsValid)
-			throw new Exception(string.Join(Environment.NewLine, ValidationMessages));
-
 		return page;
 	}
 
@@ -39,14 +38,14 @@ public class PageParser
 	{
 		string index = Path.Combine(directory, _index);
 		MarkdownPage newParent = ParsePage(index);
-		ValidatePage(newParent, directory);
+		ValidatePage(newParent);
 		newParent.Parent = parent;
 
 		foreach (string file in Directory.EnumerateFiles(directory, "*.md").Where(f => Path.GetFileName(f) != _index))
 		{
 			MarkdownPage child = ParsePage(file);
 			child.Parent = newParent;
-			ValidatePage(child, directory);
+			ValidatePage(child);
 			newParent.Children.Add(child);
 		}
 
@@ -103,36 +102,36 @@ public class PageParser
 		return attr != null ? attr.Value : null;
 	}
 
-	private void ValidatePage(MarkdownPage page, string directory)
+	private void ValidatePage(MarkdownPage page)
 	{
-		string relative = page.FileName.Replace(directory, string.Empty);
+		string relative = page.FileName.Replace(BaseDirectory, string.Empty);
 
 		if (string.IsNullOrEmpty(page.Title))
 		{
-			ValidationMessages.Add(string.Format("Title must be set ({0})", relative));
+			ValidationMessages.Add(string.Format("Title must be set | {0}", relative));
 			IsValid = false;
 		}
 
 		if (string.IsNullOrEmpty(page.Description))
 		{
-			ValidationMessages.Add(string.Format("Description must be set ({0})", relative));
+			ValidationMessages.Add(string.Format("Description must be set | {0}", relative));
 			IsValid = false;
 		}
 
 		if (string.IsNullOrEmpty(page.Slug))
 		{
-			ValidationMessages.Add(string.Format("Slug must be set ({0})", relative));
+			ValidationMessages.Add(string.Format("Slug must be set | {0}", relative));
 			IsValid = false;
 		}
 		else if (page.Slug.Any(c => char.IsUpper(c) || char.IsWhiteSpace(c) || char.IsSymbol(c)))
 		{
-			ValidationMessages.Add(string.Format("Slug must be alphanumeric and lower case only ({0})", relative));
+			ValidationMessages.Add(string.Format("Slug must be alphanumeric and lower case only | {0}", relative));
 			IsValid = false;
 		}
 
 		if (string.IsNullOrEmpty(page.Keywords) || page.Keywords.Count(c => c == ',') < 2)
 		{
-			ValidationMessages.Add(string.Format("At least 3 comma separated keywords must be specified ({0})", relative));
+			ValidationMessages.Add(string.Format("At least 3 comma separated keywords must be specified | {0}", relative));
 			IsValid = false;
 		}
 	}
