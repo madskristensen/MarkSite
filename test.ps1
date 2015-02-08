@@ -22,6 +22,6 @@ catch{
 
     if ($ExitOnError){
         $host.SetShouldExit(1) | Out-Null
-        "Test failed" | Write-Error
+        "Test failed" | Write-Host -ForegroundColor white -BackgroundColor Red
     }
 }
