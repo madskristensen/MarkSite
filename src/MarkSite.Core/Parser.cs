@@ -62,6 +62,7 @@ namespace MarkSite.Core
 			page.Keywords = prop.AttrValue("keywords", fileName);
 			page.Slug = prop.AttrValue("slug", fileName);
 			page.DateModified = File.GetLastWriteTime(fileName);
+			page.FileName = fileName;
 
 			return page;
 		}

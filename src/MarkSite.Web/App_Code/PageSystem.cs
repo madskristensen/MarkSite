@@ -61,4 +61,13 @@ public class PageSystem
 
 		return page.Title;
 	}
+
+	public static string GetEditPage(MarkdownPage page)
+	{
+		string folder = ConfigurationManager.AppSettings.Get("folder");
+		string path = (HostingEnvironment.MapPath(folder));
+
+        string relative = page.FileName.Replace(path, string.Empty);
+		return string.Format(ConfigurationManager.AppSettings.Get("editUrl"), relative);
+	}
 }

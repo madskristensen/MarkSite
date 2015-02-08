@@ -18,6 +18,7 @@ namespace MarkSite.Core
 		public DateTime DateModified { get; set; }
 		public MarkdownPage Parent { get; set; }
 		public List<MarkdownPage> Children { get; private set; }
+		public string FileName { get; set; }
 
 		public override string ToString()
 		{

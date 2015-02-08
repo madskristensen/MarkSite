@@ -85,7 +85,7 @@ main {
 		margin: 0;
 	}
 
-#breadcrumb {
+/*#breadcrumb {
 	list-style: none;
 	padding: 0;
 }
@@ -100,7 +100,11 @@ main {
 
 		#breadcrumb li:before {
 			content: ' » ';
-		}
+		}*/
+
+#contribute {
+	margin: 2em 0;
+}
 
 footer {
 	clear: both;
