@@ -3,7 +3,7 @@ param(
     [switch]$ExitOnError
 )
 
-$assemblies = Get-ChildItem ".\src\output\bin\*.dll"
+$assemblies = Get-ChildItem ".\output\bin\*.dll"
 $folder = Get-ChildItem ".\src\" -Filter pages | where {$_.Attributes -eq 'Directory'}
 
 foreach($assembly in $assemblies){
