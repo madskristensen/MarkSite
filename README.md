@@ -37,6 +37,9 @@ URLs to each page.
 
 ![Folder structure](https://raw.githubusercontent.com/madskristensen/MarkSite/master/art/folder-structure.png)
 
+Each folder MUST have a file called `index.md` exception for folders that start
+with an underscore (example: `/pages/_images/`).
+
 #### Metadata
 
 Each `.md` file has a bit of metadata at the top that allows you to customize

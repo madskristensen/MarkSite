@@ -21,13 +21,12 @@ if (!$parser.IsValid){
         $message = $params[0].Trim()
         $filename = $params[1].Trim().Replace("\", "/")
 
+        Write-Host "$message in $filename" -ForegroundColor White -BackgroundColor Red
+
         if (Get-Command Add-AppveyorTest -errorAction SilentlyContinue)
         {
             Add-AppveyorTest $message -Outcome Failed -FileName $filename
             $Host.SetShouldExit(1)
-        }
-        else {
-            Write-Host "$message in $filename" -ForegroundColor White -BackgroundColor Red
         }
     }
 }
