@@ -34,11 +34,12 @@ The website itself is really simple. It only consist of a single
 The folder structure determines how the menu is constructed as well as the
 URLs to each page.
 
-![alt text](C:\Users\madsk\Documents\GitHub\MarkSite\art\folder-structure.png)
+![Folder structure](https://raw.githubusercontent.com/madskristensen/MarkSite/master/art/folder-structure.png)
 
 #### Metadata
 
-Each `.md` file has a bit of metadata at the top that allows you to customize:
+Each `.md` file has a bit of metadata at the top that allows you to customize
+various aspects of the file.
 
 ```HTML
 <properties
@@ -51,7 +52,17 @@ Each `.md` file has a bit of metadata at the top that allows you to customize:
 My markdown content goes here
 ```
 
-1. The title of each page
-2. The description of each page
-3. A comma separated list of keywords
-4. The Slug. A Slug is what the URL should be
+__pageTitle__: The title of each page  
+__description__: The description of each page  
+__keywords__: A comma separated list of keywords  
+__slug__: A Slug is what the URL should be
+
+#### Validation
+
+To help make sure that each pull request meets the requirements of the metadata,
+the validator helps guide the contributors to write valid `.md` files for 
+the MarkSite instance.
+
+When using AppVeyor, each pull requests is automatically being build and the 
+validator will automatically failed the build in case the pull request isn't
+satisfying the validator.

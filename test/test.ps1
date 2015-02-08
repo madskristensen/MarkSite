@@ -1,6 +1,8 @@
 [cmdletbinding()]
 param()
 
+$ErrorActionPreference = "Stop"
+
 Write-Host "Running tests..." -ForegroundColor Cyan -NoNewline
 
 $assemblies = Get-ChildItem ".\output\bin\*.dll"
