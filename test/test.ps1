@@ -10,8 +10,8 @@ foreach($assembly in $assemblies){
     [Reflection.Assembly]::LoadFile($assembly) | Out-Null
 }
 
-$parser = New-Object PageParser
-$page = $parser.Parse($folder.FullName)
+$parser = New-Object PageParser $folder.FullName
+$page = $parser.Parse()
 
 if (!$parser.IsValid){
     Write-Host "Fail" -ForegroundColor Red
