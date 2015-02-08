@@ -2,7 +2,7 @@
 	pageTitle="Web Deploy"
 	description="bla bla bla"
 	slug="webdeploy"
-	keywords="webdeploy, web"
+	keywords="webdeploy, web, deploy, publishing"
 />
 
 1. foo
