@@ -24,7 +24,7 @@ public class PageParser
 		string index = Path.Combine(directory, _index);
 		MarkdownPage page = ParsePage(index);
 
-		foreach (string dir in Directory.EnumerateDirectories(directory))
+		foreach (string dir in GetChildDirectories(directory))
 		{
 			RecursiveFindChildren(dir, page);
 		}
@@ -52,12 +52,17 @@ public class PageParser
 
 		parent.Children.Add(newParent);
 
-		foreach (string childDir in Directory.EnumerateDirectories(directory))
+		foreach (string childDir in GetChildDirectories(directory))
 		{
 			RecursiveFindChildren(childDir, newParent);
 		}
 
 		parent.Children.Sort(new PageComparer());
+	}
+
+	private static IEnumerable<string> GetChildDirectories(string parentDirectory)
+	{
+		return Directory.EnumerateDirectories(parentDirectory).Where(d => !new DirectoryInfo(d).Name.StartsWith("_"));
 	}
 
 	private MarkdownPage ParsePage(string fileName)
