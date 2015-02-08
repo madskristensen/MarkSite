@@ -2,7 +2,7 @@
 	pageTitle="Intellisense"
 	description="bla bla bla"
 	slug="intellisense"
-	keywords="html, intellisense"
+	keywords="html, intellisense, html5, xhtml, autocomplete"
 />
 
 1. *foo*

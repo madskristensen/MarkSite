@@ -1,0 +1,9 @@
+version: 1.0.{build}
+configuration: Release
+
+build:
+  project: src/MarkSite.sln
+  verbosity: minimal
+
+test_script:
+  - ps: ./test.ps1 -ExitOnError

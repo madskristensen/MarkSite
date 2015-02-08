@@ -2,7 +2,7 @@
 	pageTitle="CSS"
 	description="bla bla bla"
 	slug="css"
-	keywords="css, intellisense"
+	keywords="css, intellisense, stylesheets"
 />
 
 1. foo

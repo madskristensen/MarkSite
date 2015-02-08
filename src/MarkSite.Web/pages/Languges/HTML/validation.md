@@ -2,7 +2,7 @@
 	pageTitle="Validation"
 	description="bla bla bla"
 	slug="validation"
-	keywords="html, intellisense"
+	keywords="html, validation, valid, html5, xhtml"
 />
 
 

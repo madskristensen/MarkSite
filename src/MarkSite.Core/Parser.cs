@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.Html.Core.Tree;
 using Microsoft.Html.Core.Tree.Nodes;
@@ -13,14 +14,20 @@ namespace MarkSite.Core
 		public MarkdownPage Parse(string directory)
 		{
 			string index = Path.Combine(directory, _index);
-			MarkdownPage parent = ParsePage(index);
+			MarkdownPage page = ParsePage(index);
 
 			foreach (string dir in Directory.EnumerateDirectories(directory))
 			{
-				RecursiveFindChildren(dir, parent);
+				RecursiveFindChildren(dir, page);
 			}
 
-			return parent;
+			Validator validator = new Validator();
+			validator.Validate(page, directory);
+
+			if (!validator.IsValid)
+				throw new Exception(string.Join(Environment.NewLine, validator.ValidationMessages));
+
+			return page;
 		}
 
 		private void RecursiveFindChildren(string directory, MarkdownPage parent)
@@ -58,11 +65,11 @@ namespace MarkSite.Core
 			tree.RootNode.RemoveChild(0);
 
 			MarkdownPage page = new MarkdownPage();
-			page.Title = prop.AttrValue("pageTitle", fileName);
-			page.Description = prop.AttrValue("description", fileName);
+			page.Title = prop.AttrValue("pageTitle");
+			page.Description = prop.AttrValue("description");
 			page.Content = html.Substring(firstChild.End, tree.RootNode.Length - firstChild.End).Trim();
-			page.Keywords = prop.AttrValue("keywords", fileName);
-			page.Slug = prop.AttrValue("slug", fileName);
+			page.Keywords = prop.AttrValue("keywords");
+			page.Slug = prop.AttrValue("slug");
 			page.DateModified = File.GetLastWriteTime(fileName);
 			page.FileName = fileName;
 
