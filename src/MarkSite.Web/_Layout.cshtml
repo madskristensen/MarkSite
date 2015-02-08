@@ -19,7 +19,12 @@
 		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
 
 		<main role="main">
+			<nav>
+				@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+			</nav>
+
 			@RenderBody()
+
 		</main>
 	</div>
 
