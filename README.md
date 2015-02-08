@@ -1,6 +1,6 @@
-## MarkSite - An ASP.NET based markdown CMS
+## MarkSite - An ASP.NET based Markdown CMS
 
-### Use GitHub as the way to edit the pages
+### Uses GitHub as the way to edit the pages
 
 [![Build status](https://ci.appveyor.com/api/projects/status/os59p2cm7s2wk3sr?svg=true)](https://ci.appveyor.com/project/madskristensen/marksite)
 

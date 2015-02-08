@@ -28,8 +28,8 @@ public class PageSystem
 	private static MarkdownPage Parse()
 	{
 		string directory = HostingEnvironment.MapPath("~/pages");
-		PageParser parser = new PageParser();
-		MarkdownPage index = parser.Parse(directory);
+		PageParser parser = new PageParser(directory);
+		MarkdownPage index = parser.Parse();
 
 		if (!parser.IsValid)
 		{

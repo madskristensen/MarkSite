@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.Html.Core.Tree;
@@ -10,22 +9,20 @@ public class PageParser
 {
 	private const string _index = "index.md";
 
-	public PageParser()
+	public PageParser(string baseDirectory)
 	{
+		BaseDirectory = baseDirectory;
 		IsValid = true;
 		ValidationMessages = new List<string>();
 	}
 
 	public bool IsValid { get; private set; }
-	public List<string> ValidationMessages { get; set; }
+	public List<string> ValidationMessages { get; private set; }
 	public string BaseDirectory { get; private set; }
 
-	public MarkdownPage Parse(string directory)
+	public MarkdownPage Parse()
 	{
-		BaseDirectory = directory;
-		MarkdownPage page = RecursiveFindChildren(directory, null);
-
-		return page;
+		return RecursiveFindChildren(BaseDirectory, null);
 	}
 
 	private MarkdownPage RecursiveFindChildren(string directory, MarkdownPage parent)
@@ -71,7 +68,6 @@ public class PageParser
 
 		ElementNode firstChild = tree.RootNode.Children[0];
 		ElementNode prop = firstChild.Children[0];
-		tree.RootNode.RemoveChild(0);
 
 		MarkdownPage page = new MarkdownPage();
 		page.Title = AttrValue(prop, "pageTitle");
@@ -83,13 +79,9 @@ public class PageParser
 		page.FileName = fileName;
 
 		if (prop.GetAttribute("order") != null)
-		{
 			page.Order = int.Parse(prop.GetAttribute("order").Value);
-		}
 		else
-		{
 			page.Order = int.MaxValue;
-		}
 
 		return page;
 	}
@@ -105,32 +97,24 @@ public class PageParser
 		string relative = page.FileName.Replace(BaseDirectory, string.Empty);
 
 		if (string.IsNullOrEmpty(page.Title))
-		{
-			ValidationMessages.Add(string.Format("Title must be set | {0}", relative));
-			IsValid = false;
-		}
+			AddValidationError(page, "Title must be set");
 
 		if (string.IsNullOrEmpty(page.Description))
-		{
-			ValidationMessages.Add(string.Format("Description must be set | {0}", relative));
-			IsValid = false;
-		}
+			AddValidationError(page, "Description must be set");
 
 		if (string.IsNullOrEmpty(page.Slug))
-		{
-			ValidationMessages.Add(string.Format("Slug must be set | {0}", relative));
-			IsValid = false;
-		}
+			AddValidationError(page, "Slug must be set");
 		else if (page.Slug.Any(c => char.IsUpper(c) || char.IsWhiteSpace(c) || char.IsSymbol(c)))
-		{
-			ValidationMessages.Add(string.Format("Slug must be alphanumeric and lower case only | {0}", relative));
-			IsValid = false;
-		}
+			AddValidationError(page, "Slug must be alphanumeric and lower case only");
 
 		if (string.IsNullOrEmpty(page.Keywords) || page.Keywords.Count(c => c == ',') < 2)
-		{
-			ValidationMessages.Add(string.Format("At least 3 comma separated keywords must be specified | {0}", relative));
-			IsValid = false;
-		}
+			AddValidationError(page, "At least 3 comma separated keywords must be specified");
+	}
+
+	private void AddValidationError(MarkdownPage page, string message)
+	{
+		string relative = page.FileName.Replace(BaseDirectory, string.Empty);
+		ValidationMessages.Add(string.Format(message + " | " + relative));
+		IsValid = false;
 	}
 }
