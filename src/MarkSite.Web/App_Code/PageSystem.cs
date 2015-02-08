@@ -64,7 +64,7 @@ public class PageSystem
 
 	public static string GetEditPage(MarkdownPage page)
 	{
-		string relative = page.FileName.Replace(_folder, string.Empty);
+		string relative = page.FileName.Replace(_folder, string.Empty).Replace("\\", "/");
 		return string.Format(ConfigurationManager.AppSettings.Get("editUrl"), relative);
 	}
 }
