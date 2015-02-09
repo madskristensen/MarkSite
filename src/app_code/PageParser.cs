@@ -76,7 +76,7 @@ public class PageParser
 		page.Keywords = AttrValue(prop, "keywords");
 		page.Slug = AttrValue(prop, "slug");
 		page.DateModified = File.GetLastWriteTime(fileName);
-		page.FileName = fileName;
+		page.FileName = fileName.Replace(BaseDirectory, string.Empty).Replace("\\", "/");
 
 		if (prop.GetAttribute("order") != null)
 			page.Order = int.Parse(prop.GetAttribute("order").Value);
@@ -94,8 +94,6 @@ public class PageParser
 
 	private void ValidatePage(MarkdownPage page)
 	{
-		string relative = page.FileName.Replace(BaseDirectory, string.Empty);
-
 		if (string.IsNullOrEmpty(page.Title))
 			AddValidationError(page, "Title must be set");
 
@@ -113,8 +111,7 @@ public class PageParser
 
 	private void AddValidationError(MarkdownPage page, string message)
 	{
-		string relative = page.FileName.Replace(BaseDirectory, string.Empty);
-		ValidationMessages.Add(string.Format(message + " | " + relative));
+		ValidationMessages.Add(string.Format(message + " | " + page.FileName));
 		IsValid = false;
 	}
 }
