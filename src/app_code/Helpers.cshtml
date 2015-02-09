@@ -1,4 +1,6 @@
-﻿
+﻿@using System.Text.RegularExpressions;
+@using System.Configuration;
+
 @helper RenderMenu(IEnumerable<MarkdownPage> pages)
 {
 	<ul>
@@ -46,4 +48,27 @@
 
 	string path = string.Join("/", segments.Reverse<string>().Skip(1));
 	<a href="/@path" class="@className">@page.Title</a>
+}
+
+@helper RenderContent(MarkdownPage page)
+{
+	Regex _regex = new Regex(@"<(img).+(href|src)=(?<quote>\""|'|)(?<href>[^\""']+\.(css|js|png|jpg|jpeg|gif|ico|svg|json|xml|woff|ttf|eot))\k<quote>.*?>");
+
+	string html = _regex.Replace(page.Content, delegate (Match match)
+	{
+		string value = match.Value;
+		string href = match.Groups["href"].Value;
+
+		if (href.StartsWith("_assets"))
+		{
+			string root = Request.QueryString["path"];
+			int index = root.LastIndexOf('/') + 1;
+			string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
+			value = value.Replace(href, "/" + baseFolder + "/" + root.Substring(0, index) + href);
+		}
+
+		return value;
+	});
+
+	@Html.Raw(html)
 }

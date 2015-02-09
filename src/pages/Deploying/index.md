@@ -2,7 +2,7 @@
 	pageTitle="Deployment"
 	description="bla bla bla"
 	slug="deployment"
-	order="500"
+	order="600"
 	keywords="css, html, javascript"
 />
 

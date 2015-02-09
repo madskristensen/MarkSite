@@ -70,11 +70,11 @@ public class PageParser
 		ElementNode prop = firstChild.Children[0];
 
 		MarkdownPage page = new MarkdownPage();
-		page.Title = AttrValue(prop, "pageTitle");
-		page.Description = AttrValue(prop, "description");
+		page.Title = AttrValue(prop, "pageTitle", Path.GetFileNameWithoutExtension(fileName));
+		page.Description = AttrValue(prop, "description", page.Title);
 		page.Content = html.Substring(firstChild.End, tree.RootNode.Length - firstChild.End).Trim();
-		page.Keywords = AttrValue(prop, "keywords");
-		page.Slug = AttrValue(prop, "slug");
+		page.Keywords = AttrValue(prop, "keywords", page.Title);
+		page.Slug = AttrValue(prop, "slug", page.Title.ToLowerInvariant());
 		page.DateModified = File.GetLastWriteTime(fileName);
 		page.FileName = fileName.Replace(BaseDirectory, string.Empty).Replace("\\", "/");
 
@@ -86,10 +86,10 @@ public class PageParser
 		return page;
 	}
 
-	public static string AttrValue(ElementNode element, string attributeName)
+	public static string AttrValue(ElementNode element, string attributeName, string defaultValue = null)
 	{
 		AttributeNode attr = element.GetAttribute(attributeName);
-		return attr != null ? attr.Value : null;
+		return attr != null ? attr.Value : defaultValue;
 	}
 
 	private void ValidatePage(MarkdownPage page)
@@ -105,8 +105,8 @@ public class PageParser
 		else if (page.Slug.Any(c => char.IsUpper(c) || char.IsWhiteSpace(c) || char.IsSymbol(c)))
 			AddValidationError(page, "Slug must be alphanumeric and lower case only");
 
-		if (string.IsNullOrEmpty(page.Keywords) || page.Keywords.Count(c => c == ',') < 2)
-			AddValidationError(page, "At least 3 comma separated keywords must be specified");
+		//if (string.IsNullOrEmpty(page.Keywords) || page.Keywords.Count(c => c == ',') < 2)
+		//	AddValidationError(page, "At least 3 comma separated keywords must be specified");
 	}
 
 	private void AddValidationError(MarkdownPage page, string message)

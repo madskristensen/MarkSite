@@ -17,7 +17,7 @@ public class PageSystem
 		{
 			if (HttpRuntime.Cache[CACHE_KEY] == null)
 			{
-				string[] files = Directory.GetFiles(_folder, "*.md", SearchOption.AllDirectories);
+				string[] files = Directory.GetDirectories(_folder, "*", SearchOption.AllDirectories);
 				HttpRuntime.Cache.Insert(CACHE_KEY, Parse(), new CacheDependency(files));
 			}
 

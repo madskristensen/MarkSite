@@ -3,7 +3,7 @@
 	<p itemprop="description">@Model.Description</p>
 
 	<div itemprop="articleBody">
-		@Html.Raw(Model.Content)
+		@Helpers.RenderContent(Model)
 	</div>
 </article>
 
