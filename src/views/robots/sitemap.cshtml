@@ -1,0 +1,23 @@
+﻿@{
+	Response.ContentType = "text/xml";
+}
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+	@WriteUrl(PageSystem.IndexPage)
+
+</urlset>
+
+@helper WriteUrl(MarkdownPage page)
+{
+	<url>
+		<loc>@Helpers.CreateLink(page)</loc>
+		<lastmod>@page.DateModified.ToString("s")</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	foreach (MarkdownPage child in page.Children)
+	{
+		@WriteUrl(child)
+	}
+}
