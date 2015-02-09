@@ -1,7 +1,5 @@
 ## MarkSite - An ASP.NET based Markdown CMS
 
-#### Uses GitHub as the way to edit the pages
-
 A great system for:
 
 - Community driven documentation
@@ -25,10 +23,7 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 - AppVeyor integration
 	- Automatically validates any pull request
 	- Checks for missing metadata
-- Best-in-class performance
-- Best-in-class accessibility
-	- Both Section 508 and WCAG-AAA
-- SEO optimized
+- Theming support
 
 
 ### Getting started

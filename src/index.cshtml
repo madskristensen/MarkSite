@@ -1,10 +1,13 @@
-﻿@{
-	Layout = "views/_layout.cshtml";
+﻿@using System.Configuration;
+@{
 	MarkdownPage page = PageSystem.GetCurrentPage(Request);
 
 	Page.Title = PageSystem.GetTitle(page);
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
+	Page.Theme = ConfigurationManager.AppSettings["theme"];
+
+	Layout = "themes/" + Page.Theme + "/_layout.cshtml";
 
 	if (!Request.IsLocal)
 	{
@@ -16,15 +19,4 @@
 	}
 }
 
-<article itemscope itemtype="http://schema.org/Article">
-	<h1 itemprop="headline">@page.Title</h1>
-	<p itemprop="description">@page.Description</p>
-
-	<div itemprop="articleBody">
-		@Html.Raw(page.Content)
-	</div>
-</article>
-
-<aside id="contribute">
-	<a href="@PageSystem.GetEditPage(page)">Edit this page on GitHub</a>
-</aside>
+@RenderPage("themes/" + Page.Theme + "/page.cshtml", page)
