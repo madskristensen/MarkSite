@@ -4,6 +4,8 @@ configuration: Release
 build:
   verbosity: minimal
 
-test_script:
+build_script: 
   - test\aspnet_compiler -p src -v -u output
-  - ps: .\test\test.ps1
+
+test_script:
+  - ps: .\test\test.ps1 | Out-Null
