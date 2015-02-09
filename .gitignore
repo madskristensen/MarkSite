@@ -17,6 +17,8 @@ x86/
 build/
 bld/
 output/
+**/[Bb]in/*.dll
+**/[Bb]in/*.pdb
 **/[Bb]in/*.xml
 [Oo]bj/
 

@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>@Page.Title - Visual Studio</title>
+	<meta name="description" content="@Page.Description" />
+	<meta name="keywords" content="@Page.Keywords" />
+	<link href="/themes/@Page.Theme/site.css" rel="stylesheet" />
+</head>
+<body>
+
+	<header role="banner">
+		<div class="container">
+			<a href="/">Web Development with Visual Studio</a>
+		</div>
+	</header>
+
+	<div class="container">
+		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+
+		<main role="main">
+			<nav>
+				@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+			</nav>
+
+			@RenderBody()
+
+		</main>
+	</div>
+
+	<footer role="contentinfo">
+		<div class="container">
+			<p>
+				Powered by <a href="https://github.com/madskristensen/marksite">MarkSite</a>
+			</p>
+		</div>
+	</footer>
+
+	<script src="/themes/@Page.Theme/menu.js" async></script>
+</body>
+</html>

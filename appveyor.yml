@@ -5,8 +5,6 @@ build:
   project: src/MarkSite.sln
   verbosity: minimal
 
-build_script:
-  - test\aspnet_compiler -p src -v -u output
-
 test_script:
+  - test\aspnet_compiler -p src -v -u output
   - ps: .\test\test.ps1

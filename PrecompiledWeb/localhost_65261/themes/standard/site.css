@@ -1,0 +1,148 @@
+﻿html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font: 1em/1.35 "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+}
+
+a {
+	color: #5a8eed;
+	text-decoration: none;
+}
+
+ol {
+	margin: 0;
+}
+
+header {
+	background: #222;
+	color: white;
+	line-height: 50px;
+	font-size: 1.4em;
+	margin-bottom: 30px;
+}
+
+	header a {
+		color: #fff;
+	}
+
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 1em;
+}
+
+main {
+	margin: 0;
+	position: relative;
+	display: block;
+}
+
+nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 80px;
+	border-left: 1px solid #f1f1f1;
+	padding-left: 2em;
+	min-height: 100%;
+}
+
+	nav ul {
+		list-style: none;
+		padding-left: 13px;
+	}
+
+	nav > ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	nav ul ul {
+		max-height: 0;
+		overflow: hidden;
+	}
+
+	nav ul li a:before {
+		content: '›';
+		color: #888;
+		width: 15px;
+		height: 15px;
+		line-height: 15px;
+		display: inline-block;
+		text-decoration: none;
+		text-align: center;
+	}
+
+	nav ul li a:only-child:before {
+		content: '';
+	}
+
+	nav .open + ul {
+		max-height: 500px;
+		-moz-transition: max-height .5s linear;
+		-o-transition: max-height .5s linear;
+		-webkit-transition: max-height .5s linear;
+		transition: max-height .5s linear;
+	}
+
+	nav .open:before {
+		-moz-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+
+	nav ul a.active {
+		color: #555;
+
+	}
+
+article {
+	margin: 0 250px 0 0;
+	min-height: 600px;
+}
+
+	article > h1 {
+		margin: 0;
+		font-family: "Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+		font-size: 2em;
+	}
+
+	article > p {
+		margin-top: 0;
+	}
+
+
+#breadcrumb {
+	list-style: none;
+	padding: 0;
+}
+
+	#breadcrumb a {
+		font-size: .9em;
+	}
+
+	#breadcrumb li {
+		display: inline;
+	}
+
+		#breadcrumb li:not(:first-child):before {
+			content: ' » ';
+		}
+
+#contribute {
+	clear: both;
+	padding: 3em 0 0 0;
+}
+
+footer {
+	clear: both;
+	background: #f1f1f1;
+	padding-top: 1em;
+	margin-top: 3em;
+	height: 150px;
+}

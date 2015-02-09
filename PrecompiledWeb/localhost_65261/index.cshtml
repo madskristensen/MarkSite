@@ -1,0 +1,22 @@
+﻿@using System.Configuration;
+@{
+	MarkdownPage page = PageSystem.GetCurrentPage(Request);
+
+	Page.Title = PageSystem.GetTitle(page);
+	Page.Description = page.Description;
+	Page.Keywords = page.Keywords;
+	Page.Theme = ConfigurationManager.AppSettings["theme"];
+
+	Layout = "themes/" + Page.Theme + "/_layout.cshtml";
+
+	if (!Request.IsLocal)
+	{
+		Response.Cache.SetValidUntilExpires(true);
+		Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+		Response.Cache.VaryByParams["path"] = true;
+		Response.Cache.SetLastModified(page.DateModified);
+		Response.AddCacheItemDependency(PageSystem.CACHE_KEY);
+	}
+}
+
+@RenderPage("themes/" + Page.Theme + "/page.cshtml", page)
