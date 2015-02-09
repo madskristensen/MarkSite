@@ -1,6 +1,12 @@
 ## MarkSite - An ASP.NET based Markdown CMS
 
-### Uses GitHub as the way to edit the pages
+#### Uses GitHub as the way to edit the pages
+
+A great system for:
+
+- Community driven documentation
+- A personal website
+- Company website with multiple contributors
 
 [![Build status](https://ci.appveyor.com/api/projects/status/os59p2cm7s2wk3sr?svg=true)](https://ci.appveyor.com/project/madskristensen/marksite)
 
@@ -15,19 +21,20 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 - Each page has a link to `Edit this page on GitHub`
 - Everything is configurable from `web.config`
 - Semantic URLs
-- Each `.md` file has a configurable section for setting:
-	- Title
-	- Description
-	- Slug
-	- Keywords
+- Each `.md` file can contain configuration
 - AppVeyor integration
 	- Automatically validates any pull request
 	- Checks for missing metadata
+- Best-in-class performance
+- Best-in-class accessibility
+	- Both Section 508 and WCAG-AAA
+- SEO optimized
+
 
 ### Getting started
 
 The website itself is really simple. It only consist of a single
-`index.cshtml` file. The entire site is build up around Markdown (`.md`) files
+`index.cshtml` file. The entire site is built up around Markdown (`.md`) files
 located inside the `pages` directory by default.
 
 #### Folder structure
@@ -37,7 +44,7 @@ URLs to each page.
 
 ![Folder structure](https://raw.githubusercontent.com/madskristensen/MarkSite/master/art/folder-structure.png)
 
-Each folder MUST have a file called `index.md` exception for folders that start
+Each folder MUST have a file called `index.md` with the exception of folders starting
 with an underscore (example: `/pages/_images/`).
 
 #### Metadata
@@ -68,5 +75,5 @@ the validator helps guide the contributors to write valid `.md` files for
 the MarkSite instance.
 
 When using AppVeyor, each pull requests is automatically being build and the 
-validator will automatically failed the build in case the pull request isn't
+validator will automatically fail the build in case the pull request isn't
 satisfying the validator.
