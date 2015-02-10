@@ -52,7 +52,7 @@
 
 @helper RenderContent(MarkdownPage page)
 {
-	Regex _regex = new Regex(@"<(img).+(href|src)=(?<quote>\""|'|)(?<href>[^\""']+\.(css|js|png|jpg|jpeg|gif|ico|svg|json|xml|woff|ttf|eot))\k<quote>.*?>");
+	Regex _regex = new Regex(@"<(img).+(?<attr>src)=(?<quote>\""|'|)(?<href>[^\""']+\.(css|js|png|jpg|jpeg|gif|ico|svg|json|xml|woff|ttf|eot))\k<quote>.*?>");
 
 	string html = _regex.Replace(page.Content, delegate (Match match)
 	{

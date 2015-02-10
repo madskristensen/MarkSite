@@ -16,6 +16,11 @@ ol {
 	margin: 0;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 header {
 	background: #222;
 	color: white;
@@ -98,7 +103,6 @@ nav {
 
 	nav ul a.active {
 		color: #555;
-
 	}
 
 article {
@@ -145,4 +149,18 @@ footer {
 	padding-top: 1em;
 	margin-top: 3em;
 	height: 150px;
+}
+
+@-ms-viewport {
+	width: device-width;
+}
+
+@media only screen and (max-width : 800px) {
+	nav{
+		display: none;
+	}
+
+	article {
+		margin-right: 0;
+	}
 }
