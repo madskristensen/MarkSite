@@ -3,7 +3,7 @@
 
 @functions {
 	public static string Fingerprint(string rootRelativePath)
-	{ 
+	{
 		string relative = VirtualPathUtility.ToAbsolute("~" + rootRelativePath);
 		string absolute = Server.MapPath(relative);
 
@@ -17,6 +17,21 @@
 
 		return relative.Insert(index, "_" + date.Ticks);
 	}
+
+	public static string CreateLink(MarkdownPage page)
+	{
+		List<string> segments = new List<string>(new[] { page.Slug });
+		MarkdownPage parent = page.Parent;
+
+		while (parent != null)
+		{
+			segments.Add(parent.Slug);
+			parent = parent.Parent;
+		}
+
+		string path = string.Join("/", segments.Reverse<string>().Skip(1));
+		return "/" + (string.IsNullOrEmpty(path) ? string.Empty : path + "/");
+	}
 }
 
 @helper RenderMenu(IEnumerable<MarkdownPage> pages)
@@ -25,7 +40,7 @@
 		@foreach (MarkdownPage page in pages.Where(p => p.ShowInMenu))
 		{
 			<li>
-				@CreateLink(page)
+				@CreateAnchorTag(page)
 				@if (page.Children.Count > 0)
 				{
 					@RenderMenu(page.Children)
@@ -47,26 +62,17 @@
 	<ul id="breadcrumb">
 		@foreach (MarkdownPage item in list.Reverse<MarkdownPage>())
 		{
-			<li>@CreateLink(item)</li>
+			<li>@CreateAnchorTag(item)</li>
 		}
 	</ul>
 }
 
-@helper CreateLink(MarkdownPage page)
+@helper CreateAnchorTag(MarkdownPage page)
 {
-	List<string> segments = new List<string>(new[] { page.Slug });
+	string link = CreateLink(page);
 	string className = page == PageSystem.GetCurrentPage(Request) ? "active" : null;
-	MarkdownPage parent = page.Parent;
-
-	while (parent != null)
-	{
-		segments.Add(parent.Slug);
-		parent = parent.Parent;
-	}
-
-	string path = string.Join("/", segments.Reverse<string>().Skip(1));
-	path = string.IsNullOrEmpty(path) ? string.Empty : path + "/";
-	<a href="/@path" class="@className">@page.Title</a>
+	
+	<a href="@link" class="@className">@page.Title</a>
 }
 
 @helper RenderContent(MarkdownPage page)
@@ -80,7 +86,7 @@
 
 		if (href.StartsWith("_assets"))
 		{
-			string root = page.FileName;
+			string root = page.FileName ?? "";
 			int index = root.LastIndexOf('/') + 1;
 			string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
 			value = value.Replace(href, Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href));
