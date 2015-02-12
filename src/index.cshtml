@@ -15,10 +15,10 @@
 		Response.Cache.SetValidUntilExpires(true);
 		Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
 		Response.Cache.VaryByParams["path"] = true;
-		Response.Cache.SetLastModified(page.DateModified);
-		Response.AddCacheItemDependency(PageSystem.CACHE_KEY);
+		Response.AddCacheDependency(new CacheDependency(Server.MapPath(ConfigurationManager.AppSettings["pageFolder"] + page.FileName)));
 		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/")));
 		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Page.Theme)));
+		Response.Cache.SetLastModifiedFromFileDependencies();
 	}
 
 	WebPageHttpHandler.DisableWebPagesResponseHeader = true;

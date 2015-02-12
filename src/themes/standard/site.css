@@ -8,7 +8,7 @@ body {
 }
 
 a {
-	color: #5a8eed;
+	color: #2e6b97;
 	text-decoration: none;
 }
 
@@ -111,7 +111,7 @@ nav {
 	}
 
 	nav ul a.active {
-		color: #555;
+		color: #222;
 	}
 
 article {
