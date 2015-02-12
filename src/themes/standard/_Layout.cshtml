@@ -1,12 +1,28 @@
-﻿<!doctype html>
+﻿@{ 
+	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
+}
+<!doctype html>
 <html lang="en" manifest="/appcache.manifest">
-<head>
+<head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8" />
 	<title>@Page.Title - Visual Studio</title>
 	<meta name="description" content="@Page.Description" />
 	<meta name="keywords" content="@Page.Keywords" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="@Helpers.Fingerprint("/themes/" + Page.Theme +"/site.css")" rel="stylesheet" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@("@aspnet")" />
+	<meta name="twitter:title" content="@Page.Title" />
+	<meta name="twitter:description" content="@Page.Description" />
+	<meta name="twitter:image" content="@(baseUrl + "/themes/standard/favicon/apple-touch-icon-120x120.png")" />
+	<meta name="twitter:url" content="@baseUrl" />
+
+	<meta property="og:title" content="@Page.Title" />
+	<meta property="og:description" content="@Page.Description" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="@baseUrl" />
+	<meta property="og:image" content="@(baseUrl + "/themes/standard/favicon/apple-touch-icon-120x120.png")" />
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/themes/standard/favicon/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/themes/standard/favicon/apple-touch-icon-60x60.png">
