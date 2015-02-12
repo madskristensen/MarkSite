@@ -1,5 +1,4 @@
 ﻿@using System.Configuration;
-@using System.Web.Caching;
 @using System.IO;
 CACHE MANIFEST
 
@@ -7,14 +6,28 @@ CACHE MANIFEST
 /
 @RenderPages(PageSystem.IndexPage.Children)
 
-# scripts and css
-@Helpers.Fingerprint("/themes/" + ConfigurationManager.AppSettings["theme"] + "/menu.js")
-@Helpers.Fingerprint("/themes/" + ConfigurationManager.AppSettings["theme"] + "/site.css")
-
 # assets
+@RenderThemeContent()
 @RenderAssets()
 
+NETWORK:
+*
+
 @* Helper methods *@
+@helper RenderThemeContent()
+{
+	string folder = Server.MapPath("/themes/" + ConfigurationManager.AppSettings["theme"]);
+	List<string> extensions = new List<string> { ".js", ".css", ".woff", ".ttf", ".eot" };
+	foreach (string file in Directory.GetFiles(folder, "*.*", SearchOption.AllDirectories))
+	{
+		if (extensions.Contains(Path.GetExtension(file)))
+		{
+			string relative = file.Replace(Server.MapPath("~/"), string.Empty).Replace("\"", "/").ToLowerInvariant();
+			@(Helpers.Fingerprint("/" + relative) + Environment.NewLine)
+	}
+}
+}
+
 @helper RenderAssets()
 {
 	string pageFolder = Server.MapPath(ConfigurationManager.AppSettings["pageFolder"]);
@@ -24,9 +37,9 @@ CACHE MANIFEST
 		if (extensions.Contains(Path.GetExtension(file)))
 		{
 			string relative = file.Replace(Path.GetDirectoryName(pageFolder), string.Empty).Replace("\"", "/").ToLowerInvariant();
-			@Helpers.Fingerprint(relative)
-		}
+			@(Helpers.Fingerprint(relative) + Environment.NewLine)
 	}
+}
 }
 
 

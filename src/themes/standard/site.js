@@ -20,6 +20,8 @@
 	}, false);
 
 	window.addEventListener('load', function (e) {
+		if (!window.applicationCache)
+			return;
 
 		window.applicationCache.addEventListener('updateready', function (e) {
 			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {

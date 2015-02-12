@@ -9,7 +9,7 @@
 
 		if (!File.Exists(absolute))
 		{
-			throw new FileNotFoundException("File not found", absolute);
+			throw new Exception("File not found " + rootRelativePath);
 		}
 
 		DateTime date = File.GetLastWriteTime(absolute);

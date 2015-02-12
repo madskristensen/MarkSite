@@ -80,7 +80,7 @@ public class PageSystem
 
 	public static DateTime SetCacheHeaders(HttpContextBase context)
 	{
-		string[] allFiles = Directory.GetFiles(context.Server.MapPath("~/"), "*.*", SearchOption.AllDirectories);
+		string[] allFiles = Directory.GetDirectories(context.Server.MapPath("~/"), "*.*", SearchOption.AllDirectories);
         DateTime lastModified = allFiles.Max(f => File.GetLastWriteTime(f));
 		HttpResponseBase response = context.Response;
 		HttpRequestBase request = context.Request;
@@ -99,7 +99,7 @@ public class PageSystem
 			response.SuppressContent = true;
 		}
 
-		if (!request.IsLocal || true)
+		if (!request.IsLocal)
 		{
 			response.Cache.SetValidUntilExpires(true);
 			response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
