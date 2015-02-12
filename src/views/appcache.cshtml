@@ -1,0 +1,75 @@
+﻿@using System.Configuration;
+@using System.Web.Caching;
+@using System.IO;
+CACHE MANIFEST
+
+# pages
+/
+@RenderPages(PageSystem.IndexPage.Children)
+
+# scripts and css
+@Helpers.Fingerprint("/themes/" + ConfigurationManager.AppSettings["theme"] + "/menu.js")
+@Helpers.Fingerprint("/themes/" + ConfigurationManager.AppSettings["theme"] + "/site.css")
+
+# assets
+@RenderAssets()
+
+@* Helper methods *@
+@helper RenderAssets()
+{
+	string pageFolder = Server.MapPath(ConfigurationManager.AppSettings["pageFolder"]);
+	List<string> extensions = new List<string> { ".gif", ".png", ".jpg" };
+	foreach (string file in Directory.EnumerateFiles(pageFolder, "*.*", SearchOption.AllDirectories))
+	{
+		if (extensions.Contains(Path.GetExtension(file)))
+		{
+			string relative = file.Replace(Path.GetDirectoryName(pageFolder), string.Empty).Replace("\"", "/").ToLowerInvariant();
+			@Helpers.Fingerprint(relative)
+		}
+	}
+}
+
+
+@helper RenderPages(IEnumerable<MarkdownPage> pages)
+{
+	foreach (MarkdownPage page in pages.Where(p => p.ShowInMenu))
+	{
+		@CreateLink(page)
+		if (page.Children.Count > 0)
+		{
+			@RenderPages(page.Children)
+		}
+	}
+}
+
+@helper CreateLink(MarkdownPage page)
+{
+	List<string> segments = new List<string>(new[] { page.Slug });
+	string className = page == PageSystem.GetCurrentPage(Request) ? "active" : null;
+	MarkdownPage parent = page.Parent;
+
+	while (parent != null)
+	{
+		segments.Add(parent.Slug);
+		parent = parent.Parent;
+	}
+
+	string path = string.Join("/", segments.Reverse<string>().Skip(1));
+	path = string.IsNullOrEmpty(path) ? string.Empty : path + "/";
+<text>/@path</text>
+}
+
+@{
+	Response.ContentType = "text/cache-manifest";
+
+	if (!Request.IsLocal)
+	{
+		Response.Cache.SetValidUntilExpires(true);
+		Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+		Response.Cache.VaryByParams["path"] = true;
+		Response.AddFileDependencies(System.IO.Directory.GetFiles(Server.MapPath(ConfigurationManager.AppSettings["pageFolder"]), "*.*", SearchOption.AllDirectories));
+		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/")));
+		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Page.Theme)));
+		Response.Cache.SetLastModifiedFromFileDependencies();
+	}
+}
