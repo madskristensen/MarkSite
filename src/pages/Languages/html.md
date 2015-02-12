@@ -16,7 +16,6 @@ accurate and fast Intellisense for all element and attribute names.
 
 ![Basic auto completion](_assets/auto-completion.gif)
 
-
 ## Classes and IDs
 coming soon
 
