@@ -5,6 +5,7 @@
 body {
 	margin: 0;
 	font: 1em/1.35 "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+	-ms-text-size-adjust: 120%;
 }
 
 a {
@@ -165,7 +166,7 @@ footer {
 	width: device-width;
 }
 
-@media only screen and (max-width : 1024px) {
+@media only screen and (max-width : 800px) {
 	nav {
 		display: none;
 	}

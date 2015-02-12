@@ -1,17 +1,19 @@
 ﻿(function () {
 
 	function openMenu() {
+
 		var active = document.querySelector("nav .active");
 
-		if (active) {
-			while (active.parentNode.parentNode.tagName == "UL") {
-				active = active.parentNode.parentNode;
+		if (!active || (active.offsetWidth === 0 && active.offsetHeight === 0)) // Only if visible
+			return;
 
-				var sibling = active.previousElementSibling;
+		while (active.parentNode.parentNode.tagName === "UL") {
+			active = active.parentNode.parentNode;
 
-				if (sibling)
-					sibling.className = "open";
-			}
+			var sibling = active.previousElementSibling;
+
+			if (sibling)
+				sibling.className = "open";
 		}
 	}
 
@@ -32,7 +34,7 @@
 			return;
 
 		window.applicationCache.addEventListener('updateready', function (e) {
-			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+			if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 				// Browser downloaded a new app cache.
 				//if (confirm('A new version of this site is available. Load it?')) {
 				window.location.reload();
@@ -45,7 +47,7 @@
 
 		initMenu();
 		openMenu();
-		initAppCache();		
+		initAppCache();
 
 	}, false);
 
