@@ -77,9 +77,10 @@
 
 @helper RenderContent(MarkdownPage page)
 {
-	Regex _regex = new Regex(@"<(img).+(?<attr>src)=(?<quote>\""|'|)(?<href>[^\""']+\.(css|js|png|jpg|jpeg|gif|ico|svg|json|xml|woff|ttf|eot))\k<quote>.*?>");
+	Regex regex = new Regex(@"<(img).+(?<attr>src)=(?<quote>\""|'|)(?<href>[^\""']+\.(png|jpg|jpeg|gif|ico|svg))\k<quote>.*?>");
+	string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
 
-	string html = _regex.Replace(page.Content, delegate (Match match)
+	string html = regex.Replace(page.Content, delegate (Match match)
 	{
 		string value = match.Value;
 		string href = match.Groups["href"].Value;
@@ -88,8 +89,7 @@
 		{
 			string root = page.FileName ?? "";
 			int index = root.LastIndexOf('/') + 1;
-			string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
-			value = value.Replace(href, Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href));
+			return value.Replace(href, Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href));
 		}
 
 		return value;
