@@ -18,6 +18,7 @@ public class MarkdownPage
 	public List<MarkdownPage> Children { get; private set; }
 	public string FileName { get; set; }
 	public int Order { get; set; }
+	public bool ShowInMenu { get; set; }
 
 	public override string ToString()
 	{

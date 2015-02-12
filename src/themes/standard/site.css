@@ -21,6 +21,17 @@ img {
 	height: auto;
 }
 
+blockquote {
+	margin: 0;
+	padding: 8px;
+	background-color: lightblue;
+	border-radius: 3px;
+}
+
+	blockquote p {
+		margin: 0;
+	}
+
 header {
 	background: #222;
 	color: white;
@@ -50,8 +61,6 @@ nav {
 	right: 0;
 	top: 0;
 	margin-top: 80px;
-	border-left: 1px solid #f1f1f1;
-	padding-left: 2em;
 	min-height: 100%;
 }
 
@@ -146,6 +155,7 @@ article {
 footer {
 	clear: both;
 	background: #f1f1f1;
+	border-top: 1px solid #d8d8d8;
 	padding-top: 1em;
 	margin-top: 3em;
 	height: 150px;
@@ -156,7 +166,7 @@ footer {
 }
 
 @media only screen and (max-width : 1024px) {
-	nav{
+	nav {
 		display: none;
 	}
 

@@ -51,6 +51,8 @@ public class PageParser
 			parent.Children.Sort(new PageComparer());
 		}
 
+		newParent.Children.Sort(new PageComparer());
+
 		return newParent;
 	}
 
@@ -77,11 +79,12 @@ public class PageParser
 		page.Slug = AttrValue(prop, "slug", page.Title.ToLowerInvariant());
 		page.DateModified = File.GetLastWriteTime(fileName);
 		page.FileName = fileName.Replace(BaseDirectory, string.Empty).Replace("\\", "/");
+		page.ShowInMenu = Path.GetFileName(fileName).StartsWith("_") ? false : true;
 
 		if (prop.GetAttribute("order") != null)
 			page.Order = int.Parse(prop.GetAttribute("order").Value);
 		else
-			page.Order = int.MaxValue;
+			page.Order = 1000 + page.Title[0];
 
 		return page;
 	}

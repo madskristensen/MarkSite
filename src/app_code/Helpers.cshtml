@@ -4,7 +4,7 @@
 @helper RenderMenu(IEnumerable<MarkdownPage> pages)
 {
 	<ul>
-		@foreach (MarkdownPage page in pages)
+		@foreach (MarkdownPage page in pages.Where(p => p.ShowInMenu))
 		{
 			<li>
 				@CreateLink(page)

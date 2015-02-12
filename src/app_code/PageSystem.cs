@@ -17,7 +17,7 @@ public class PageSystem
 		{
 			if (HttpRuntime.Cache[CACHE_KEY] == null)
 			{
-				string[] files = Directory.GetDirectories(_folder, "*", SearchOption.AllDirectories);
+				string[] files = Directory.GetDirectories(_folder, "*", SearchOption.AllDirectories).Union(new[] { _folder }).ToArray();
 				HttpRuntime.Cache.Insert(CACHE_KEY, Parse(), new CacheDependency(files));
 			}
 
@@ -47,16 +47,22 @@ public class PageSystem
 		if (string.IsNullOrWhiteSpace(raw))
 			return IndexPage;
 
-		string[] segments = raw.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+		try {
+			string[] segments = raw.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
 
-		MarkdownPage page = IndexPage;
+			MarkdownPage page = IndexPage;
 
-		foreach (string segment in segments)
-		{
-			page = page.Children.First(c => c.Slug.Equals(segment, StringComparison.OrdinalIgnoreCase));
+			foreach (string segment in segments)
+			{
+				page = page.Children.First(c => c.Slug.Equals(segment, StringComparison.OrdinalIgnoreCase));
+			}
+
+			return page;
 		}
-
-		return page;
+		catch (Exception ex)
+		{
+			throw new HttpException(404, "Page not found", ex);
+		}
 	}
 
 	public static string GetTitle(MarkdownPage page)
