@@ -17,6 +17,8 @@
 		Response.Cache.SetLastModified(page.DateModified);
 		Response.AddCacheItemDependency(PageSystem.CACHE_KEY);
 	}
+
+	WebPageHttpHandler.DisableWebPagesResponseHeader = true;
 }
 
 @RenderPage("themes/" + Page.Theme + "/page.cshtml", page)
