@@ -1,0 +1,18 @@
+﻿@using System.Configuration;
+@{
+	Response.StatusCode = 404;
+
+
+	Page.Title = "Page not found";
+	Page.Description = "404 - page not found";
+	Page.Theme = ConfigurationManager.AppSettings["theme"];
+
+	Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
+}
+
+<h1>The page doesn't exist</h1>
+
+<article>
+	<p>It looks like I can't find this page.</p>
+	<p>Try the menu right over here -></p>
+</article>
