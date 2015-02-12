@@ -22,7 +22,7 @@ NETWORK:
 	{
 		if (extensions.Contains(Path.GetExtension(file)))
 		{
-			string relative = file.Replace(Server.MapPath("~/"), string.Empty).Replace("\"", "/").ToLowerInvariant();
+			string relative = file.Replace(Server.MapPath("~/"), string.Empty).Replace("\"", "/");
 			@(Helpers.Fingerprint("/" + relative) + Environment.NewLine)
 	}
 }

@@ -80,7 +80,7 @@
 
 		if (href.StartsWith("_assets"))
 		{
-			string root = Request.QueryString["path"].Trim('/');
+			string root = page.FileName;
 			int index = root.LastIndexOf('/') + 1;
 			string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
 			value = value.Replace(href, Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href));
