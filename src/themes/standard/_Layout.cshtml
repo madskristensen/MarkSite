@@ -5,7 +5,7 @@
 	<title>@Page.Title - Visual Studio</title>
 	<meta name="description" content="@Page.Description" />
 	<meta name="keywords" content="@Page.Keywords" />
-	<link href="/themes/@Page.Theme/site.css" rel="stylesheet" />
+	<link href="@Helpers.Fingerprint("/themes/" + Page.Theme +"/site.css")" rel="stylesheet" />
 </head>
 <body>
 
@@ -35,6 +35,6 @@
 		</div>
 	</footer>
 
-	<script src="/themes/@Page.Theme/menu.js" async></script>
+	<script src="@Helpers.Fingerprint("/themes/" + Page.Theme + "/menu.js")" async></script>
 </body>
 </html>
