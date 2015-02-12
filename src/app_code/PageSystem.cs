@@ -78,8 +78,10 @@ public class PageSystem
 		return string.Format(ConfigurationManager.AppSettings.Get("editUrl"), page.FileName);
 	}
 
-	public static void SetConditionalGetHeaders(DateTime lastModified, HttpContextBase context)
+	public static DateTime SetCacheHeaders(HttpContextBase context)
 	{
+		string[] allFiles = Directory.GetFiles(context.Server.MapPath("~/"), "*.*", SearchOption.AllDirectories);
+        DateTime lastModified = allFiles.Max(f => File.GetLastWriteTime(f));
 		HttpResponseBase response = context.Response;
 		HttpRequestBase request = context.Request;
 		lastModified = new DateTime(lastModified.Year, lastModified.Month, lastModified.Day, lastModified.Hour, lastModified.Minute, lastModified.Second);
@@ -96,5 +98,16 @@ public class PageSystem
 			response.StatusCode = (int)System.Net.HttpStatusCode.NotModified;
 			response.SuppressContent = true;
 		}
+
+		if (!request.IsLocal || true)
+		{
+			response.Cache.SetValidUntilExpires(true);
+			response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+			response.Cache.VaryByParams["path"] = true;
+			response.AddFileDependencies(allFiles);
+			response.Cache.SetLastModifiedFromFileDependencies();
+		}
+
+		return lastModified;
 	}
 }

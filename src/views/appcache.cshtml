@@ -61,15 +61,7 @@ CACHE MANIFEST
 
 @{
 	Response.ContentType = "text/cache-manifest";
+	DateTime date = PageSystem.SetCacheHeaders(Context);
 
-	if (!Request.IsLocal)
-	{
-		Response.Cache.SetValidUntilExpires(true);
-		Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
-		Response.Cache.VaryByParams["path"] = true;
-		Response.AddFileDependencies(System.IO.Directory.GetFiles(Server.MapPath(ConfigurationManager.AppSettings["pageFolder"]), "*.*", SearchOption.AllDirectories));
-		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/")));
-		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Page.Theme)));
-		Response.Cache.SetLastModifiedFromFileDependencies();
-	}
+	@("# last modified: " + date.ToString("s"))
 }

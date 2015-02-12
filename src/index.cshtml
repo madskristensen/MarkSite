@@ -17,18 +17,7 @@
 	Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
 
 	WebPageHttpHandler.DisableWebPagesResponseHeader = true;
-	PageSystem.SetConditionalGetHeaders(page.DateModified.ToLocalTime(), Context);
-
-	if (!Request.IsLocal)
-	{
-		Response.Cache.SetValidUntilExpires(true);
-		Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
-		Response.Cache.VaryByParams["path"] = true;
-		Response.AddCacheDependency(new CacheDependency(Server.MapPath(ConfigurationManager.AppSettings["pageFolder"] + page.FileName)));
-		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/")));
-		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Page.Theme)));
-		Response.Cache.SetLastModifiedFromFileDependencies();
-	}
+	PageSystem.SetCacheHeaders(Context);
 }
 
 @RenderPage("themes/" + Page.Theme + "/page.cshtml", page)
