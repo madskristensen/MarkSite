@@ -65,6 +65,7 @@
 	}
 
 	string path = string.Join("/", segments.Reverse<string>().Skip(1));
+	path = string.IsNullOrEmpty(path) ? string.Empty : path + "/";
 	<a href="/@path" class="@className">@page.Title</a>
 }
 
@@ -79,7 +80,7 @@
 
 		if (href.StartsWith("_assets"))
 		{
-			string root = Request.QueryString["path"];
+			string root = Request.QueryString["path"].Trim('/');
 			int index = root.LastIndexOf('/') + 1;
 			string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
 			value = value.Replace(href, Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href));

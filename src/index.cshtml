@@ -1,6 +1,12 @@
 ﻿@using System.Configuration;
 @using System.Web.Caching;
 @{
+	// Make sure all URLs end with a slash
+	if (!Request.QueryString["path"].EndsWith("/"))
+	{
+		Response.RedirectPermanent(Request.QueryString["path"] + "/", true);
+	}
+
 	MarkdownPage page = PageSystem.GetCurrentPage(Request);
 
 	Page.Title = PageSystem.GetTitle(page);
@@ -9,6 +15,9 @@
 	Page.Theme = ConfigurationManager.AppSettings["theme"];
 
 	Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
+
+	WebPageHttpHandler.DisableWebPagesResponseHeader = true;
+	PageSystem.SetConditionalGetHeaders(page.DateModified.ToLocalTime(), Context);
 
 	if (!Request.IsLocal)
 	{
@@ -20,9 +29,6 @@
 		Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/themes/" + Page.Theme)));
 		Response.Cache.SetLastModifiedFromFileDependencies();
 	}
-
-	WebPageHttpHandler.DisableWebPagesResponseHeader = true;
-	PageSystem.SetConditionalGetHeaders(page.DateModified.ToLocalTime(), Context);
 }
 
 @RenderPage("themes/" + Page.Theme + "/page.cshtml", page)
