@@ -1,0 +1,16 @@
+﻿#breadcrumb {
+	list-style: none;
+	padding: 0;
+
+	a {
+		font-size: .9em;
+	}
+
+	li {
+		display: inline;
+
+		&:not(:first-child):before {
+			content: ' » ';
+		}
+	}
+}
