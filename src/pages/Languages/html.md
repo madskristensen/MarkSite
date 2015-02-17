@@ -1,13 +1,10 @@
 ﻿<properties
 	pageTitle="HTML"
-	description="A modern HTML editor"
+	description="The HTML editor was completely rewritten in Visual Studio 2013 to create a foundation for a constantly evolving editing experience."
 	slug="html"
 	order="100"
 	keywords="html, intellisense, html5, xhtml, autocomplete"
 />
-
-> The HTML editor was completely rewritten in Visual Studio 2013 to
-> create a foundation for a constantly evolving editing experience.
 
 ## Basic auto-completion
 

@@ -4,13 +4,29 @@
 
 body {
 	margin: 0;
-	font-family: "Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	font-family: "Segoe UI","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	color: #505050;
+	font-size: 14px;
 	-ms-text-size-adjust: 120%;
 }
 
 a {
 	color: #00aedd;
 	text-decoration: none;
+}
+
+	a:hover {
+		color: #0072c6;
+	}
+
+h1 {
+	font-weight: 300;
+	font-size: 36px;
+	margin: 0 0 7px 0;
+}
+
+h2, h3, h4{
+	font-weight: normal;
 }
 
 ol {
@@ -54,6 +70,7 @@ nav {
 	min-height: 100%;
 	position: absolute;
 	top: 50px;
+	right: 0;
 }
 
 	nav ul {
@@ -75,7 +92,7 @@ nav {
 	}
 
 		nav ul ul li {
-			font-size: .8em;
+			font-size: 12px;
 		}
 
 	nav > ul > li {
@@ -106,18 +123,13 @@ nav {
 
 main {
 	display: block;
-	margin-left: 240px;
+	margin-right: 240px;
 	min-height: 600px;
 }
 
-	main article > h1 {
-		margin: 0;
-		font-size: 2em;
-	}
-
 	main article > p {
-		margin: 0 0 1em 0;
-		padding-bottom: 1em;
+		margin: 0 0 20px 0;
+		padding-bottom: 20px;
 		border-bottom: 1px solid #f2eee6;
 	}
 
@@ -125,8 +137,7 @@ main {
 #breadcrumb {
 	list-style: none;
 	padding: 0;
-	margin: 0 0 0 240px;
-	height: 50px;
+	/*height: 50px;*/
 }
 
 	#breadcrumb a {
