@@ -4,12 +4,12 @@
 
 body {
 	margin: 0;
-	font: 1em/1.35 "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+	font-family: "Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
 	-ms-text-size-adjust: 120%;
 }
 
 a {
-	color: #2e6b97;
+	color: #00aedd;
 	text-decoration: none;
 }
 
@@ -24,9 +24,7 @@ img {
 
 blockquote {
 	margin: 0;
-	padding: 8px;
-	background-color: lightblue;
-	border-radius: 3px;
+	font-style: italic;
 }
 
 	blockquote p {
@@ -34,9 +32,9 @@ blockquote {
 	}
 
 header {
-	background: #222;
+	background: #752767;
 	color: white;
-	line-height: 50px;
+	line-height: 60px;
 	font-size: 1.4em;
 	margin-bottom: 30px;
 }
@@ -49,30 +47,26 @@ header {
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 0 1em;
-}
-
-main {
-	margin: 0;
 	position: relative;
-	display: block;
 }
 
 nav {
-	position: absolute;
-	right: 0;
-	top: 0;
-	margin-top: 80px;
 	min-height: 100%;
+	position: absolute;
+	top: 50px;
 }
 
 	nav ul {
 		list-style: none;
-		padding-left: 13px;
+		padding-left: 0;
 	}
 
 	nav > ul {
 		margin: 0;
-		padding: 0;
+	}
+
+	nav ul li {
+		line-height: 25px;
 	}
 
 	nav ul ul {
@@ -80,60 +74,59 @@ nav {
 		overflow: hidden;
 	}
 
-	nav ul li a:before {
-		content: '›';
-		color: #888;
-		width: 15px;
-		height: 15px;
-		line-height: 15px;
-		display: inline-block;
-		text-decoration: none;
-		text-align: center;
+		nav ul ul li {
+			font-size: .8em;
+		}
+
+	nav > ul > li {
+		margin-bottom: 1px;
+		background-color: #f2eee6;
+		border-left: 4px solid #f2eee6;
+		padding: 5px 50px 5px 30px;
+		background: url(/themes/standard/img/nav-closed.png) #f2eee6 no-repeat 10px 10px;
 	}
 
-	nav ul li a:only-child:before {
-		content: '';
+	nav ul li.open {
+		background-color: #e0e7e3;
+		border-left: 4px solid #00aedd;
+		background-image: url(/themes/standard/img/nav-open.png);
 	}
 
-	nav .open + ul {
+	nav .open > ul {
 		max-height: 500px;
-		-moz-transition: max-height .5s linear;
-		-o-transition: max-height .5s linear;
-		-webkit-transition: max-height .5s linear;
-		transition: max-height .5s linear;
 	}
 
-	nav .open:before {
-		-moz-transform: rotate(90deg);
-		-ms-transform: rotate(90deg);
-		-o-transform: rotate(90deg);
-		-webkit-transform: rotate(90deg);
-		transform: rotate(90deg);
-	}
-
-	nav ul a.active {
+	nav a {
 		color: #222;
 	}
 
-article {
-	margin: 0 250px 0 0;
+		nav a.active {
+			color: #00aedd;
+		}
+
+main {
+	display: block;
+	margin-left: 240px;
 	min-height: 600px;
 }
 
-	article > h1 {
+	main article > h1 {
 		margin: 0;
-		font-family: "Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
 		font-size: 2em;
 	}
 
-	article > p {
-		margin-top: 0;
+	main article > p {
+		margin: 0 0 1em 0;
+		padding-bottom: 1em;
+		border-bottom: 1px solid #f2eee6;
 	}
 
 
 #breadcrumb {
 	list-style: none;
 	padding: 0;
+	margin: 0 0 0 240px;
+	height: 50px;
 }
 
 	#breadcrumb a {
@@ -155,18 +148,30 @@ article {
 
 footer {
 	clear: both;
-	background: #f1f1f1;
-	border-top: 1px solid #d8d8d8;
-	padding-top: 1em;
+	background: #56504a;
+	padding-top: 5px;
 	margin-top: 3em;
-	height: 150px;
+	font-size: .9em;
+	font-weight: bold;
+	color: lightgray;
+	height: 50px;
 }
+
+	footer a {
+		color: white;
+		font-weight: bold;
+	}
+
+	footer span {
+		float: right;
+		padding-right: 1em;
+	}
 
 @-ms-viewport {
 	width: device-width;
 }
 
-@media only screen and (max-width : 800px) {
+@media only screen and (max-width : 600px) {
 	nav {
 		display: none;
 	}

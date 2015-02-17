@@ -4,6 +4,11 @@
 @functions {
 	public static string Fingerprint(string rootRelativePath)
 	{
+		if (Request.IsLocal)
+		{
+			return rootRelativePath; // So Browser Link's CSS auto-sync works
+		}
+
 		string relative = VirtualPathUtility.ToAbsolute("~" + rootRelativePath);
 		string absolute = Server.MapPath(relative);
 
@@ -77,7 +82,7 @@
 
 @helper RenderContent(MarkdownPage page)
 {
-	Regex regex = new Regex(@"<(img).+(?<attr>src)=(?<quote>\""|'|)(?<href>[^\""']+\.(png|jpg|jpeg|gif|ico|svg))\k<quote>.*?>");
+	Regex regex = new Regex(@"<img.+(?<attr>src)=""(?<href>[^\""']+)"".*?>");
 	string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
 
 	string html = regex.Replace(page.Content, delegate (Match match)

@@ -7,3 +7,12 @@
 
 1. foo
 2. bar
+
+<section>
+
+```css
+body {
+    background: blue
+}
+```
+</section>

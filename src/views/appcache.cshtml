@@ -8,6 +8,11 @@ CACHE MANIFEST
 	DateTime date = PageSystem.SetCacheHeaders(Context);
 
 	@("# last modified: " + date.ToString("r"))
+
+	if (Request.IsLocal)
+	{
+		Response.StatusCode = 404;
+	}
 }
 
 @CreateUrlList()

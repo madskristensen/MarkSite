@@ -10,10 +10,10 @@
 		while (active.parentNode.parentNode.tagName === "UL") {
 			active = active.parentNode.parentNode;
 
-			var sibling = active.previousElementSibling;
+			var sibling = active.previousElementSibling;	
 
 			if (sibling)
-				sibling.className = "open";
+				sibling.parentNode.className = "open";
 		}
 	}
 
@@ -23,7 +23,7 @@
 
 			if (e.target.tagName === "A" && submenu) {
 				e.preventDefault();
-				e.target.className = e.target.className === "" ? "open" : "";
+				e.target.parentNode.className = e.target.parentNode.className === "" ? "open" : "";
 			}
 
 		}, false);

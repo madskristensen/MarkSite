@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
 	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
 }
 <!doctype html>
@@ -56,19 +56,18 @@
 		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
 
 		<main role="main">
-			<nav>
-				@Helpers.RenderMenu(PageSystem.IndexPage.Children)
-			</nav>
-
 			@RenderBody()
 		</main>
+
+		<nav>
+			@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+		</nav>
 	</div>
 
 	<footer role="contentinfo">
 		<div class="container">
-			<p>
-				Powered by <a href="https://github.com/madskristensen/marksite">MarkSite</a>
-			</p>
+			<span>Microsoft</span>
+			<p>Powered by <a href="https://github.com/madskristensen/marksite">MarkSite</a></p>
 		</div>
 	</footer>
 
