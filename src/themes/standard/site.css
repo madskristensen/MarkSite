@@ -18,7 +18,7 @@ h2,
 h3,
 h4 {
   font-weight: 300;
-  margin: 0 0 7px 0;
+  margin: 25px 0;
 }
 h1 {
   font-size: 36px;
@@ -29,9 +29,6 @@ h2 {
 h3 {
   font-size: 24px;
 }
-ol {
-  margin: 0;
-}
 img {
   max-width: 100%;
   height: auto;
@@ -39,11 +36,10 @@ img {
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 1.4em;
+  padding: 0 20px;
   position: relative;
 }
 #contribute {
-  clear: both;
   padding: 3em 0 0 0;
 }
 header {
@@ -69,9 +65,9 @@ main article > p {
 nav {
   min-height: 100%;
   position: absolute;
-  top: 50px;
+  top: 45px;
+  right: 20px;
   width: 200px;
-  right: 1em;
 }
 nav ul {
   list-style: none;
