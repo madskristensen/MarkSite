@@ -69,13 +69,20 @@ nav {
 }
 nav #burger {
   display: none;
+  color: #ffffff;
+  float: right;
+}
+nav #burger:before {
+  content: '☰ ';
+  font-size: 15px;
 }
 nav ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
 }
-nav ul li {
-  line-height: 25px;
+nav ul li a {
+  display: block;
+  padding: 2px 0 0 30px;
 }
 nav ul ul {
   max-height: 0;
@@ -84,13 +91,16 @@ nav ul ul {
 nav ul ul li {
   font-size: 90%;
 }
+nav ul ul li:last-child {
+  margin-bottom: 10px;
+}
 nav > ul {
   margin: 0;
 }
 nav > ul > li {
   border-bottom: 1px solid white;
   border-left: 4px solid #f2eee6;
-  padding: 5px 0 5px 30px;
+  padding: 5px 0 5px 0;
   background: url(/themes/standard/img/nav-closed.png) #f2eee6 no-repeat 10px 10px;
 }
 nav .open {
@@ -140,16 +150,14 @@ footer .ms {
   }
   nav {
     top: 20px;
-    right: 20px;
+    right: 15px;
   }
   nav > ul {
     display: none;
+    margin-top: 40px;
   }
   nav #burger {
-    display: block;
-    color: #ffffff;
-    text-align: right;
-    margin-bottom: 16px;
+    display: inline;
   }
   main {
     margin: 0;

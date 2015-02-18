@@ -20,14 +20,15 @@
 	function initMenu() {
 		document.querySelector("nav > ul").addEventListener("click", function (e) {
 			var submenu = e.target.nextElementSibling;
-			var open = document.querySelectorAll(".open");
-
-			for (var i = 0; i < open.length; i++) {
-				open[i].removeAttribute("class")
-			}
 
 			if (e.target.tagName === "A" && submenu) {
 				e.preventDefault();
+
+				var open = document.querySelectorAll(".open");
+				for (var i = 0; i < open.length; i++) {
+					open[i].removeAttribute("class")
+				}
+
 				e.target.parentNode.className = e.target.parentNode.className === "" ? "open" : "";
 			}
 

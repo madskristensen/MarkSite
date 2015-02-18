@@ -7,16 +7,25 @@ nav {
 	right: @container-padding;
 	width: @menu-width;
 
-	#burger{
+	#burger {
 		display: none;
+		color: @header-color;
+		float: right;
+
+		&:before {
+			content: '☰ ';
+			font-size: 15px;
+		}
 	}
 
 	ul {
 		list-style: none;
-		padding-left: 0;
+		padding: 0;
 
-		li {
-			line-height: 25px;
+		li a {
+			display: block;
+			padding: 2px 0 0 30px;
+
 		}
 
 		ul {
@@ -25,6 +34,10 @@ nav {
 
 			li {
 				font-size: 90%;
+
+				&:last-child{
+					margin-bottom: 10px;
+				}
 			}
 		}
 	}
@@ -35,7 +48,7 @@ nav {
 		> li {
 			border-bottom: 1px solid white;
 			border-left: 4px solid @menu-background-color;
-			padding: 5px 0 5px 30px;
+			padding: 5px 0 5px 0;
 			background: url(/themes/standard/img/nav-closed.png) @menu-background-color no-repeat 10px 10px;
 		}
 	}
