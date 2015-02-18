@@ -1,4 +1,5 @@
-﻿var gulp = require("gulp"),
+/// <binding ProjectOpened='watch' />
+var gulp = require("gulp"),
 	less = require("gulp-less");
 
 gulp.task("default", ["watch"]);

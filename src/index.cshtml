@@ -8,7 +8,7 @@
 
 	MarkdownPage page = PageSystem.GetCurrentPage(Request);
 
-	Page.Title = PageSystem.GetTitle(page);
+	Page.Title = page.Title;
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
 	Page.Theme = ConfigurationManager.AppSettings["theme"];

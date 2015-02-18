@@ -65,14 +65,6 @@ public class PageSystem
 		}
 	}
 
-	public static string GetTitle(MarkdownPage page)
-	{
-		if (page.Parent != null && page.Parent != IndexPage)
-			return page.Parent.Title + " | " + page.Title;
-
-		return page.Title;
-	}
-
 	public static string GetEditPage(MarkdownPage page)
 	{
 		return string.Format(ConfigurationManager.AppSettings.Get("editUrl"), page.FileName);
