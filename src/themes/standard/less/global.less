@@ -1,9 +1,12 @@
 ﻿@import "variables";
+html, body {
+	height: 100%;
+}
 
 body {
 	margin: 0;
 	background: #fff;
-	font: 16px/1.5em "Segoe UI","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	font: 16px/1.5em "Segoe UI","Segoe WP Light","Segoe WP",Tahoma,Arial,sans-serif;
 	color: @text-color;
 }
 
@@ -17,7 +20,8 @@ a {
 }
 
 h1, h2, h3, h4 {
-	font-weight: 300;
+	font-family: "Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	font-weight: 400;
 	margin: 25px 0;
 }
 
@@ -38,6 +42,10 @@ img {
 	height: auto;
 }
 
+.content {
+	min-height: 100%;
+}
+
 .container {
 	max-width: 960px;
 	margin: 0 auto;
@@ -46,5 +54,20 @@ img {
 }
 
 #contribute {
-	padding: 30px 0 0 0;
+	padding: 0 0 0 25px;
+	margin: 30px 0;
+	background: url(/themes/standard/img/github.png) no-repeat left;
+}
+
+.download {
+	float: right;
+	font-size: 16px;
+	background: url(/themes/standard/img/arrow.png) no-repeat right center;
+	color: #fff;
+	padding-right: 30px;
+	display: inline-block;
+
+	&:hover {
+		color: #fff;
+	}
 }

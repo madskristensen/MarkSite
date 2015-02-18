@@ -1,7 +1,11 @@
+html,
+body {
+  height: 100%;
+}
 body {
   margin: 0;
   background: #fff;
-  font: 16px/1.5em "Segoe UI", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font: 16px/1.5em "Segoe UI", "Segoe WP Light", "Segoe WP", Tahoma, Arial, sans-serif;
   color: #505050;
 }
 a {
@@ -15,7 +19,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 300;
+  font-family: "Segoe UI Light", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
   margin: 25px 0;
 }
 h1 {
@@ -31,6 +36,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+.content {
+  min-height: 100%;
+}
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -38,7 +46,20 @@ img {
   position: relative;
 }
 #contribute {
-  padding: 30px 0 0 0;
+  padding: 0 0 0 25px;
+  margin: 30px 0;
+  background: url(/themes/standard/img/github.png) no-repeat left;
+}
+.download {
+  float: right;
+  font-size: 16px;
+  background: url(/themes/standard/img/arrow.png) no-repeat right center;
+  color: #fff;
+  padding-right: 30px;
+  display: inline-block;
+}
+.download:hover {
+  color: #fff;
 }
 header {
   background: #752767;
@@ -50,15 +71,14 @@ header {
 header a {
   color: #ffffff;
 }
+header .download {
+  margin-right: 5px;
+}
 main {
   display: block;
   margin-right: 240px;
-  min-height: 600px;
-}
-main article > p {
-  margin: 0 0 20px 0;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f2eee6;
+  overflow: auto;
+  padding-bottom: 50px;
 }
 nav {
   position: absolute;
@@ -119,6 +139,7 @@ nav a.active {
 #breadcrumb {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 #breadcrumb li {
   display: inline;
@@ -128,14 +149,16 @@ nav a.active {
 }
 footer {
   background: #56504a;
-  margin: 50px 0 0 0;
+  margin: -50px 0 0 0;
   font-size: 90%;
   color: lightgray;
   line-height: 50px;
+  height: 50px;
+  position: relative;
+  clear: both;
 }
-footer a {
-  color: #ffffff;
-  font-weight: bold;
+footer .download {
+  float: none;
 }
 footer .ms {
   float: right;
@@ -146,6 +169,9 @@ footer .ms {
 @media only screen and (max-width: 600px) {
   .container {
     position: static;
+  }
+  header .download {
+    display: none;
   }
   nav {
     top: 20px;

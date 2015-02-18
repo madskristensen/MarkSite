@@ -46,29 +46,32 @@
 </head>
 <body>
 
-	<header role="banner">
+	<div class="content">
+		<header role="banner">
+			<div class="container">
+				<a href="/">Visual Studio | Web</a>
+				<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
+			</div>
+		</header>
+
 		<div class="container">
-			<a href="/">Visual Studio | Web</a>
+			@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+
+			<main role="main">
+				@RenderBody()
+			</main>
+
+			<nav>
+				<a href="#" id="burger">Menu&nbsp;&nbsp;&nbsp;</a>
+				@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+			</nav>
 		</div>
-	</header>
-
-	<div class="container">
-		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
-
-		<main role="main">
-			@RenderBody()
-		</main>
-
-		<nav>
-			<a href="#" id="burger">Menu&nbsp;&nbsp;&nbsp;</a>
-			@Helpers.RenderMenu(PageSystem.IndexPage.Children)
-		</nav>
 	</div>
 
 	<footer role="contentinfo">
 		<div class="container">
 			<span class="ms">Microsoft</span>
-			<span>Powered by <a href="https://github.com/madskristensen/marksite">MarkSite</a></span>
+			<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 		</div>
 	</footer>
 

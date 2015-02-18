@@ -2,14 +2,16 @@
 
 footer {
 	background: @footer-background-color;
-	margin: 50px 0 0 0;
+	margin: -50px 0 0 0;
 	font-size: 90%;
 	color: @footer-color;
 	line-height: 50px;
+	height: 50px;
+	position: relative;
+	clear: both;
 	
-	a {
-		color: @footer-link-color;
-		font-weight: bold;
+	.download {
+		float: none;
 	}
 
 	.ms {
