@@ -1,10 +1,8 @@
 body {
   margin: 0;
-  padding: 0;
   background: #fff;
-  font: 14px/1.5em "Segoe UI", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font: 16px/1.5em "Segoe UI", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
   color: #505050;
-  -ms-text-size-adjust: 120%;
 }
 a {
   color: #00aedd;
@@ -40,7 +38,7 @@ img {
   position: relative;
 }
 #contribute {
-  padding: 3em 0 0 0;
+  padding: 30px 0 0 0;
 }
 header {
   background: #752767;
@@ -65,9 +63,12 @@ main article > p {
 nav {
   min-height: 100%;
   position: absolute;
-  top: 45px;
+  top: 50px;
   right: 20px;
   width: 200px;
+}
+nav #burger {
+  display: none;
 }
 nav ul {
   list-style: none;
@@ -81,13 +82,13 @@ nav ul ul {
   overflow: hidden;
 }
 nav ul ul li {
-  font-size: 12px;
+  font-size: 90%;
 }
 nav > ul {
   margin: 0;
 }
 nav > ul > li {
-  margin-bottom: 1px;
+  border-bottom: 1px solid white;
   border-left: 4px solid #f2eee6;
   padding: 5px 0 5px 30px;
   background: url(/themes/standard/img/nav-closed.png) #f2eee6 no-repeat 10px 10px;
@@ -117,32 +118,38 @@ nav a.active {
   content: ' » ';
 }
 footer {
-  clear: both;
   background: #56504a;
-  line-height: 50px;
-  margin-top: 3em;
-  font-size: .9em;
+  margin: 50px 0 0 0;
+  font-size: 90%;
   color: lightgray;
-  height: 50px;
-}
-footer p {
-  margin: 0;
-  padding: 0;
+  line-height: 50px;
 }
 footer a {
   color: #ffffff;
   font-weight: bold;
 }
-footer span {
+footer .ms {
   float: right;
-  padding-right: 1em;
 }
 @-ms-viewport {
   width: device-width;
 }
 @media only screen and (max-width: 600px) {
+  .container {
+    position: static;
+  }
   nav {
+    top: 20px;
+    right: 20px;
+  }
+  nav > ul {
     display: none;
+  }
+  nav #burger {
+    display: block;
+    color: #ffffff;
+    text-align: right;
+    margin-bottom: 16px;
   }
   main {
     margin: 0;

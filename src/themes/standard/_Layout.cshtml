@@ -2,7 +2,7 @@
 	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
 }
 <!doctype html>
-<html lang="en" manifest="/appcache.manifest">
+<html lang="en" manifest="/appcache.manifestNO">
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8" />
 	<title>@Page.Title - Visual Studio</title>
@@ -60,14 +60,15 @@
 		</main>
 
 		<nav>
+			<a href="#" id="burger">Menu</a>
 			@Helpers.RenderMenu(PageSystem.IndexPage.Children)
 		</nav>
 	</div>
 
 	<footer role="contentinfo">
 		<div class="container">
-			<span>Microsoft</span>
-			<p>Powered by <a href="https://github.com/madskristensen/marksite">MarkSite</a></p>
+			<span class="ms">Microsoft</span>
+			<span>Powered by <a href="https://github.com/madskristensen/marksite">MarkSite</a></span>
 		</div>
 	</footer>
 

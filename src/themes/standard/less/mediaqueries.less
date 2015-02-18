@@ -1,10 +1,29 @@
-﻿@-ms-viewport {
+﻿@import "variables";
+
+@-ms-viewport {
 	width: device-width;
 }
 
 @media only screen and (max-width : 600px) {
+
+	.container {
+		position: static;
+	}
+
 	nav {
-		display: none;
+		top: @container-padding;
+		right: @container-padding;
+
+		> ul {
+			display: none;
+		}
+
+		#burger {
+			display: block;
+			color: @header-color;
+			text-align: right;
+			margin-bottom: 16px;
+		}
 	}
 
 	main {

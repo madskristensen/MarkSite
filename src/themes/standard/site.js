@@ -4,13 +4,13 @@
 
 		var active = document.querySelector("nav .active");
 
-		if (!active || (active.offsetWidth === 0 && active.offsetHeight === 0)) // Only if visible
+		if (!active)// || (active.offsetWidth === 0 && active.offsetHeight === 0)) // Only if visible
 			return;
 
 		while (active.parentNode.parentNode.tagName === "UL") {
 			active = active.parentNode.parentNode;
 
-			var sibling = active.previousElementSibling;	
+			var sibling = active.previousElementSibling;
 
 			if (sibling)
 				sibling.parentNode.className = "open";
@@ -20,6 +20,11 @@
 	function initMenu() {
 		document.querySelector("nav > ul").addEventListener("click", function (e) {
 			var submenu = e.target.nextElementSibling;
+			var open = document.querySelectorAll(".open");
+
+			for (var i = 0; i < open.length; i++) {
+				open[i].removeAttribute("class")
+			}
 
 			if (e.target.tagName === "A" && submenu) {
 				e.preventDefault();
@@ -27,6 +32,13 @@
 			}
 
 		}, false);
+
+		document.getElementById("burger").addEventListener("click", function (e) {
+			e.preventDefault();
+			var ul = e.target.nextElementSibling;
+			var display = ul.style.display;
+			ul.style.display = display === "" ? "block" : "";
+		});
 	}
 
 	function initAppCache() {

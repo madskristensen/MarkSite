@@ -3,9 +3,13 @@
 nav {
 	min-height: 100%;
 	position: absolute;
-	top: 45px;
+	top: 50px;
 	right: @container-padding;
 	width: @menu-width;
+
+	#burger{
+		display: none;
+	}
 
 	ul {
 		list-style: none;
@@ -20,7 +24,7 @@ nav {
 			overflow: hidden;
 
 			li {
-				font-size: 12px;
+				font-size: 90%;
 			}
 		}
 	}
@@ -29,7 +33,7 @@ nav {
 		margin: 0;
 
 		> li {
-			margin-bottom: 1px;
+			border-bottom: 1px solid white;
 			border-left: 4px solid @menu-background-color;
 			padding: 5px 0 5px 30px;
 			background: url(/themes/standard/img/nav-closed.png) @menu-background-color no-repeat 10px 10px;
