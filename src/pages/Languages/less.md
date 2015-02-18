@@ -1,7 +1,7 @@
 ﻿<properties
-			pageTitle="LESS"
+			pageTitle="LESS & Sass"
 			description="Short description of the page"
-			slug="less"
+			slug="less-sass"
 			order="400"
 			keywords="css, intellisense, stylesheets"
 />

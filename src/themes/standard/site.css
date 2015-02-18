@@ -61,7 +61,6 @@ main article > p {
   border-bottom: 1px solid #f2eee6;
 }
 nav {
-  min-height: 100%;
   position: absolute;
   top: 50px;
   right: 20px;
@@ -150,7 +149,7 @@ footer .ms {
   }
   nav {
     top: 20px;
-    right: 15px;
+    right: 0;
   }
   nav > ul {
     display: none;
