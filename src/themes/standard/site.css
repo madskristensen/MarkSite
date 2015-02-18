@@ -80,6 +80,10 @@ main {
   overflow: auto;
   padding-bottom: 50px;
 }
+main article > p {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f2eee6;
+}
 nav {
   position: absolute;
   top: 50px;
