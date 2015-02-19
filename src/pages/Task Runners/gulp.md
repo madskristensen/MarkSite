@@ -1,9 +1,15 @@
 ﻿<properties
 	pageTitle="Gulp"
-	description="bla bla bla"
+	description="Visual Studio has first-class support for the node.js based Gulp task runner."
 	slug="gulp"
-	keywords="css, html, javascript"
+	keywords="gulp, gulpjs, gulp.js, task runner"
 />
 
-1. foo
-2. bar
+## Intellisense for gulpfile.js
+coming soon...
+
+## Task Runner Explorer
+coming soon...
+
+## Custom task bindings
+coming soon...

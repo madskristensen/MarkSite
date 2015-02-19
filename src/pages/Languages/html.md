@@ -46,7 +46,7 @@ Simply hit `Shift+Alt+W` to wrap the selection.
 ## Snippets
 Snippets provides a shortcut for common, but perhaps more complex elements.
 There are snippets available for `<video>`, `<audio>`, `<picture>` and 
-a lot more.
+a lot more. You can add your own as well.
 
 ![Snippets](_assets/html-snippets.gif)
 

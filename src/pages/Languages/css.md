@@ -1,9 +1,40 @@
 ﻿<properties
 			pageTitle="CSS"
-			description="bla bla bla"
+			description="The new CSS editor in Visual Studio fully supports all versions of CSS incluing aspects version 4."
 			slug="css"
 			order="300"
 			keywords="css, intellisense, stylesheets"
 />
 
-Velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo, eget consequat neque quam id tellus duis ultricies tempor tortor, vitae dignissim ligula mattis nec in hac habitasse platea dictumst.
+## Open source
+The entire CSS language definition that Visual Studio uses is open source.
+Find a missing property or psuedo-selector? Send a pull request.
+
+## Basic auto-completion
+coming soon...
+
+## Selector Intellisense
+HTML elements, pseudos, classes and IDs
+coming soon...
+
+## Vendor specifics
+coming soon...
+
+## Working with colors
+coming soon...
+
+## Snippets
+coming soon...
+
+## File picker
+coming soon...
+
+## Custom web fonts
+Drag 'n drop etc.
+coming soon...
+
+## Hierarchical indentation
+coming soon...
+
+## Auto-sync with BrowserLink
+coming soon...

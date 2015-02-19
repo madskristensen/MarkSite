@@ -1,9 +1,15 @@
 ﻿<properties
 	pageTitle="Grunt"
-	description="bla bla bla"
+	description="Visual Studio has first-class support for the node.js based Grunt task runner."
 	slug="grunt"
-	keywords="css, html, javascript"
+	keywords="grunt, gruntjs, grunt.js, task runner"
 />
 
-1. foo
-2. bar
+## Intellisense for gruntfile.js
+coming soon...
+
+## Task Runner Explorer
+coming soon...
+
+## Custom task bindings
+coming soon...
