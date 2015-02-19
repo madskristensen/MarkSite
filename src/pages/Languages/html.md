@@ -39,7 +39,9 @@ values.
 Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
 
 ## Snippets
-Snippets makes it easy to write common elements.
+Snippets provides a shortcut for common, but perhaps more complex elements.
+There are snippets available for `<video>`, `<audio>`, `<picture>` and 
+a lot more.
 
 ![Snippets](_assets/html-snippets.gif)
 
@@ -56,7 +58,10 @@ filters the list to only show those file types.
 Sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue.
 
 ## ARIA attributes
-Malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum.
+Both ARIA Landmarks such as the `role` attribute, as well as `aria-*`
+attributes are fully supported by Intellisense.
+
+![ARIA attributes](_assets/html-aria.gif)
 
 ## HTML entities
 Get quick and easy access to all those HTML entities that are so hard

@@ -64,4 +64,8 @@
 
 	}, false);
 
+	lazy.init({
+		delay: 250
+	});
+
 })();

@@ -94,7 +94,10 @@
 		{
 			string root = page.FileName ?? "";
 			int index = root.LastIndexOf('/') + 1;
-			return value.Replace(href, Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href));
+			string newHref = Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href);
+			string result = value.Replace(" src=\"" + href, " src=\"/assets/spacer.gif\" data-lazy=\"" + newHref);
+
+			return result;
 		}
 
 		return value;
