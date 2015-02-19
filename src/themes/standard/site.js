@@ -1,16 +1,20 @@
 ﻿(function () {
 
+	var nav = document.getElementById("nav");
+
 	function openMenu() {
 
-		var active = document.querySelector("nav .active");
+		var active = nav.getElementsByClassName("active");
 
-		if (!active)// || (active.offsetWidth === 0 && active.offsetHeight === 0)) // Only if visible
+		if (active.length === 0)
 			return;
 
-		while (active.parentNode.parentNode.tagName === "UL") {
-			active = active.parentNode.parentNode;
+		var current = active[0];
 
-			var sibling = active.previousElementSibling;
+		while (current.parentNode.parentNode.tagName === "UL") {
+			current = current.parentNode.parentNode;
+
+			var sibling = current.previousElementSibling;
 
 			if (sibling)
 				sibling.parentNode.className = "open";
@@ -18,18 +22,18 @@
 	}
 
 	function initMenu() {
-		document.querySelector("nav > ul").addEventListener("click", function (e) {
+		nav.querySelector("ul").addEventListener("click", function (e) {
 			var submenu = e.target.nextElementSibling;
 
 			if (e.target.tagName === "A" && submenu) {
 				e.preventDefault();
-
-				var open = document.querySelectorAll(".open");
-				for (var i = 0; i < open.length; i++) {
-					open[i].removeAttribute("class")
-				}
-
 				e.target.parentNode.className = e.target.parentNode.className === "" ? "open" : "";
+
+				var open = nav.getElementsByClassName("open");
+				for (var i = 0; i < open.length; i++) {
+					if (e.target.parentNode !== open[i])
+						open[i].removeAttribute("class")
+				}
 			}
 
 		}, false);
@@ -56,16 +60,14 @@
 		}, false);
 	}
 
+	lazy.init();
+
 	window.addEventListener('load', function (e) {
 
 		initMenu();
 		openMenu();
-		initAppCache();
+		//initAppCache();
 
 	}, false);
-
-	lazy.init({
-		delay: 250
-	});
 
 })();

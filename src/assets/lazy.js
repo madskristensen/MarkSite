@@ -22,7 +22,7 @@
 			}, delay);
 		},
 		loadImage: function () {
-			var elements = document.querySelectorAll('img[data-lazy]');
+			var elements = document.getElementsByTagName('img');
 			for (var i = 0; i < elements.length; i++) {
 				if (lazy.isVisible(elements[i])) {
 					if (elements[i].getAttribute("data-lazy") !== null) {

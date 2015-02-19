@@ -24,17 +24,20 @@ nav {
 		li a {
 			display: block;
 			padding: 2px 0 0 30px;
-
 		}
 
 		ul {
 			max-height: 0;
 			overflow: hidden;
+			-moz-transition: max-height .2s ease-in-out;
+			-o-transition: max-height .2s ease-in-out;
+			-webkit-transition: max-height .2s ease-in-out;
+			transition: max-height .2s ease-in-out;
 
 			li {
 				font-size: 90%;
 
-				&:last-child{
+				&:last-child {
 					margin-bottom: 10px;
 				}
 			}
@@ -58,7 +61,7 @@ nav {
 		background-image: url(/themes/standard/img/nav-open.png);
 
 		> ul {
-			max-height: 500px;
+			max-height: 300px;
 		}
 	}
 

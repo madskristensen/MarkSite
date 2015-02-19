@@ -36,7 +36,12 @@ values.
 ![Dynamic attriute values](_assets/html-dynamic-attribute-values.gif)
 
 ## Wrap with tag
-Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+Be more productive by using this handy shortcut to wrap the selection
+with any element of your choice.
+
+Simply hit `Shift+Alt+W` to wrap the selection.
+
+![Wrap with tag](_assets/html-wrap-with-tag.gif)
 
 ## Snippets
 Snippets provides a shortcut for common, but perhaps more complex elements.
@@ -54,8 +59,15 @@ filters the list to only show those file types.
 
 ![File picker](_assets/html-file-picker.gif)
 
-## HTML5 Microdata
-Sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue.
+## HTML 5 Microdata
+It's important to be very accurate when dealing with 
+[Microdata](http://html5doctor.com/microdata/). 
+
+Visual Studio helps you
+to avoid typos, by giving Intellisense for the most common Microdata
+vocabularies.
+
+![HTML 5 Microdata](_assets/html-microdata.gif)
 
 ## ARIA attributes
 Both ARIA Landmarks such as the `role` attribute, as well as `aria-*`
@@ -70,13 +82,13 @@ to remember.
 ![Entities](_assets/html-entities.gif)
 
 ## Template syntax
-Mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+Whether you use Mustache, Handlebars, Angular or any other doube-curly 
+based template language, Visual Studio gives you nice colorization.
 
-## Un-minify
-Fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor.
+![Template syntax](_assets/html-template-syntax.gif)
 
-## Light bulbs
-Urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc.
+## Quick actions
+Light bulbs show up variuos places in the document to give quick access
+to various refactorings and helpers.
 
-## Syntax validation
-Mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+![Quick action](_assets/html-quick-action.gif)
