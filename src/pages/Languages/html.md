@@ -23,26 +23,34 @@ It's easy to forget the names of classes and IDs so Visual Studio
 gives you easy access to any class name or ID specified in the 
 current document or from any stylesheet in your project.
 
-![Match end-tag](_assets/html-classes-and-ids.gif)
+![Classes and IDs](_assets/html-classes-and-ids.gif)
 
 ## Dynamic data attributes
-When using <code>data-*</code> attributes in HTML 5 to store custom data, it can be
+When using `data-*` attributes in HTML 5 to store custom data, it can be
 difficult to remember the various attribute names and their values.
 
-Visual Studio automatically keeps track of your <code>data-*</code> attributes and
+Visual Studio automatically keeps track of your `data-*` attributes and
 gives Intellisense for both the attribute name and the previously used
 values.
 
-![Match end-tag](_assets/html-dynamic-attribute-values.gif)
+![Dynamic attriute values](_assets/html-dynamic-attribute-values.gif)
 
 ## Wrap with tag
 Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
 
 ## Snippets
-Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+Snippets makes it easy to write common elements.
+
+![Snippets](_assets/html-snippets.gif)
 
 ## File picker
-Id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer.
+The file picker gives you quick access to the files in your project.
+
+It's smart enough to know what files you would typically use for
+`<img>`, `<a>`, `<script>`, `<source>` and `<link>` elements, so it automatically
+filters the list to only show those file types.
+
+![File picker](_assets/html-file-picker.gif)
 
 ## HTML5 Microdata
 Sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue.
@@ -51,7 +59,10 @@ Sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium te
 Malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum.
 
 ## HTML entities
-Semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel.
+Get quick and easy access to all those HTML entities that are so hard
+to remember.
+
+![Entities](_assets/html-entities.gif)
 
 ## Template syntax
 Mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
