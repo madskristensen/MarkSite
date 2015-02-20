@@ -35,5 +35,5 @@ coming soon...
 ## Visual Studio Auto Updater
 coming soon...
 
-Find thousands of extensions at the 
-[Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/)
+Find thousands of other great extensions at the 
+[Visual Studio Extension Gallery](https://visualstudiogallery.msdn.microsoft.com/)

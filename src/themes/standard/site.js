@@ -8,17 +8,17 @@
 
 		if (active.length === 0)
 			return;
+		
+		var li = active[0].parentNode;
 
-		var current = active[0];
+		do {
 
-		while (current.parentNode.parentNode.tagName === "UL") {
-			current = current.parentNode.parentNode;
+			if (li.tagName === "LI" && li.childElementCount === 2)
+				li.className = "open";
 
-			var sibling = current.previousElementSibling;
+			li = li.parentNode;
 
-			if (sibling)
-				sibling.parentNode.className = "open";
-		}
+		} while (li.parentNode !== nav);
 	}
 
 	function initMenu() {
@@ -29,6 +29,7 @@
 				e.preventDefault();
 				e.target.parentNode.className = e.target.parentNode.className === "" ? "open" : "";
 
+				// Close all other open menu items
 				var open = nav.getElementsByClassName("open");
 				for (var i = 0; i < open.length; i++) {
 					if (e.target.parentNode !== open[i])
