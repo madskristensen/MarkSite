@@ -1,9 +1,21 @@
 ﻿<properties
 	pageTitle="Bower"
-	description="bla bla bla"
+	description="The best-in-class Bower support makes it easier than ever to use Bower components in your projects."
 	slug="bower"
-	keywords="css, html, javascript"
+	keywords="bower, packages, bowerjs"
 />
 
-1. foo
-2. bar
+## bower.json Intellisense
+coming soon...
+
+## Package search
+coming soon...
+
+## Install on save
+coming soon...
+
+## IDE integration
+coming soon...
+
+## Automatic removal of BOM
+coming soon...

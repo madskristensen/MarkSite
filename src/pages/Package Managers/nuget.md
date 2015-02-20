@@ -1,9 +1,15 @@
 ﻿<properties
 	pageTitle="NuGet"
-	description="bla bla bla"
+	description="The NuGet package manager is ideal for .NET components. With Visual Studio 2015 it is more powerful than ever."
 	slug="nuget"
-	keywords="css, html, javascript"
+	keywords="nuget, myget"
 />
 
-1. foo
-2. bar
+## project.json Intellisense
+coming soon...
+
+## Full package management system
+coming soon...
+
+## Multiple sources
+coming soon...
