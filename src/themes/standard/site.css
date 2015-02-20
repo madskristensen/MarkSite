@@ -170,7 +170,7 @@ footer .ms {
 @-ms-viewport {
   width: device-width;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .container {
     position: static;
   }

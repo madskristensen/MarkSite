@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="General extensions"
+	pageTitle="General interest"
 	description="This list of extensions covers more broad and general extensions that are relevant to all developers - including web developers."
 	slug="general-extensions"
 	keywords="vsix, extensibility, plugins"

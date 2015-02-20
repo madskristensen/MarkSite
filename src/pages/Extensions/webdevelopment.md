@@ -2,6 +2,7 @@
 	pageTitle="Web development"
 	description="Of the thousands of extensions for Visual Studio, here is a collection of some that adds a lot of value to web developers specifically."
 	slug="web-development"
+    order="100"
 	keywords="vsix, extensibility, plugins"
 />
 

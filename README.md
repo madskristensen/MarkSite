@@ -63,6 +63,22 @@ __description__: The description of each page
 __keywords__: A comma separated list of keywords  
 __slug__: A Slug is what the URL should be
 
+#### Screenshots/animated GIFs
+
+To maintain a consistent look to all the screenshots/animated GIFs,
+please adhere to these Visual Studio settings:
+
+__Font__: 12pt Consolas  
+__Theme__: Light
+
+Also, please make sure to have a ~5 pixel padding when making an 
+animated GIF from one of the editors, so the things you
+show aren't located all the way at the edges of the
+image, but about 5 pixels from the top and left.
+
+The padding rule only applies to screenshots/animated GIFs taken
+inside the editors.
+
 #### Validation
 
 To help make sure that each pull request meets the requirements of the metadata,
