@@ -106,7 +106,7 @@
 			string relative = "/" + baseFolder + root.Substring(0, index) + href;
 			string newHref = Fingerprint(relative);
 			string dimensions = GetDimensions(relative);
-			string result = value.Replace(" src=\"" + href, " " + dimensions + " src=\"/assets/dot.gif\" data-lazy=\"" + newHref);
+			string result = value.Replace(" src=\"" + href, " " + dimensions + " src=\"" + newHref);
 
 			return result;
 		}

@@ -60,9 +60,7 @@
 			}
 		}, false);
 	}
-
-	lazy.init();
-
+	
 	window.addEventListener('load', function (e) {
 
 		initMenu();
