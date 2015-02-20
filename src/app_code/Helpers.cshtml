@@ -1,4 +1,5 @@
 ﻿@using System.Text.RegularExpressions;
+@using System.Drawing;
 @using System.Configuration;
 
 @functions {
@@ -36,6 +37,14 @@
 
 		string path = string.Join("/", segments.Reverse<string>().Skip(1));
 		return "/" + (string.IsNullOrEmpty(path) ? string.Empty : path + "/");
+	}
+
+	public static string GetDimensions(string relative)
+	{
+		string absolute = Server.MapPath(relative);
+		var img = Bitmap.FromFile(absolute);
+		
+		return string.Format("width=\"{0}\" height=\"{1}\"", img.Width, img.Height);
 	}
 }
 
@@ -94,8 +103,10 @@
 		{
 			string root = page.FileName ?? "";
 			int index = root.LastIndexOf('/') + 1;
-			string newHref = Fingerprint("/" + baseFolder + "/" + root.Substring(0, index) + href);
-			string result = value.Replace(" src=\"" + href, " src=\"/assets/spacer.gif\" data-lazy=\"" + newHref);
+			string relative = "/" + baseFolder + root.Substring(0, index) + href;
+			string newHref = Fingerprint(relative);
+			string dimensions = GetDimensions(relative);
+			string result = value.Replace(" src=\"" + href, " " + dimensions + " src=\"/assets/dot.gif\" data-lazy=\"" + newHref);
 
 			return result;
 		}
