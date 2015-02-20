@@ -1,9 +1,12 @@
 ﻿<properties
 	pageTitle="Extensions"
-	description="bla bla bla"
+	description="Extend VS and make it your own!"
 	slug="extensions"
 	keywords="vsix, extensibility, plugins"
 />
 
-1. foo
-2. bar
+Customize Visual Studio by leveraging the thousands of 
+extensions available from the constantly growing ecosystem 
+or even build your own. 
+
+![Extensions](_assets/index-extensions.png)

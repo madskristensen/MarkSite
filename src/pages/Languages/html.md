@@ -92,3 +92,26 @@ Light bulbs show up variuos places in the document to give quick access
 to various refactorings and helpers.
 
 ![Quick action](_assets/html-quick-action.gif)
+
+<aside>
+
+## Related resources
+
+<section>
+
+### More information
+
+1. [ASP.NET Razor](http://vswebessentials.com)
+2. [HTML 5 overview](http://vswebessentials.com)
+</section>
+
+<section>
+
+### Relevant extensions
+
+1. [Web Essentials](http://vswebessentials.com)
+2. [Glyphfriends](http://vswebessentials.com)
+3. [Bootstrap Snippet Pack](http://vswebessentials.com)
+</section>
+
+</aside>
