@@ -29,6 +29,10 @@ nav {
 		ul {
 			max-height: 0;
 			overflow: hidden;
+			-moz-transition: max-height .2s linear;
+			-o-transition: max-height .2s linear;
+			-webkit-transition: max-height .2s linear;
+			transition: max-height .2s linear;
 
 			li {
 				font-size: 90%;
@@ -47,14 +51,14 @@ nav {
 			border-bottom: 1px solid white;
 			border-left: 4px solid @menu-background-color;
 			padding: 5px 0 5px 0;
-			background: url(/themes/standard/img/nav-closed.png) @menu-background-color no-repeat 10px 10px;
+			background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGFBMVEVMaXH29vb29vb29vaGhoZCQkJNTU3U1NS+6h2SAAAAA3RSTlMAMO8VhQ3EAAAAM0lEQVQI12NgQABGGINJAMpgVoQxnKBCzCFQIeYwqBBzeIoiGgMuBVcM166IbgUjAwoAAHC/BR3lwinSAAAAAElFTkSuQmCC') /*/themes/standard/img/nav-closed.png*/ @menu-background-color no-repeat 10px 10px;
 		}
 	}
 
 	.open {
 		background-color: @menu-background-open-color;
 		border-left: 4px solid @link-color;
-		background-image: url(/themes/standard/img/nav-open.png);
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAG1BMVEVMaXH29vb29vb29vZCQkL29vazs7PJycnU1NRCTyjsAAAABHRSTlMAQJ8QKGdt6wAAADJJREFUCNdjYMAOmGAMVZhAKpSh5goVSIEy1FxcoQJQhpoLhMEUUV5eCmIYCgIBA1EAAKzvBmjcnChlAAAAAElFTkSuQmCC') /*/themes/standard/img/nav-open.png*/;
 
 		> ul {
 			max-height: 300px;

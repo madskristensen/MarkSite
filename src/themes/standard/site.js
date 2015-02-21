@@ -31,12 +31,12 @@
 			if (e.target.tagName !== "A")
 				return;
 
-			var submenu = e.target.nextElementSibling,
-				href = e.target.getAttribute("href"),
-				parent = e.target.parentNode;
+			var href = e.target.getAttribute("href");
 
-			if (submenu) {
+			if (e.target.nextElementSibling) {
 				e.preventDefault();
+
+				var parent = e.target.parentNode;
 
 				if (parent.tagName !== "LI")
 					return;
@@ -53,12 +53,12 @@
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
 				e.preventDefault();
 
-				if (burger.offsetLeft > 0 || burger.offsetTop > 0) {
-					burger.nextElementSibling.style.display = "none";
-				}
-
-				history.pushState(null, null, href);
 				replaceContent(href);
+				history.pushState(null, null, href);
+
+				if (burger.offsetLeft > 0 || burger.offsetTop > 0) {
+					burger.nextElementSibling.style.display = "";
+				}
 
 				// Close all other open menu items
 				var open = nav.getElementsByClassName("active");
