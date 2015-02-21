@@ -1,0 +1,2 @@
+﻿user-agent: *
+crawl-delay: 2

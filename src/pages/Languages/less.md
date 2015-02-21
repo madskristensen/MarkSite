@@ -1,10 +1,16 @@
 ﻿<properties
-			pageTitle="LESS & Sass"
-			description="Short description of the page"
-			slug="less-sass"
-			order="400"
-			keywords="css, intellisense, stylesheets"
+    pageTitle="LESS & Sass"
+    description="The two most popular supersets of CSS are fully supported. The support covers everything the CSS editor offers + some additional features."
+    slug="less-sass"
+    order="400"
+    keywords="css, intellisense, stylesheets"
 />
 
-1. foo
-2. bar
+## Basic auto-completion
+coming soon...
+
+## Variables
+coming soon...
+
+## Mixins
+coming soon...
