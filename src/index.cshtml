@@ -8,12 +8,20 @@
 
 	MarkdownPage page = PageSystem.GetCurrentPage(Request);
 
-	Page.Title = page.Title;
+	Page.Title = page.Title + " - Visual Studio";
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
 	Page.Theme = ConfigurationManager.AppSettings["theme"];
 
-	Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
+	if (Request.Headers["x-content-only"] == "1")
+	{
+		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+		Response.Headers.Add("x-title", Page.Title);
+	}
+	else
+	{
+		Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
+	}
 
 	WebPageHttpHandler.DisableWebPagesResponseHeader = true;
 	PageSystem.SetCacheHeaders(Context);

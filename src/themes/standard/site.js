@@ -1,6 +1,7 @@
 ﻿(function () {
 
-	var nav = document.getElementById("nav");
+	var nav = document.getElementById("nav"),
+		main = document.getElementsByTagName("main")[0];
 
 	function openMenu() {
 
@@ -8,7 +9,7 @@
 
 		if (active.length === 0)
 			return;
-		
+
 		var li = active[0].parentNode;
 
 		do {
@@ -22,10 +23,15 @@
 	}
 
 	function initMenu() {
-		nav.querySelector("ul").addEventListener("click", function (e) {
-			var submenu = e.target.nextElementSibling;
+		document.body.addEventListener("click", function (e) {
 
-			if (e.target.tagName === "A" && submenu) {
+			if (e.target.tagName !== "A")
+				return;
+
+			var submenu = e.target.nextElementSibling,
+				href = e.target.getAttribute("href");
+
+			if (submenu) {
 				e.preventDefault();
 				e.target.parentNode.className = e.target.parentNode.className === "" ? "open" : "";
 
@@ -35,6 +41,20 @@
 					if (e.target.parentNode !== open[i])
 						open[i].removeAttribute("class")
 				}
+			}
+			else if (href.indexOf("://") === -1 && history && history.pushState) {
+				e.preventDefault();
+
+				history.pushState(null, null, href);
+				replaceContent(href);
+
+				// Close all other open menu items
+				var open = nav.getElementsByClassName("active");
+				for (var i = 0; i < open.length; i++) {
+					open[i].removeAttribute("class");
+				}
+
+				e.target.className = "active";
 			}
 
 		}, false);
@@ -47,24 +67,50 @@
 		});
 	}
 
-	function initAppCache() {
-		if (!window.applicationCache)
+	function replaceContent(url) {
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", url, true);
+		xhr.setRequestHeader("x-content-only", "1");
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				main.innerHTML = xhr.responseText;
+				document.title = xhr.getResponseHeader("x-title");
+			}
+		}
+
+		xhr.send();
+	}
+
+	function initPushState() {
+
+		if (!history && !history.pushState)
 			return;
 
-		window.applicationCache.addEventListener('updateready', function (e) {
-			if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-				// Browser downloaded a new app cache.
-				//if (confirm('A new version of this site is available. Load it?')) {
-				window.location.reload();
-				//}
-			}
-		}, false);
+		window.addEventListener("popstate", function (e) {
+			replaceContent(location.pathname);
+		});
 	}
-	
+
+	//function initAppCache() {
+	//	if (!window.applicationCache)
+	//		return;
+
+	//	window.applicationCache.addEventListener('updateready', function (e) {
+	//		if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+	//			// Browser downloaded a new app cache.
+	//			//if (confirm('A new version of this site is available. Load it?')) {
+	//			window.location.reload();
+	//			//}
+	//		}
+	//	}, false);
+	//}
+
 	window.addEventListener('load', function (e) {
 
 		initMenu();
 		openMenu();
+		initPushState();
 		//initAppCache();
 
 	}, false);

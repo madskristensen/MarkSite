@@ -2,10 +2,10 @@
 	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
 }
 <!doctype html>
-<html lang="en" manifest="/appcache.manifestNO">
+<html lang="en">
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8" />
-	<title>@Page.Title - Visual Studio</title>
+	<title>@Page.Title</title>
 	<meta name="description" content="@Page.Description" />
 	<meta name="keywords" content="@Page.Keywords" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,9 +55,8 @@
 		</header>
 
 		<div class="container">
-			@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
-
 			<main role="main">
+				@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
 				@RenderBody()
 			</main>
 
