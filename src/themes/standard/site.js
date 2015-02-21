@@ -1,6 +1,7 @@
 ﻿(function () {
 
 	var nav = document.getElementById("nav"),
+		burger = document.getElementById("burger"),
 		main = document.getElementsByTagName("main")[0],
 		pageCache = [];
 
@@ -15,8 +16,9 @@
 
 		do {
 
-			if (li.tagName === "LI" && li.childElementCount === 2)
+			if (li.tagName === "LI" && li.childElementCount === 2) {
 				li.className = "open";
+			}
 
 			li = li.parentNode;
 
@@ -30,21 +32,30 @@
 				return;
 
 			var submenu = e.target.nextElementSibling,
-				href = e.target.getAttribute("href");
+				href = e.target.getAttribute("href"),
+				parent = e.target.parentNode;
 
 			if (submenu) {
 				e.preventDefault();
-				e.target.parentNode.className = e.target.parentNode.className === "" ? "open" : "";
+
+				if (parent.tagName !== "LI")
+					return;
+
+				parent.className = parent.className === "" ? "open" : "";
 
 				// Close all other open menu items
 				var open = nav.getElementsByClassName("open");
 				for (var i = 0; i < open.length; i++) {
-					if (e.target.parentNode !== open[i])
+					if (parent !== open[i])
 						open[i].removeAttribute("class")
 				}
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
 				e.preventDefault();
+
+				if (burger.offsetLeft > 0 || burger.offsetTop > 0) {
+					burger.nextElementSibling.style.display = "none";
+				}
 
 				history.pushState(null, null, href);
 				replaceContent(href);
@@ -60,7 +71,7 @@
 
 		}, false);
 
-		document.getElementById("burger").addEventListener("click", function (e) {
+		burger.addEventListener("click", function (e) {
 			e.preventDefault();
 			var ul = e.target.nextElementSibling;
 			var display = ul.style.display;
