@@ -1,7 +1,8 @@
 ﻿(function () {
 
 	var nav = document.getElementById("nav"),
-		main = document.getElementsByTagName("main")[0];
+		main = document.getElementsByTagName("main")[0],
+		pageCache = [];
 
 	function openMenu() {
 
@@ -69,17 +70,30 @@
 
 	function replaceContent(url) {
 
+		var cached = pageCache.filter(function (p) { return p.url === url; });
+
+		if (cached.length === 1) {
+			changeContent(cached[0]);
+			return;
+		}
+
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", url, true);
-		xhr.setRequestHeader("x-content-only", "1");
+		xhr.setRequestHeader("X-Content-Only", "1");
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4 && xhr.status === 200) {
-				main.innerHTML = xhr.responseText;
-				document.title = xhr.getResponseHeader("x-title");
+				var page = { url: url, content: xhr.responseText, title: xhr.getResponseHeader("X-Title") };
+				changeContent(page);
+				pageCache.push(page);
 			}
 		}
 
 		xhr.send();
+	}
+
+	function changeContent(page) {
+		main.innerHTML = page.content;
+		document.title = page.title;
 	}
 
 	function initPushState() {

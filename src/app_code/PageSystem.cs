@@ -94,8 +94,9 @@ public class PageSystem
 		if (!request.IsLocal)
 		{
 			response.Cache.SetValidUntilExpires(true);
-			response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+			response.Cache.SetCacheability(HttpCacheability.Public);
 			response.Cache.VaryByParams["path"] = true;
+			response.Cache.VaryByHeaders["X-Content-Only"] = true;
 			response.AddFileDependencies(allFiles);
 			response.Cache.SetLastModifiedFromFileDependencies();
 		}

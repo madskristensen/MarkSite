@@ -13,10 +13,10 @@
 	Page.Keywords = page.Keywords;
 	Page.Theme = ConfigurationManager.AppSettings["theme"];
 
-	if (Request.Headers["x-content-only"] == "1")
+	if (Request.Headers["X-Content-Only"] == "1")
 	{
 		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
-		Response.Headers.Add("x-title", Page.Title);
+		Response.Headers.Add("X-Title", Page.Title);
 	}
 	else
 	{
