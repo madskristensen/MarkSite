@@ -6,19 +6,25 @@
 			keywords="css, intellisense, stylesheets"
 />
 
-## Open source
-The entire CSS language definition that Visual Studio uses is open source.
-Find a missing property or psuedo-selector? Send a pull request.
-
 ## Basic auto-completion
-coming soon...
+The always-up-to-date web standards in Visual Studio provides a
+fast and precise auto-completion experience.
 
-## Selector Intellisense
-HTML elements, pseudos, classes and IDs
-coming soon...
+![Basic auto completion](_assets/css-auto-completion.gif)
+
+## Advanced auto-completion
+The Intellisense engine provides accurate auto-completion for
+classes, IDs and attribute names and values, which can sometimes
+be hard to remember.
+
+![Advanced auto completion](_assets/css-advanced-auto-completion.gif)
 
 ## Vendor specifics
-coming soon...
+The vendor specific selectors and properties are hidden until you
+type a hyphen. Vendor specific definitions are supported for `-moz-*`, 
+`-ms-*`, `-o-*` and `-webkit-*`.
+
+![Vendor specifics](_assets/css-vendor-specifics.gif)
 
 ## Working with colors
 coming soon...
@@ -38,3 +44,7 @@ coming soon...
 
 ## Auto-sync with BrowserLink
 coming soon...
+
+## Open source
+The entire CSS language definition that Visual Studio uses is open source.
+Find a missing property or psuedo-selector? Send a pull request.

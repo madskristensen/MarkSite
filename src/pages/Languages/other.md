@@ -1,5 +1,5 @@
 ﻿<properties
-    pageTitle="Other"
+    pageTitle="Other languages"
     description="Short description of the page"
     slug="other"
     order="1500"

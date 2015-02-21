@@ -102,6 +102,7 @@ to various refactorings and helpers.
 ### More information
 
 - [HTML 5 specification](http://www.w3.org/TR/html5/)
+- [Intro to HTML 5](http://www.w3schools.com/html/html5_intro.asp)
 </section>
 
 <section>
