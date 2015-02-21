@@ -5,8 +5,8 @@
 	keywords="vsix, extensibility, plugins"
 />
 
+![Extensions](_assets/index-extensions.png)
+
 Customize Visual Studio by leveraging the thousands of 
 extensions available from the constantly growing ecosystem 
 or even build your own. 
-
-![Extensions](_assets/index-extensions.png)

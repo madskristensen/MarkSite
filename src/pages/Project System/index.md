@@ -6,8 +6,8 @@
 	keywords="css, html, javascript"
 />
 
+![Project system](_assets/index-project-system.png)
+
 Be more productive with the brand new web project system, 
 with simple folder based structure that automatically 
 updates the browsers when the code changes.
-
-![Project system](_assets/index-project-system.png)

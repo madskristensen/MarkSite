@@ -95,6 +95,10 @@ main aside section {
 main aside section h3 {
   margin: 0;
 }
+main aside section ul {
+  list-style: none;
+  padding-left: 20px;
+}
 nav {
   position: absolute;
   top: 50px;

@@ -101,17 +101,16 @@ to various refactorings and helpers.
 
 ### More information
 
-1. [ASP.NET Razor](http://vswebessentials.com)
-2. [HTML 5 overview](http://vswebessentials.com)
+- [HTML 5 specification](http://www.w3.org/TR/html5/)
 </section>
 
 <section>
 
 ### Relevant extensions
 
-1. [Web Essentials](http://vswebessentials.com)
-2. [Glyphfriends](http://vswebessentials.com)
-3. [Bootstrap Snippet Pack](http://vswebessentials.com)
+- [Web Essentials](https://visualstudiogallery.msdn.microsoft.com/ee6e6d8c-c837-41fb-886a-6b50ae2d06a2)
+- [Glyphfriends](https://visualstudiogallery.msdn.microsoft.com/5fd24afb-b3b2-4cec-9b03-1cfcec6123aa)
+- [Bootstrap Snippet Pack](https://visualstudiogallery.msdn.microsoft.com/e82e7862-f731-4183-a27a-3a44b261bfe5)
 </section>
 
 </aside>

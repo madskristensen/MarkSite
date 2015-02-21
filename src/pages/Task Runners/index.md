@@ -6,11 +6,10 @@
 	keywords="css, html, javascript"
 />
 
+![Task Runners](_assets/index-task-runners.png)
+
 Dealing with both client- and server-side build steps have never 
 been easier. 
 
 Visual Studio fully supports a wide array of popular build and 
 task managers such as Grunt, Gulp and Powershell.
-
-
-![Task Runners](_assets/index-task-runners.png)

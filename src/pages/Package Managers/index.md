@@ -6,11 +6,11 @@
 	keywords="css, html, javascript"
 />
 
+![Package Managers](_assets/index-package-managers.png)
+
 Join the Open Web and pull in libraries from all over. 
 
 NuGet offers rich .NET server-side libraries, integration with 
 the bower package manager connects you to the latest thinking in 
 client side JavaScript technology, and npm pulls in great tools 
 and utlities.
-
-![Package Managers](_assets/index-package-managers.png)

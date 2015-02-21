@@ -6,9 +6,9 @@
 	keywords="angular, jsx, bootstrap, reactjs, asp.net, django, express"
 />
 
+![Frameworks](_assets/index-frameworks.png)
+
 Choose your frameworks or mix and match. Visual Studio includes 
 Intellisense for your client-side JavaScript and also lights up 
 with advanced support for today's most popular web frameworks 
 like Angular and Bootstrap.
-
-![Frameworks](_assets/index-frameworks.png)
