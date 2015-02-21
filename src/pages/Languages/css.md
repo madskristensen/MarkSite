@@ -1,6 +1,6 @@
 ﻿<properties
 			pageTitle="CSS"
-			description="The new CSS editor in Visual Studio fully supports all versions of CSS incluing aspects version 4."
+			description="The new CSS editor in Visual Studio fully supports all versions of CSS including aspects of version 4."
 			slug="css"
 			order="300"
 			keywords="css, intellisense, stylesheets"
