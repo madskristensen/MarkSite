@@ -47,7 +47,7 @@
 				var open = nav.getElementsByClassName("open");
 				for (var i = 0; i < open.length; i++) {
 					if (parent !== open[i])
-						open[i].removeAttribute("class")
+						open[i].removeAttribute("class");
 				}
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
@@ -61,14 +61,14 @@
 				}
 
 				// Close all other open menu items
-				var open = nav.getElementsByClassName("active");
-				for (var i = 0; i < open.length; i++) {
-					open[i].removeAttribute("class");
+				var active = nav.getElementsByClassName("active");
+				for (var a = 0; a < active.length; a++) {
+					active[a].removeAttribute("class");
 				}
 
 				e.target.className = "active";
 			}
-
+			
 		}, false);
 
 		burger.addEventListener("click", function (e) {
@@ -97,7 +97,7 @@
 				changeContent(page);
 				pageCache.push(page);
 			}
-		}
+		};
 
 		xhr.send();
 	}
