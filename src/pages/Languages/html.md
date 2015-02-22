@@ -12,6 +12,15 @@ accurate and fast Intellisense for all elements, attribute- names and values.
 
 ![Basic auto completion](_assets/html-auto-completion.gif)
 
+## Razor
+The ASP.NET Razor syntax allows you to inline C# directly inside
+your views. 
+
+You've got full access to the current `Model` as well
+as the entire .NET framework types available.
+
+![ASP.NET Razor](_assets/html-razor.gif)
+
 ## Match end-tag
 Never let your tags get out of sync again when editing. 
 Visual Studio makes sure to always keep them in sync.
