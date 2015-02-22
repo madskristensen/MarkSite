@@ -2,7 +2,7 @@
 			pageTitle="JavaScript"
 			description="Short description of the page"
 			slug="javascript"
-			order="200"
+			order="300"
 			keywords="javascript, jscript, script, dhtml, es3, es5, es6"
 />
 

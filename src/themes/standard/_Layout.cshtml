@@ -2,7 +2,7 @@
 	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
 }
 <!doctype html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/SoftwareApplication">
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8" />
 	<title>@Page.Title</title>
@@ -49,7 +49,7 @@
 	<div class="content">
 		<header role="banner">
 			<div class="container">
-				<a href="/">Visual Studio | Web</a>
+				<a href="/"><span itemprop="name">Visual Studio</span> | Web</a>
 				<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 			</div>
 		</header>
@@ -60,7 +60,7 @@
 				@RenderBody()
 			</main>
 
-			<nav id="nav">
+			<nav id="nav" role="navigation">
 				<a href="#" id="burger" aria-haspopup="true">Menu&nbsp;&nbsp;&nbsp;</a>
 				@Helpers.RenderMenu(PageSystem.IndexPage.Children)
 			</nav>
@@ -69,7 +69,7 @@
 
 	<footer role="contentinfo">
 		<div class="container">
-			<span class="ms">Microsoft</span>
+			<span class="ms" itemprop="publisher">Microsoft</span>
 			<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 		</div>
 	</footer>

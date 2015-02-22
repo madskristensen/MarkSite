@@ -1,8 +1,8 @@
-﻿<article itemscope itemtype="http://schema.org/Article">
+﻿<article>
 	<h1 itemprop="headline">@Model.Title</h1>
 	<p itemprop="description">@Model.Description</p>
 
-	<div itemprop="articleBody">
+	<div itemprop="text">
 		@Helpers.RenderContent(Model)
 	</div>
 </article>

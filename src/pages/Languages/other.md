@@ -6,7 +6,7 @@
     keywords="css, intellisense, stylesheets"
 />
 
-## C#
+## C++
 coming soon...
 
 ## CoffeeScript
@@ -22,6 +22,12 @@ coming soon...
 coming soon...
 
 ## Markdown
+coming soon...
+
+## Node.js
+coming soon...
+
+## Python
 coming soon...
 
 ## TypeScript

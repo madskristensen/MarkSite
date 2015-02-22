@@ -1,10 +1,10 @@
 ﻿<properties
-	pageTitle="Python"
+	pageTitle="C#"
 	description="Short description of the page"
-	slug="python"
+	slug="csharp"
+    order="200"
 	keywords="css, intellisense, stylesheets"
 />
 
 1. foo
 2. bar
-3. baz

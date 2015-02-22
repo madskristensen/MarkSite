@@ -2,6 +2,7 @@
 	pageTitle="NuGet"
 	description="The NuGet package manager is ideal for .NET components. With Visual Studio 2015 it is more powerful than ever."
 	slug="nuget"
+    order="300"
 	keywords="nuget, myget"
 />
 

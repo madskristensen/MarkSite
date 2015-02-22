@@ -2,7 +2,7 @@
 			pageTitle="CSS"
 			description="The new CSS editor in Visual Studio fully supports all versions of CSS including aspects of version 4."
 			slug="css"
-			order="300"
+			order="400"
 			keywords="css, intellisense, stylesheets"
 />
 

@@ -2,7 +2,7 @@
 	pageTitle="Project system"
 	description="The project system is the backbone of any web project in Visual Studio."
 	slug="project-system"
-	order="600"
+	order="300"
 	keywords="css, html, javascript"
 />
 
