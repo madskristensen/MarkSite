@@ -93,7 +93,7 @@ to various refactorings and helpers.
 
 ![Quick action](_assets/html-quick-action.gif)
 
-<aside>
+<aside role="complementary">
 
 ## Related resources
 
