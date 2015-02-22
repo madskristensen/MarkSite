@@ -1,4 +1,4 @@
-/// <binding ProjectOpened='watch' />
+/// <binding AfterBuild='default' />
 var gulp = require("gulp"),
 	less = require("gulp-less"),
 	jshint = require("gulp-jshint");
