@@ -7,10 +7,18 @@
 />
 
 ## project.json Intellisense
-coming soon...
+Get full Intellisense for everything in project.json including live
+search results from the online [NuGet registry](http://nuget.org).
+
+![NuGet package Intellisense](_assets/nuget-intellisense.gif)
+
+project.json is used to configure CoreCLR and ASP.NET 5 applications.
 
 ## Full package management system
 coming soon...
 
 ## Multiple sources
-coming soon...
+Add any local or remote package source through the built-in NuGet
+settings dialog.
+
+![NuGet sources](_assets/nuget-sources.png)
