@@ -52,8 +52,8 @@
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
 				e.preventDefault();
-
-				replaceContent(href);
+				
+				replaceContent(href, e.target);
 				history.pushState(null, null, href);
 
 				if (burger.offsetLeft > 0 || burger.offsetTop > 0) {
@@ -79,7 +79,7 @@
 		});
 	}
 
-	function replaceContent(url) {
+	function replaceContent(url, target) {
 
 		var cached = pageCache.filter(function (p) { return p.url === url; });
 
@@ -87,6 +87,8 @@
 			changeContent(cached[0]);
 			return;
 		}
+
+		target.setAttribute("data-spinner", "true");
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", url, true);
@@ -96,6 +98,7 @@
 				var page = { url: url, content: xhr.responseText, title: xhr.getResponseHeader("X-Title") };
 				changeContent(page);
 				pageCache.push(page);
+				target.removeAttribute("data-spinner");
 			}
 		};
 

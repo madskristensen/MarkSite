@@ -164,6 +164,10 @@ nav a {
 nav a.active {
   color: #00aedd;
 }
+nav a[data-spinner] {
+  position: relative;
+  background: url(/themes/standard/img/spinner2.gif) no-repeat 13px 9px;
+}
 #breadcrumb {
   list-style: none;
   padding: 0;
