@@ -42,7 +42,8 @@ to help make it clear what the various properties mean.
 2. Go to $ref definition
 
 ## Open source
-The entire CSS language definition that Visual Studio uses is open source.
+All the JSON Schema files that provide Intellisense and validation is open
+source at [SchemaStore.org](http://schemastore.org)
 Find a missing property or psuedo-selector? Send a pull request.
 
 ## Comments

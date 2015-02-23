@@ -7,30 +7,34 @@
 />
 
 ## Basic auto-completion
-coming soon...
+The JavaScript Intellisense engine is powered by Internet Explorer's JavaScript
+execution engine, Chakra. 
+
+That means that all your JavaScript code is executed in the background to 
+provide the ultimate Intellisense experience.
+
+![JavaScript basic auto completion](_assets/javascript-basic-auto-completion.gif)
 
 ## EcmaScript 5 and 6 support
 coming soon...
 
 ## Object literal Intellisense
-coming soon...
+The Chakra execution engine is capable of reverse engineering function
+parameters to provide object literal Intellisense.
+
+![Object literal Intellisense](_assets/javascript-object-literal-intellisense.gif)
 
 ## Snippets
-coming soon...
+Snippets provides a shortcut for common, but perhaps more complex structures,
+which is a huge productivity boost.
+
+![JavaScript snippets](_assets/javascript-snippets.gif)
 
 ## Go to definition
 coming soon...
 
-## Working with popular libraries
-coming soon...
-
 ## JSDoc support
 coming soon...
-
-## Open source
-The editor engine is easily extened by custom JavaScript Intellisense files.
-
-Many of those files are open source, so keep the pull requests coming
 
 ## Debugging
 coming soon...
