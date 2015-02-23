@@ -96,6 +96,13 @@ based template language, Visual Studio gives you nice colorization.
 
 ![Template syntax](_assets/html-template-syntax.gif)
 
+## Glyph icons
+See the actual glyph icons from all the major CSS icon libraries, including
+Bootstrap, Font Awesome, Foundation, Ionicons and IcoMoon using the
+[Glyphfriend](https://visualstudiogallery.msdn.microsoft.com/5fd24afb-b3b2-4cec-9b03-1cfcec6123aa) extension.
+
+![Glyphfriend](_assets/html-glyphfriend.png)
+
 ## Quick actions
 Light bulbs show up variuos places in the document to give quick access
 to various refactorings and helpers.

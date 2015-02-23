@@ -11,6 +11,11 @@ configuration of the variuos different Grunt tasks.
 
 ![Grunt auto-completion](_assets/grunt-auto-completion.gif)
 
+Using the [Web Essentials](http://vswebessentials.com) extension
+you also get completion for loading npm tasks.
+
+![Grunt load npm tasks](_assets/grunt-loadnpmtasks.gif)
+
 ## Snippets
 Create a new gruntfile.js very easily using the built-in snippet provided
 by the JavaScript editor.
@@ -51,6 +56,7 @@ with Visual Studio events.
 
 - [Web Essentials](https://visualstudiogallery.msdn.microsoft.com/ee6e6d8c-c837-41fb-886a-6b50ae2d06a2)
 - [Grunt Launcher](https://visualstudiogallery.msdn.microsoft.com/dcbc5325-79ef-4b72-960e-0a51ee33a0ff)
+- [Task Runner Explorer](https://visualstudiogallery.msdn.microsoft.com/8e1b4368-4afb-467a-bc13-9650572db708)
 </section>
 
 </aside>
