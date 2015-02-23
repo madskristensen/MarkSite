@@ -28,7 +28,10 @@ Intellisense for [Aurelia](http://aurelia.io/)'s HTML properties.
 ![Aurelia Intellisense](_assets/frameworks-aurelia.gif)
 
 ## Knockout.js
-coming soon...
+Get full Intellisense for your Knockout view models in the
+HTML data binding expressions.
+
+![Knockout Intellisense](_assets/frameworks-knockout.gif)
 
 ## Others
 
