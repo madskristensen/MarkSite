@@ -7,6 +7,8 @@ body {
   background: #fff;
   font: 16px/1.5em "Segoe UI", "Segoe WP Light", "Segoe WP", Tahoma, Arial, sans-serif;
   color: #505050;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 a {
   color: #00aedd;

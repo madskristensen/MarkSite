@@ -81,13 +81,12 @@
 
 	function replaceContent(url, target) {
 
-		var cached = pageCache.filter(function (p) { return p.url === url; });
+		var cached = pageCache[url];
 
-		if (cached.length === 1) {
-			changeContent(cached[0]);
+		if (cached) {
+			changeContent(cached);
 			return;
 		}
-
 		
 		target && target.setAttribute("data-spinner", "true");
 
@@ -98,7 +97,7 @@
 			if (xhr.readyState === 4 && xhr.status === 200) {
 				var page = { url: url, content: xhr.responseText, title: xhr.getResponseHeader("X-Title") };
 				changeContent(page);
-				pageCache.push(page);
+				pageCache[url] = page;
 				target && target.removeAttribute("data-spinner");
 			}
 		};
@@ -113,7 +112,7 @@
 
 	function initPushState() {
 
-		if (!history && !history.pushState)
+		if (!history || !history.pushState)
 			return;
 
 		window.addEventListener("popstate", function (e) {
