@@ -13,5 +13,11 @@ coming soon...
 coming soon...
 
 ## Browser support
-coming soon...
+Select your browser of choice from a dropdown menu and start running
+and debugging your app. 
+
+Visual Studio provides both Windows Phone and Android emulators,
+but you can install a lot more such as iOS emulators etc.
+
+![Browser selector](_assets/projects-browsers.png)
 

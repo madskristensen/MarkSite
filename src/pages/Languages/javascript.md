@@ -15,7 +15,7 @@ provide the ultimate Intellisense experience.
 
 ![JavaScript basic auto completion](_assets/javascript-basic-auto-completion.gif)
 
-## EcmaScript 5 and 6 support
+## EcmaScript 6 support
 coming soon...
 
 ## Object literal Intellisense

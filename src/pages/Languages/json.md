@@ -9,8 +9,8 @@
 Writing JSON documents has never been easier and more fluent than
 with the Visual Studio JSON editor.
 
-You can even type the colon inside the property name to boost your
-productivity.
+You can even type the colon inside the property name to save a few
+keystrokes.
 
 ![Basic JSON auto-completion](_assets/json-basic-auto-completion.gif)
 
