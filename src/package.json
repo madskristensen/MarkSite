@@ -4,7 +4,6 @@
 	"private": true,
 	"devDependencies": {
 		"gulp": "3.8.11",
-		"gulp-less": "3.0.0",
-		"gulp-jshint": "1.9.2"
+		"gulp-less": "3.0.0"
 	}	
 }

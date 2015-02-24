@@ -1,9 +1,8 @@
 /// <binding AfterBuild='default' ProjectOpened='watch' />
 var gulp = require("gulp"),
-	less = require("gulp-less"),
-	jshint = require("gulp-jshint");
+	less = require("gulp-less");
 
-gulp.task("default", ["less", "jshint"]);
+gulp.task("default", ["less"]);
 
 gulp.task("less", function () {
 	gulp.src("./themes/standard/less/site.less")
@@ -11,14 +10,7 @@ gulp.task("less", function () {
 	  .pipe(gulp.dest("./themes/standard/"));
 });
 
-gulp.task("jshint", function () {
-	gulp.src("./themes/**/*.js")
-		.pipe(jshint({lookup: false}))
-		.pipe(jshint.reporter("default", { verbose: true}))
-});
-
 gulp.task("watch", ["default"], function () {
 
 	gulp.watch(["./themes/standard/less/*.less"], ["less"]);
-	gulp.watch(["./themes/**/*.js"], ["jshint"]);
 });

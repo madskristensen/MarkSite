@@ -52,7 +52,7 @@
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
 				e.preventDefault();
-				
+
 				replaceContent(href, e.target);
 				history.pushState(null, null, href);
 
@@ -68,7 +68,7 @@
 
 				e.target.className = "active";
 			}
-			
+
 		}, false);
 
 		burger.addEventListener("click", function (e) {
@@ -88,7 +88,8 @@
 			return;
 		}
 
-		target.setAttribute("data-spinner", "true");
+		
+		target && target.setAttribute("data-spinner", "true");
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", url, true);
@@ -98,7 +99,7 @@
 				var page = { url: url, content: xhr.responseText, title: xhr.getResponseHeader("X-Title") };
 				changeContent(page);
 				pageCache.push(page);
-				target.removeAttribute("data-spinner");
+				target && target.removeAttribute("data-spinner");
 			}
 		};
 
@@ -120,26 +121,11 @@
 		});
 	}
 
-	//function initAppCache() {
-	//	if (!window.applicationCache)
-	//		return;
-
-	//	window.applicationCache.addEventListener('updateready', function (e) {
-	//		if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-	//			// Browser downloaded a new app cache.
-	//			//if (confirm('A new version of this site is available. Load it?')) {
-	//			window.location.reload();
-	//			//}
-	//		}
-	//	}, false);
-	//}
-
 	window.addEventListener('load', function (e) {
 
 		initMenu();
 		openMenu();
 		initPushState();
-		//initAppCache();
 
 	}, false);
 

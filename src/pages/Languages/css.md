@@ -42,7 +42,12 @@ provided as snippets. Just hit `Tab` to expand the snippet.
 ![CSS Vendor specific snippets](_assets/css-vendor-snippets.gif)
 
 ## Working with colors
-coming soon...
+The color picker is part of Intellisense which makes it very handy to
+use whenever you're dealing with colors. Use the eyedropper to pick
+colors from other windows, set the opacity or chose from previously
+used colors.
+
+![CSS color picker](_assets/css-colors.gif)
 
 ## File picker
 Working with images, fonts and other files is very easy using
