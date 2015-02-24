@@ -2,7 +2,7 @@ version: 1.0.{build}
 configuration: Release
 
 install:
-  - npm install
+  - cd src && npm install
   - npm install gulp -g
 
 build:
@@ -10,7 +10,7 @@ build:
 
 build_script: 
   - test\aspnet_compiler -p src -v -u output
-  - gulp
+  - cd src && gulp
 
 test_script:
   - ps: .\test\test.ps1
