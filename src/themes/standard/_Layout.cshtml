@@ -9,7 +9,8 @@
 	<meta name="description" content="@Page.Description" />
 	<meta name="keywords" content="@Page.Keywords" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="@Helpers.Fingerprint("/themes/" + Page.Theme +"/site.css")" rel="stylesheet" />
+	<link rel="stylesheet" href="@Helpers.Fingerprint("/themes/" + Page.Theme +"/site.css")" />
+	<link rel="prefetch" href="@Helpers.Fingerprint("/themes/" + Page.Theme + "/site.js")" />
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@("@visualstudio")" />
@@ -43,6 +44,8 @@
 	<meta name="msapplication-TileImage" content="/themes/standard/favicon/mstile-144x144.png">
 	<meta name="msapplication-config" content="/themes/standard/favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
+
+	@RenderSection("flipahead", required: false)
 </head>
 <body>
 
