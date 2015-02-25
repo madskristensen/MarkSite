@@ -11,9 +11,31 @@ main {
 		border-bottom: 1px solid @menu-background-color;
 	}
 
+	article ul {
+		list-style: none;
+		padding-left: 0;
+
+		a {
+			padding-left: 25px;
+			background: no-repeat left 5px;
+		}
+
+		a[href*="github.com"] {
+			background-image: url(/themes/standard/img/github.png);
+		}
+
+		a[href*="visualstudiogallery.msdn.microsoft.com"] {
+			background-image: url(/themes/standard/img/vs.png);
+		}
+
+		a[href*="codeplex.com"] {
+			background-image: url(/themes/standard/img/codeplex.png);
+		}
+	}
+
 	aside {
 		overflow: hidden;
-		
+
 		h2 {
 			padding-top: @container-padding;
 			border-top: 1px solid @menu-background-color;
@@ -27,9 +49,13 @@ main {
 				margin: 0;
 			}
 
-			ul {
-				list-style: none;
-				padding-left: 20px;
+			li {
+				padding: 1px 0;
+			}
+
+			a {
+				padding: 0;
+				background: none !important;
 			}
 		}
 	}

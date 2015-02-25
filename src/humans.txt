@@ -1,0 +1,17 @@
+﻿# This website was created by these nice people:
+
+Mads Kristensen
+@mkristensen
+Creator
+
+Sayed Hashimi
+@sayedihashimi
+Contributor
+
+Scott Hanselman
+@shanselman
+Contributor
+
+Jeff Fritz
+@csharpfritz
+Contributor

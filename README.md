@@ -79,6 +79,9 @@ image, but about 5 pixels from the top and left.
 The padding rule only applies to screenshots/animated GIFs taken
 inside the editors.
 
+The width of any screenshot/animated GIF, make sure to keep them at
+a maximum of 600 pixels wide.
+
 #### Validation
 
 To help make sure that each pull request meets the requirements of the metadata,

@@ -50,7 +50,7 @@ img {
 #contribute {
   padding: 0 0 0 25px;
   margin: 50px 0 30px 0;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAY1BMVEVMaXEUEhIUExMVExMVExMbGxsSEhIWFBQAAAASEREVExMAAAATEREUFBQPDw8VFBQUFBQWExMVExMPDw8VExMWFRUSEhIQEBAVExMUExMTExMVFBQMDAwVFBQTERESEhIWFRUMnTeKAAAAIHRSTlMAlqOb3QkN/AU4ywJNciDkh8S1MZHjHC3Sn2nvFbCPRXKtlGIAAACMSURBVBgZPcAJkoIwFADRBkJ+ArjvOkvf/5SWmvLxUocUkYbKR+5t+gyQJ7+mDPRO92tsNnG9T/ZQdaCMMBYGrdy0o+n0RtIzzVkT4YOvh0EYhaaEQdKFZtFEp6cDb4eTdlzir3dXoe7UuMDR/+43w4/qESj7tNQZRnVfAMo2HGE0toWP9WqGebUGeAJ/CAvLFoJlxQAAAABJRU5ErkJggg==') /*/themes/standard/img/github.png*/ no-repeat left;
+  background: url(/themes/standard/img/github.png) no-repeat left;
   clear: both;
   display: block;
 }
@@ -88,6 +88,23 @@ main article > p {
   padding-bottom: 20px;
   border-bottom: 1px solid #f2eee6;
 }
+main article ul {
+  list-style: none;
+  padding-left: 0;
+}
+main article ul a {
+  padding-left: 25px;
+  background: no-repeat left 5px;
+}
+main article ul a[href*="github.com"] {
+  background-image: url(/themes/standard/img/github.png);
+}
+main article ul a[href*="visualstudiogallery.msdn.microsoft.com"] {
+  background-image: url(/themes/standard/img/vs.png);
+}
+main article ul a[href*="codeplex.com"] {
+  background-image: url(/themes/standard/img/codeplex.png);
+}
 main aside {
   overflow: hidden;
 }
@@ -102,9 +119,12 @@ main aside section {
 main aside section h3 {
   margin: 0;
 }
-main aside section ul {
-  list-style: none;
-  padding-left: 20px;
+main aside section li {
+  padding: 1px 0;
+}
+main aside section a {
+  padding: 0;
+  background: none !important;
 }
 nav {
   position: absolute;

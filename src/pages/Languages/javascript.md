@@ -34,9 +34,8 @@ which is a huge productivity boost.
 coming soon...
 
 ## JSDoc support
-The Intellisense engine supports [JSDoc v3](http://usejsdoc.org/) as well
-as the older [XMLDoc comment](https://msdn.microsoft.com/en-us/library/bb514138.aspx) 
-syntax.
+The Intellisense engine supports JSDoc v3 as well as the older XMLDoc 
+comment syntax.
 
 ![JavaScript JSDoc support](_assets/javascript-jsdoc.gif)
 
@@ -54,3 +53,27 @@ by using the navigation bar at the top of the editor.
 
 ## Unit testing
 coming soon...
+
+<aside role="complementary">
+
+## Related resources
+
+<section>
+
+### More information
+
+- [JSDoc v3](http://usejsdoc.org/)
+- [XMLDoc comments](https://msdn.microsoft.com/en-us/library/bb514138.aspx)
+</section>
+
+<section>
+
+### Relevant extensions
+
+- [Web Essentials](https://visualstudiogallery.msdn.microsoft.com/ee6e6d8c-c837-41fb-886a-6b50ae2d06a2)
+- [JSLint](https://visualstudiogallery.msdn.microsoft.com/ede12aa8-0f80-4e6f-b15c-7a8b3499370e)
+- [DocStubJs](https://visualstudiogallery.msdn.microsoft.com/0cb7304b-ad78-4283-ba2b-42804657fcdd)
+- [Chutzpah Unit Test](https://visualstudiogallery.msdn.microsoft.com/f8741f04-bae4-4900-81c7-7c9bfb9ed1fe)
+</section>
+
+</aside>

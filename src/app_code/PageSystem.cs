@@ -99,6 +99,7 @@ public class PageSystem
 			response.Cache.VaryByHeaders["X-Content-Only"] = true;
 			response.AddFileDependencies(allFiles);
 			response.Cache.SetLastModifiedFromFileDependencies();
+			response.AppendHeader("Arr-Disable-Session-Affinity", "True"); // For Azure Websites
 		}
 
 		return lastModified;
