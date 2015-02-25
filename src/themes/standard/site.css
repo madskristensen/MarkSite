@@ -90,7 +90,7 @@ main article > p {
 }
 main article ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0 0 40px 0;
 }
 main article ul a {
   padding-left: 25px;
@@ -118,6 +118,9 @@ main aside section {
 }
 main aside section h3 {
   margin: 0;
+}
+main aside section ul {
+  padding: 0;
 }
 main aside section li {
   padding: 1px 0;
