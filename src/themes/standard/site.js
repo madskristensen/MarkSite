@@ -87,7 +87,7 @@
 			changeContent(cached);
 			return;
 		}
-		
+
 		target && target.setAttribute("data-spinner", "true");
 
 		var xhr = new XMLHttpRequest();
@@ -120,11 +120,29 @@
 		});
 	}
 
+	function initPinnedSite() {
+		try {
+			if (window.external.msIsSiteMode()) {
+				ext = window.external;
+				ext.msSiteModeCreateJumpList("Navigation");
+
+				var mainItems = document.querySelectorAll("#nav > ul > li > a");
+
+				for (var i = mainItems.length - 1; i > -1; i--) {
+					var link = mainItems[i];
+					ext.msSiteModeAddJumpListItem(link.innerHTML, link.href, "/themes/standard/favicon/favicon.ico");
+				}
+			}
+		}
+		catch (e) { }
+	}
+
 	window.addEventListener('load', function (e) {
 
 		initMenu();
 		openMenu();
 		initPushState();
+		initPinnedSite();
 
 	}, false);
 
