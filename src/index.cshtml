@@ -1,4 +1,4 @@
-﻿@using System.Configuration;
+﻿@using manager = System.Configuration.ConfigurationManager;
 @{
 	// Make sure all URLs end with a slash
 	if (!Request.QueryString["path"].EndsWith("/"))
@@ -11,7 +11,7 @@
 	Page.Title = page.Parent == null ? "Visual Studio | Web" : page.Title + " - Visual Studio";
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
-	Page.Theme = ConfigurationManager.AppSettings["theme"];
+	Page.Theme = manager.AppSettings["theme"];
 
 	MarkdownPage next = null;
 	MarkdownPage prev = null;

@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Configuration;
+@{
 	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
 }
 <!doctype html>
@@ -55,7 +56,7 @@
 	<div class="content">
 		<header role="banner">
 			<div class="container">
-				<a href="/"><span itemprop="name">Visual Studio</span> | Web</a>
+				<a href="/"><span itemprop="name">@ConfigurationManager.AppSettings["name"]</a>
 				<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 			</div>
 		</header>
