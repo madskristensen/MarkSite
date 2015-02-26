@@ -1,16 +1,30 @@
 ﻿@using System.Configuration;
 @{
-	Response.StatusCode = 404;
+	string status = Request.QueryString["status"] ?? "404";
+	Response.StatusCode = int.Parse(status);
 
-	Page.Title = "Page not found";
-	Page.Description = "404 - page not found";
+	string title = "Page not found";
+	string desc = "It looks like I can't find this page";
+
+	if (Response.StatusCode != 404)
+	{
+		title = "Something went wrong";
+		desc = "We've recorded the error and a fix is coming.";
+    }
+
+	Page.Title = title;
+	Page.Description = title;
+	@WriteContent(title, desc);
+
 	Page.Theme = ConfigurationManager.AppSettings["theme"];
 
 	Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
 }
 
-<h1>The page doesn't exist</h1>
+@helper WriteContent(string title, string content) { 
+<h1>@title</h1>
 
 <article>
-	<p>It looks like I can't find this page.</p>
+	<p>@content</p>
 </article>
+}
