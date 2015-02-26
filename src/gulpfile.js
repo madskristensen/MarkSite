@@ -6,11 +6,11 @@ gulp.task("default", ["less"]);
 
 gulp.task("less", function () {
 	gulp.src("./themes/standard/less/above-the-fold.less")
-	  .pipe(less({ compress: true }))
+	  .pipe(less({ optimization: true }))
 	  .pipe(gulp.dest("./themes/standard/"));
 
 	gulp.src("./themes/standard/less/below-the-fold.less")
-	  .pipe(less({ compress: true }))
+	  .pipe(less({ optimization: true }))
 	  .pipe(gulp.dest("./themes/standard/"));
 });
 

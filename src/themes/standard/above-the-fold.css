@@ -1,1 +1,89 @@
-@-ms-viewport{width:device-width}html,body{height:100%}body{margin:0;min-height:600px;background:#fff;font:16px/1.5em "Segoe UI","Segoe WP Light","Segoe WP",Tahoma,Arial,sans-serif;color:#505050;-ms-touch-action:manipulation;touch-action:manipulation}a{color:#00aedd;text-decoration:none}a:hover{color:#0072c6}h1,h2,h3,h4{font-family:"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;font-weight:400;margin:25px 0}h1{font-size:36px}h2{font-size:30px}h3{font-size:22px}img{max-width:100%;height:auto}.content{min-height:100%}li{padding:1px 0}.container{max-width:960px;margin:0 auto;padding:0 20px}.download{display:none}header{background:#752767;color:#fff;line-height:60px;height:60px;font-size:1.4em;margin-bottom:30px}header a{color:#fff}header .download{margin-right:5px}#breadcrumb{list-style:none;padding:0;margin:0}#breadcrumb li{display:inline}#breadcrumb li:not(:first-child):before{content:' » '}nav>ul{visibility:hidden}#burger{display:none}
+@-ms-viewport {
+  width: device-width;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 600px;
+  background: #fff;
+  font: 16px/1.5em "Segoe UI", "Segoe WP Light", "Segoe WP", Tahoma, Arial, sans-serif;
+  color: #505050;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a {
+  color: #00aedd;
+  text-decoration: none;
+}
+a:hover {
+  color: #0072c6;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Segoe UI Light", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  margin: 25px 0;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 22px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.content {
+  min-height: 100%;
+}
+li {
+  padding: 1px 0;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.download {
+  display: none;
+}
+header {
+  background: #752767;
+  color: #ffffff;
+  line-height: 60px;
+  height: 60px;
+  font-size: 1.4em;
+  margin-bottom: 30px;
+}
+header a {
+  color: #ffffff;
+}
+header .download {
+  margin-right: 5px;
+}
+#breadcrumb {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#breadcrumb li {
+  display: inline;
+}
+#breadcrumb li:not(:first-child):before {
+  content: ' » ';
+}
+nav > ul {
+  visibility: hidden;
+}
+#burger {
+  display: none;
+}
