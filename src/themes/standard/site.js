@@ -144,7 +144,6 @@
 			return;
 
 		window.addEventListener("popstate", function (e) {
-			alert("foo")
 			replaceContent(location.pathname);
 		});
 	}

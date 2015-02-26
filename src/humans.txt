@@ -2,7 +2,11 @@
 
 Mads Kristensen
 @mkristensen
-Creator
+Creator and developer
+
+Ben Pham
+@benpham
+Graphical design
 
 Sayed Hashimi
 @sayedihashimi
