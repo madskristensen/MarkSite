@@ -52,12 +52,13 @@
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
 				e.preventDefault();
-
+				
 				replaceContent(href, e.target);
 				history.pushState(null, null, href);
+				scrollTo(0, 0);
 
-				if (burger.offsetLeft > 0 || burger.offsetTop > 0) {
-					burger.nextElementSibling.style.display = "";
+				if (burger.offsetLeft > 0 || burger.offsetTop > 0) { // If small screen
+					burger.nextElementSibling.style.visibility = "";
 				}
 
 				// Close all other open menu items
@@ -137,20 +138,19 @@
 		catch (e) { }
 	}
 
-	function loadCSS(href) {
-		var ss = document.createElement('link'),
-			ref = document.getElementsByTagName('head')[0];
+	var cb = function () {
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = css;
+		var head = document.getElementsByTagName('head')[0];
+		head.parentNode.insertBefore(link, head);
+	};
 
-		ss.rel = 'stylesheet';
-		ss.href = href;
-		ss.media = 'only x';
+	var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+		webkitRequestAnimationFrame || msRequestAnimationFrame;
 
-		ref.parentNode.insertBefore(ss, ref);
-
-		setTimeout(function () {
-			ss.media = 'all';
-		}, 0);
-	}
+	if (raf) raf(cb);
+	else window.addEventListener('load', cb);
 
 	window.addEventListener('load', function (e) {
 
@@ -158,7 +158,6 @@
 		openMenu();
 		initPushState();
 		initPinnedSite();
-		loadCSS(css);
 
 	}, false);
 

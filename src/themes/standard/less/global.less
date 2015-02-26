@@ -1,11 +1,16 @@
 ﻿@import "variables";
 
+@-ms-viewport {
+	width: device-width;
+}
+
 html, body {
 	height: 100%;
 }
 
 body {
 	margin: 0;
+	min-height: 600px;
 	background: #fff;
 	font: 16px/1.5em "Segoe UI","Segoe WP Light","Segoe WP",Tahoma,Arial,sans-serif;
 	color: @text-color;
@@ -47,6 +52,10 @@ img {
 
 .content {
 	min-height: 100%;
+}
+
+li {
+	padding: 1px 0;
 }
 
 .container {
