@@ -1,14 +1,32 @@
 ﻿@import "variables";
 
+@break: 700px;
+
 @-ms-viewport {
 	width: device-width;
 }
 
-@media only screen and (max-width : 700px) {
+@media only screen and (min-width : (@break + 1)) {
 
 	.container {
-		position: static;
+		position: relative;
 	}
+
+	.download {
+		float: right;
+		font-size: 16px;
+		background: url(/themes/standard/img/arrow.png) no-repeat right center;
+		color: #fff;
+		padding-right: 30px;
+		display: inline-block !important;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+@media only screen and (max-width : @break) {
 
 	header .download {
 		display: none;
@@ -19,8 +37,9 @@
 		right: 0;
 
 		> ul {
-			display: none;
-			margin-top: 40px
+			visibility: hidden;
+			margin-top: 40px;
+			list-style: none;
 		}
 
 		#burger {

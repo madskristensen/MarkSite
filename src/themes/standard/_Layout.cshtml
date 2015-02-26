@@ -9,7 +9,8 @@
 	<meta name="description" content="@Page.Description" />
 	<meta name="keywords" content="@Page.Keywords" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="@Helpers.Fingerprint("/themes/" + Page.Theme +"/site.css")" />
+	<style>@Html.Raw(File.ReadAllText(Server.MapPath("~/themes/standard/above-the-fold.css")))</style>
+	@*<link rel="stylesheet" href="@Helpers.Fingerprint("/themes/" + Page.Theme +"/below-the-fold.css")" />*@
 	<link rel="prefetch" href="@Helpers.Fingerprint("/themes/" + Page.Theme + "/site.js")" />
 
 	<meta name="twitter:card" content="summary" />
@@ -81,5 +82,8 @@
 	</footer>
 
 	<script src="@Helpers.Fingerprint("/themes/" + Page.Theme + "/site.js")" async></script>
+	<script>
+		var css = '@Helpers.Fingerprint("/themes/" + Page.Theme + "/below-the-fold.css")';
+	</script>
 </body>
 </html>

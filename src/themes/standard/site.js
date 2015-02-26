@@ -74,8 +74,8 @@
 		burger.addEventListener("click", function (e) {
 			e.preventDefault();
 			var ul = e.target.nextElementSibling;
-			var display = ul.style.display;
-			ul.style.display = display === "" ? "block" : "";
+			var display = ul.style.visibility;
+			ul.style.visibility = display === "" ? "visible" : "";
 		});
 	}
 
@@ -137,12 +137,28 @@
 		catch (e) { }
 	}
 
+	function loadCSS(href) {
+		var ss = document.createElement('link'),
+			ref = document.getElementsByTagName('head')[0];
+
+		ss.rel = 'stylesheet';
+		ss.href = href;
+		ss.media = 'only x';
+
+		ref.parentNode.insertBefore(ss, ref);
+
+		setTimeout(function () {
+			ss.media = 'all';
+		}, 0);
+	}
+
 	window.addEventListener('load', function (e) {
 
 		initMenu();
 		openMenu();
 		initPushState();
 		initPinnedSite();
+		loadCSS(css);
 
 	}, false);
 
