@@ -7,6 +7,9 @@
 
 	function openMenu() {
 
+		if (location.pathname === "/")
+			return;
+
 		var active = nav.getElementsByClassName("active");
 
 		if (active.length === 0)
@@ -51,6 +54,9 @@
 				}
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
+				if (location.pathname === "/" || e.target.getAttribute("href") === "/")
+					return;
+
 				e.preventDefault();
 
 				replaceContent(href, e.target);

@@ -6,7 +6,7 @@ header {
 	line-height: 60px;
 	height: 60px;
 	font-size: 1.4em;
-	margin-bottom: 30px;
+	margin-bottom: 0;
 
 	a {
 		color: @header-color;
@@ -18,5 +18,24 @@ header {
 
 	.download {
 		margin-right: 5px;
+	}
+}
+
+#hero {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 200px;
+	color: white;
+	padding: (@container-padding * 2) 0;
+
+	h1{
+		margin: 0;
+	}
+
+	p{
+		font-size: 18px;
+		max-width: 70%;
 	}
 }

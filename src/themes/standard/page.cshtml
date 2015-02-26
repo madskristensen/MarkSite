@@ -1,7 +1,9 @@
 ﻿<article>
-	<h1 itemprop="headline">@Model.Title</h1>
-	<p itemprop="description">@Model.Description</p>
-
+	@if (Model.Parent != null)
+	{
+		<h1 itemprop="headline">@Model.Title</h1>
+			<p itemprop="description">@Model.Description</p>
+	}
 	<div itemprop="text">
 		@Helpers.RenderContent(Model)
 	</div>

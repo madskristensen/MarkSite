@@ -61,9 +61,28 @@
 			</div>
 		</header>
 
+		@if (Page.ShowHero)
+		{
+			<div id="hero">
+				<div class="container">
+					<h1>Open web tooling</h1>
+					<p>Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today.</p>
+					<ul>
+						<li>HTML5, CSS3, LESS/SASS, JS editors</li>
+						<li>ASP.NET, nodejs, Python, JavaScript</li>
+						<li>NuGet, Grunt, Gulp, bower, npm npm</li>
+					</ul>
+
+				</div>
+			</div>
+		}
+
 		<div class="container">
 			<main role="main">
-				@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+				@if (!Page.ShowHero)
+				{
+					@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+				}
 				@RenderBody()
 			</main>
 
