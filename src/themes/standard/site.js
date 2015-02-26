@@ -81,7 +81,6 @@
 
 		if (cached) {
 			changeContent(cached);
-			afterMenuItemClicked();
 			return;
 		}
 
@@ -92,28 +91,51 @@
 		xhr.setRequestHeader("X-Content-Only", "1");
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4 && xhr.status === 200) {
-				var page = { url: url, content: xhr.responseText, title: xhr.getResponseHeader("X-Title") };
+				var page = { url: url, content: xhr.responseText, title: xhr.getResponseHeader("X-Title"), next: xhr.getResponseHeader("X-Next"), prev: xhr.getResponseHeader("X-Prev") };
 				changeContent(page);
 				pageCache[url] = page;
 				target && target.removeAttribute("data-spinner");
-				afterMenuItemClicked();
 			}
 		};
 
 		xhr.send();
 	}
 
-	function afterMenuItemClicked() {
-		if (burger.offsetLeft > 0 || burger.offsetTop > 0) { // If small screen
-			burger.nextElementSibling.style.visibility = "";
+	function SetFlipAheadLinks(next, prev) {
+		var nextLink = document.head.querySelector("link[rel=next]");
+		var prevLink = document.head.querySelector("link[rel=prev]");
+
+		setLink(nextLink, next, "next");
+		setLink(prevLink, prev, "prev");
+
+		function setLink(link, href, rel) {
+			if (href) {
+				link = link || createLink(rel, href);
+				link.href = href;
+			}
+			else if (link) {
+				link.parentNode.removeChild(link);
+			}
 		}
 
-		scrollTo(0, 0);
+		function createLink(rel, href) {
+			var link = document.createElement("link");
+			link.rel = rel;
+			link.href = href;
+			return document.head.appendChild(link);
+		}
 	}
 
 	function changeContent(page) {
 		main.innerHTML = page.content;
 		document.title = page.title;
+		SetFlipAheadLinks(page.next, page.prev);
+
+		if (burger.offsetLeft > 0 || burger.offsetTop > 0) { // If small screen
+			burger.nextElementSibling.style.visibility = "";
+		}
+
+		scrollTo(0, 0);
 	}
 
 	function initPushState() {
@@ -122,6 +144,7 @@
 			return;
 
 		window.addEventListener("popstate", function (e) {
+			alert("foo")
 			replaceContent(location.pathname);
 		});
 	}

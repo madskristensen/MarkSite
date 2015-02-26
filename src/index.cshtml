@@ -16,31 +16,39 @@
 	MarkdownPage next = null;
 	MarkdownPage prev = null;
 
+	if (page.Parent == null)
+	{
+		next = page.Children.FirstOrDefault();
+		prev = null;
+	}
+	else
+	{
+		int index = page.Parent.Children.IndexOf(page);
+		next = index < (page.Parent.Children.Count - 1) ? page.Parent.Children[index + 1] : null;
+		prev = index > 0 ? page.Parent.Children[index - 1] : null;
+	}
+
 	if (Request.Headers["X-Content-Only"] == "1")
 	{
 		@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
 		Response.Headers.Add("X-Title", Page.Title);
+		if (next != null)
+		{
+			Response.Headers.Add("X-Next", Helpers.CreateLink(next));
+		}
+		if (prev != null)
+		{
+			Response.Headers.Add("X-Prev", Helpers.CreateLink(prev));
+		}
 	}
 	else
 	{
 		Layout = "~/themes/" + Page.Theme + "/_layout.cshtml";
-
-		if (page.Parent == null)
-		{
-			next = page.Children.FirstOrDefault();
-			prev = null;
-		}
-		else
-		{
-			int index = page.Parent.Children.IndexOf(page);
-			next = index < (page.Parent.Children.Count - 1) ? page.Parent.Children[index + 1] : null;
-			prev = index > 0 ? page.Parent.Children[index - 1] : null;
-		}
 	}
 
 	WebPageHttpHandler.DisableWebPagesResponseHeader = true;
 	PageSystem.SetCacheHeaders(Context);
-}
+	}
 
 @section flipahead
 {
