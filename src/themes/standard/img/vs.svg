@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
+	 height="16px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.icon-canvas-transparent{opacity:0;fill:#F6F6F6;}
+	.icon-vs-out{fill:#F6F6F6;}
+	.icon-visualstudio{fill:#68217A;}
+</style>
+<g id="canvas">
+	<path class="icon-canvas-transparent" d="M16,16H0V0h16V16z"/>
+</g>
+<g id="outline">
+	<path class="icon-vs-out" d="M5.969,10.828l-2.831,2.358L0,11.618V4.382l3.138-1.569l2.831,2.359l5.789-5.157L16,1.279
+		v13.441l-4.242,1.264L5.969,10.828z"/>
+</g>
+<g id="iconBg">
+	<path class="icon-visualstudio" d="M12,1L6,6.5L3,4L1,5v6l2,1l3-2.5l6,5.5l3-1V2L12,1z M3,10V6l2,2L3,10z M8,8l4-3v6L8,8z"/>
+</g>
+</svg>
