@@ -10,7 +10,7 @@
 The always-up-to-date web standards in Visual Studio provides a
 fast and precise auto-completion experience.
 
-![Basic auto completion](_assets/css-auto-comjpletion.gif)
+![Basic auto completion](_assets/css-auto-completion.gif)
 
 ## Advanced auto-completion
 The Intellisense engine provides accurate auto-completion for
