@@ -8,7 +8,7 @@ Ben Pham
 @benpham
 Graphic design
 
-Cherry Want
+Cherry Wang
 SVG icons
 
 Sayed Hashimi
@@ -21,4 +21,8 @@ Contributor
 
 Jeff Fritz
 @csharpfritz
+Contributor
+
+Damian Edwards
+@damianedwards
 Contributor

@@ -56,7 +56,7 @@
 	<div class="content">
 		<header role="banner">
 			<div class="container">
-				<a href="/"><span itemprop="name">@ConfigurationManager.AppSettings["name"]</a>
+				<span itemprop="name"><a href="/">@ConfigurationManager.AppSettings["name"]</a></span>
 				<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 			</div>
 		</header>
@@ -76,7 +76,10 @@
 
 		<div class="container">
 			<main role="main">
-				@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+				@if (PageSystem.GetCurrentPage(Request).Parent != null)
+				{
+					@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
+				}
 				@RenderBody()
 			</main>
 

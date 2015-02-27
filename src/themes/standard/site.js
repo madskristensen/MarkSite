@@ -3,6 +3,7 @@
 	var nav = document.getElementById("nav"),
 		burger = document.getElementById("burger"),
 		main = document.getElementsByTagName("main")[0],
+		hero = document.getElementById("hero"),
 		pageCache = [];
 
 	function openMenu() {
@@ -57,7 +58,6 @@
 				e.preventDefault();
 
 				replaceContent(href, e.target);
-				toggleHero(e.target.getAttribute("href"));
 				history.pushState(null, null, href);
 
 				// Close all other open menu items
@@ -81,17 +81,15 @@
 
 	function toggleHero(href) {
 		if ((!href && location.pathname === "/") || href === "/") {
-			document.getElementById("hero").style.maxHeight = "300px";
-			setTimeout(function () { document.getElementById("breadcrumb").style.display = "none" }, 500);
+			hero.style.maxHeight = "";
 		}
 		else {
-			document.getElementById("hero").style.maxHeight = 0;
-			setTimeout(function () { document.getElementById("breadcrumb").style.display = "" }, 500);
+			hero.style.maxHeight = 0;
 		}
 	}
 
 	function replaceContent(url, target) {
-
+		
 		var cached = pageCache[url];
 
 		if (cached) {
@@ -142,15 +140,21 @@
 	}
 
 	function changeContent(page) {
-		main.innerHTML = page.content;
-		document.title = page.title;
-		SetFlipAheadLinks(page.next, page.prev);
+		setTimeout(function () {
+			main.innerHTML = page.content;
+			document.title = page.title;
+			SetFlipAheadLinks(page.next, page.prev);
+			
+			scrollTo(0, 0);
+			main.style.opacity = 1;
+		}, 250);
 
 		if (burger.offsetLeft > 0 || burger.offsetTop > 0) { // If small screen
 			burger.nextElementSibling.style.visibility = "";
 		}
 
-		scrollTo(0, 0);
+		main.style.opacity = 0;
+		toggleHero(page.url);
 	}
 
 	function initPushState() {
@@ -184,5 +188,5 @@
 	openMenu();
 	initPushState();
 	initPinnedSite();
-	toggleHero(null);
+
 })();

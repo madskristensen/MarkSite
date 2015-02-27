@@ -30,12 +30,12 @@ header {
 	background-color: #0c0c0c;
 	text-shadow: 1px 1px #0c0c0c;
 	overflow: hidden;
-	max-height: 0;
-	-moz-transition: max-height .5s ease-in-out;
-	-o-transition: max-height .5s ease-in-out;
-	-webkit-transition: max-height .5s ease-in-out;
-	transition: max-height .5s ease-in-out;
-	/*margin-bottom: -10px;*/
+	max-height: 300px;
+	-moz-transition: max-height .5s linear;
+	-o-transition: max-height .5s linear;
+	-webkit-transition: max-height .5s linear;
+	transition: max-height .5s linear;
+	will-change: max-height;
 
 	h1 {
 		margin: @container-padding 0 0 0;

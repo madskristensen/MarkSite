@@ -2,7 +2,7 @@
 	pageTitle="HTML"
 	description="The HTML editor was completely rewritten in Visual Studio 2013 to create a foundation for a constantly evolving editing experience."
 	slug="html"
-	order="100"
+	order="200"
 	keywords="html, intellisense, html5, xhtml, autocomplete"
 />
 
