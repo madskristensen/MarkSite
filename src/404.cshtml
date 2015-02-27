@@ -10,10 +10,11 @@
 	{
 		title = "Something went wrong";
 		desc = "We've recorded the error and a fix is coming.";
-    }
+	}
 
 	Page.Title = title;
 	Page.Description = title;
+	Page.ShowHero = false;
 	@WriteContent(title, desc);
 
 	Page.Theme = ConfigurationManager.AppSettings["theme"];
