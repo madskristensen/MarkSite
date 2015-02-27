@@ -11,6 +11,8 @@ use the powerful and flexible Visual C++ language, with the tools
 to enable the development of native Windows apps, native desktop apps, 
 and managed apps that run on the .NET Framework.
 
+![C++](_assets/other-cplusplus.png)
+
 ## CoffeeScript
 Syntax highlighting and code folding is supported in the built-in
 CoffeeScript editor. This includes support for IcedCoffeeScript.

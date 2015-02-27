@@ -1,4 +1,4 @@
-/// <binding AfterBuild='default' ProjectOpened='watch' />
+/// <binding ProjectOpened='watch' />
 var gulp = require("gulp"),
 	less = require("gulp-less");
 
