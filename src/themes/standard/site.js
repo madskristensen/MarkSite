@@ -54,12 +54,10 @@
 				}
 			}
 			else if (href.indexOf("://") === -1 && history && history.pushState) {
-				if (location.pathname === "/" || e.target.getAttribute("href") === "/")
-					return;
-
 				e.preventDefault();
 
 				replaceContent(href, e.target);
+				toggleHero(e.target.getAttribute("href"));
 				history.pushState(null, null, href);
 
 				// Close all other open menu items
@@ -79,6 +77,17 @@
 			var visible = ul.style.visibility;
 			ul.style.visibility = visible === "" ? "visible" : "";
 		});
+	}
+
+	function toggleHero(href) {
+		if ((!href && location.pathname === "/") || href === "/") {
+			document.getElementById("hero").style.maxHeight = "300px";
+			setTimeout(function () { document.getElementById("breadcrumb").style.display = "none" }, 500);
+		}
+		else {
+			document.getElementById("hero").style.maxHeight = 0;
+			setTimeout(function () { document.getElementById("breadcrumb").style.display = "" }, 500);
+		}
 	}
 
 	function replaceContent(url, target) {
@@ -171,22 +180,9 @@
 		catch (e) { }
 	}
 
-	var cb = function () {
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.href = css;
-		var head = document.getElementsByTagName('head')[0];
-		head.parentNode.insertBefore(link, head);
-	};
-
-	var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
-
-	if (raf) raf(cb);
-	else window.addEventListener('load', cb);
-
 	initMenu();
 	openMenu();
 	initPushState();
 	initPinnedSite();
-
+	toggleHero(null);
 })();

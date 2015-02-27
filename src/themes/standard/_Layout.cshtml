@@ -10,7 +10,7 @@
 	<meta name="description" content="@Page.Description" />
 	<meta name="keywords" content="@Page.Keywords" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<style>@Html.Raw(File.ReadAllText(Server.MapPath("~/themes/standard/above-the-fold.css")))</style>
+	<link href="@Helpers.Fingerprint("/themes/" + Page.Theme + "/site.css")" rel="stylesheet" />
 	<link rel="prefetch" href="@Helpers.Fingerprint("/themes/" + Page.Theme + "/site.js")" />
 
 	<meta name="twitter:card" content="summary" />
@@ -61,28 +61,22 @@
 			</div>
 		</header>
 
-		@if (Page.ShowHero)
-		{
-			<div id="hero">
-				<div class="container">
-					<h1>Open web tooling</h1>
-					<p>Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today.</p>
-					<ul>
-						<li>HTML5, CSS3, LESS/Sass, JS editors</li>
-						<li>ASP.NET, nodejs, Python, JavaScript</li>
-						<li>NuGet, Grunt, Gulp, Bower, npm</li>
-					</ul>
+		<div id="hero">
+			<div class="container">
+				<h1>Open web tooling</h1>
+				<p>Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today.</p>
+				<ul>
+					<li>HTML5, CSS3, LESS/Sass, JS editors</li>
+					<li>ASP.NET, nodejs, Python, JavaScript</li>
+					<li>NuGet, Grunt, Gulp, Bower, npm</li>
+				</ul>
 
-				</div>
 			</div>
-		}
+		</div>
 
 		<div class="container">
 			<main role="main">
-				@if (!Page.ShowHero)
-				{
-					@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
-				}
+				@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
 				@RenderBody()
 			</main>
 
@@ -101,8 +95,5 @@
 	</footer>
 
 	<script src="@Helpers.Fingerprint("/themes/" + Page.Theme + "/site.js")" async></script>
-	<script>
-		var css = '@Helpers.Fingerprint("/themes/" + Page.Theme + "/below-the-fold.css")';
-	</script>
 </body>
 </html>

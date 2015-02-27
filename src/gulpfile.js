@@ -5,11 +5,7 @@ var gulp = require("gulp"),
 gulp.task("default", ["less"]);
 
 gulp.task("less", function () {
-	gulp.src("./themes/standard/less/above-the-fold.less")
-	  .pipe(less({ optimization: true, compress: true }))
-	  .pipe(gulp.dest("./themes/standard/"));
-
-	gulp.src("./themes/standard/less/below-the-fold.less")
+	gulp.src("./themes/standard/less/site.less")
 	  .pipe(less({ optimization: true, compress: true }))
 	  .pipe(gulp.dest("./themes/standard/"));
 });

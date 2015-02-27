@@ -28,15 +28,25 @@ header {
 	width: 100%;
 	color: white;
 	background-color: #0c0c0c;
-	padding: (@container-padding * 1) 0;
 	text-shadow: 1px 1px #0c0c0c;
+	overflow: hidden;
+	max-height: 0;
+	-moz-transition: max-height .5s ease-in-out;
+	-o-transition: max-height .5s ease-in-out;
+	-webkit-transition: max-height .5s ease-in-out;
+	transition: max-height .5s ease-in-out;
+	/*margin-bottom: -10px;*/
 
-	h1{
-		margin: 0;
+	h1 {
+		margin: @container-padding 0 0 0;
 	}
 
-	p{
+	p {
 		font-size: 18px;
 		max-width: 70%;
+	}
+
+	ul {
+		margin: 0 0 @container-padding 0;
 	}
 }
