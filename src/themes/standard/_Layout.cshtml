@@ -20,11 +20,12 @@
 	<meta name="twitter:image" content="@(baseUrl + "/themes/standard/favicon/apple-touch-icon-120x120.png")" />
 	<meta name="twitter:url" content="@(baseUrl + Request.RawUrl)" />
 
+	<meta property="og:site_name" content="@ConfigurationManager.AppSettings["name"]" />
 	<meta property="og:title" content="@Page.Title" />
 	<meta property="og:description" content="@Page.Description" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="@(baseUrl + Request.RawUrl)" />
-	<meta property="og:image" content="@(baseUrl + "/themes/standard/favicon/apple-touch-icon-120x120.png")" />
+	<meta property="og:type" content="product" />
+	<meta property="og:url" content="@baseUrl" />
+	<meta property="og:image" content="@(baseUrl + "/themes/standard/favicon/mstile-310x310.png")" />
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/themes/standard/favicon/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/themes/standard/favicon/apple-touch-icon-60x60.png">
@@ -56,7 +57,7 @@
 	<div class="content">
 		<header role="banner">
 			<div class="container">
-				<span itemprop="name"><a href="/">@ConfigurationManager.AppSettings["name"]</a></span>
+				<span><a href="/">@ConfigurationManager.AppSettings["name"]</a></span>
 				<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 			</div>
 		</header>
@@ -64,7 +65,7 @@
 		<div id="hero">
 			<div class="container">
 				<h1>Open web tooling</h1>
-				<p>Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today.</p>
+				<p itemprop="description">Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today.</p>
 				<ul>
 					<li>HTML5, CSS3, LESS/Sass, JS editors</li>
 					<li>ASP.NET, nodejs, Python, JavaScript</li>
@@ -98,5 +99,22 @@
 	</footer>
 
 	<script src="@Helpers.Fingerprint("/themes/" + Page.Theme + "/output/site.js")" async></script>
+
+	<div>
+		<meta itemprop="url" content="@baseUrl" />
+		<meta itemprop="name" content="@ConfigurationManager.AppSettings["name"]" />
+		<meta itemprop="image" content="@(baseUrl + "/themes/standard/favicon/mstile-310x310.png")" />
+		<meta itemprop="downloadUrl" content="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx" />
+		<meta itemprop="audience" content="Developers" />
+		<meta itemprop="softwareVersion version" content="2015" />
+		<meta itemprop="operatingSystem" content="Windows" />
+		<meta itemprop="applicationCategory" content="Integrated Development Environment" />
+		<meta itemprop="softwareHelp" content="http://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs" />
+		<div itemscope itemtype="http://schema.org/Offer" itemprop="offers">
+			<meta itemprop="price" content="0" />
+			<meta itemprop="priceCurrency" content="USD" />
+			<meta itemprop="sku" content="Visual Studio Community" />
+		</div>
+	</div>
 </body>
 </html>
