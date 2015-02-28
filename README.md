@@ -37,6 +37,7 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 - Social integration
   - Twitter cards support
   - OpenGraph support
+  - Pinterest support
 - Environment integration
   - IE9+ pinned sites suppport
   - Windows live tile support

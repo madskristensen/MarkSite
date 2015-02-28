@@ -8,7 +8,7 @@
 
 	MarkdownPage page = PageSystem.GetCurrentPage(Request);
 
-	Page.Title = page.Parent == null ? "Visual Studio | Web" : page.Title + " - Visual Studio";
+	Page.Title = page.Parent == null ? manager.AppSettings["name"] : page.Title + " - " + manager.AppSettings["name"];
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
 	Page.Theme = manager.AppSettings["theme"];
