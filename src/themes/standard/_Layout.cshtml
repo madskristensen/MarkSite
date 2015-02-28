@@ -65,7 +65,7 @@
 		<div id="hero">
 			<div class="container">
 				<h1>Open web tooling</h1>
-				<p itemprop="description">Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today.</p>
+				<p>@ConfigurationManager.AppSettings["description"]</p>
 				<ul>
 					<li>HTML5, CSS3, LESS/Sass, JS editors</li>
 					<li>ASP.NET, nodejs, Python, JavaScript</li>
@@ -93,7 +93,7 @@
 
 	<footer role="contentinfo">
 		<div class="container">
-			<span class="ms" itemprop="publisher">Microsoft</span>
+			<span class="ms">Microsoft</span>
 			<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
 		</div>
 	</footer>
@@ -103,17 +103,22 @@
 	<div>
 		<meta itemprop="url" content="@baseUrl" />
 		<meta itemprop="name" content="@ConfigurationManager.AppSettings["name"]" />
+		<meta itemprop="description" content="@ConfigurationManager.AppSettings["description"]" />
 		<meta itemprop="image" content="@(baseUrl + "/themes/standard/favicon/mstile-310x310.png")" />
 		<meta itemprop="downloadUrl" content="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx" />
 		<meta itemprop="audience" content="Developers" />
 		<meta itemprop="softwareVersion version" content="2015" />
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="applicationCategory" content="Integrated Development Environment" />
-		<meta itemprop="softwareHelp" content="http://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs" />
+		<meta itemprop="publisher" content="Microsoft Corp." />
 		<div itemscope itemtype="http://schema.org/Offer" itemprop="offers">
 			<meta itemprop="price" content="0" />
 			<meta itemprop="priceCurrency" content="USD" />
 			<meta itemprop="sku" content="Visual Studio Community" />
+		</div>
+		<div itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating">
+			<meta itemprop="ratingValue" content="5" />
+			<meta itemprop="ratingCount" content="100" />
 		</div>
 	</div>
 </body>

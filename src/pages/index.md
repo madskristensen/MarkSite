@@ -1,8 +1,8 @@
 ﻿<properties
 	pageTitle="Home"
-	description="bla bla bla"
+	description="Visual Studio gives you the open tools and the flexibility you need to create and deploy modern web applications today"
 	slug="home"
-	keywords="css, intellisense, html"
+	keywords="visual studio, visualstudio, vs, vs2012, vs2013, vs2015, dev11, dev12, dev14"
 />
 
 ## Web development in Visual Studio
