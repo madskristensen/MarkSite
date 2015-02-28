@@ -14,6 +14,7 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 
 ### Features
 
+- Uses CommonMark for rendering Markdown
 - Uses the folder structure to create the menu
 - Convension based file/folder structure
 - Each page has a link to `Edit this page on GitHub`
@@ -24,7 +25,24 @@ Live demo: [vwd.azurewebsites.net](http://vwd.azurewebsites.net)
 	- Automatically validates any pull request
 	- Checks for missing metadata
 - Theming support
-
+- Support for IE9 and all modern browsers
+- Responsive design to support all device types
+- Best-in-class performance (Page Speed, YSlow)
+- Best-in-class accessibility (WGAC, Section 508)
+- Search engine optimization
+  - HTML 5 microdata
+  - robots.txt
+  - Sitemap.xml
+  - Semantic markup
+- Social integration
+  - Twitter cards support
+  - OpenGraph support
+- Environment integration
+  - IE9+ pinned sites suppport
+  - Windows live tile support
+  - iOS icon support
+  - Android icon support
+  - Firefox web manifest support
 
 ### Getting started
 
