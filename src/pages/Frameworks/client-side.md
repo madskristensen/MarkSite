@@ -5,6 +5,21 @@
 	keywords="vsix, extensibility, plugins"
 />
 
+## Apache Cordova
+Build cross-platform mobile apps for iOS, Android, and Windows devices using 
+Visual Studio Tools for Apache Cordova. With an extension for Visual Studio 
+2013 Update 4 or Visual Studio 2015 Preview, Visual Studio gives you the tools 
+you need to get started building your first app using HTML, CSS, and 
+JavaScript based on Apache Cordova.
+
+You can use the extension to build apps for the following devices and platforms: 
+1. Android 2.3.3 and later (4.4+ provides the best developer experience) 
+2. iOS 6, 7, and 8
+3. Windows 8 and 8.1 
+4. Windows Phone 8 and 8.1 
+
+[Learn more about Apache Cordova in Visual Studio](http://www.visualstudio.com/en-us/explore/cordova-vs.aspx)
+
 ## Angular.js
 Full Intellisense for Angular's dependency injection system is supported,
 as well as HTML properties and template bindings.
@@ -41,3 +56,26 @@ HTML data binding expressions.
 4. Ember
 5. Breeze
 6. ...and many more
+
+<aside role="complementary">
+
+## Related resources
+
+<section>
+
+### More information
+
+- [Apache Cordova](http://cordova.apache.org/)
+</section>
+
+<section>
+
+### Relevant extensions
+
+- [Web Essentials](https://visualstudiogallery.msdn.microsoft.com/ee6e6d8c-c837-41fb-886a-6b50ae2d06a2)
+- [Glyphfriends](https://visualstudiogallery.msdn.microsoft.com/5fd24afb-b3b2-4cec-9b03-1cfcec6123aa)
+- [Bootstrap Snippet Pack](https://visualstudiogallery.msdn.microsoft.com/e82e7862-f731-4183-a27a-3a44b261bfe5)
+- [Apache Cordova for Visual Studio 2013](http://www.microsoft.com/en-us/download/details.aspx?id=42675)
+</section>
+
+</aside>
