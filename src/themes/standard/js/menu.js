@@ -103,7 +103,6 @@
 				document.title = page.title;
 				setFlipAheadLinks(page.next, page.prev);
 
-				scrollTo(0, 0);
 				main.style.opacity = 1;
 			}, 200);
 		});
@@ -143,7 +142,7 @@
 
 	function toggleHero(href) {
 		var showHero = (!href && location.pathname === "/") || href === "/";
-		hero.style.maxHeight = showHero ? "" : 0;
+		hero.className = showHero ? "" : "hide";
 	}
 
 	document.body.addEventListener("click", onBodyClick, false);
@@ -155,6 +154,6 @@
 	if (window.requestAnimationFrame)
 		window.requestAnimationFrame(openMenu)
 	else
-		window.addEventListener("load",  openMenu, false);
+		window.addEventListener("load", openMenu, false);
 
 })();

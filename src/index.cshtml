@@ -12,6 +12,7 @@
 	Page.Description = page.Description;
 	Page.Keywords = page.Keywords;
 	Page.Theme = manager.AppSettings["theme"];
+	Page.ShowHero = page.Parent == null;
 
 	MarkdownPage next = null;
 	MarkdownPage prev = null;

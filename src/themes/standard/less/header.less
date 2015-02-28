@@ -11,7 +11,7 @@ header {
 	a {
 		color: @header-color;
 
-		&:hover{
+		&:hover {
 			color: @header-color;
 		}
 	}
@@ -43,10 +43,14 @@ header {
 
 	p {
 		font-size: 18px;
-		max-width: 70%;
+		margin-right: @menu-width + 40px;
 	}
 
 	ul {
 		margin: 0 0 @container-padding 0;
+	}
+
+	&.hide {
+		max-height: 0;
 	}
 }

@@ -62,7 +62,7 @@
 			</div>
 		</header>
 
-		<div id="hero">
+		<div id="hero" class="@(Page.ShowHero ? null : "hide")">
 			<div class="container">
 				<h1>Open web tooling</h1>
 				<p>@ConfigurationManager.AppSettings["description"]</p>
