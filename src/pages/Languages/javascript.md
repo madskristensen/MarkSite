@@ -52,7 +52,13 @@ by using the navigation bar at the top of the editor.
 ![JavaScript navigation bar](_assets/javascript-navigation-bar.gif)
 
 ## Unit testing
-coming soon...
+Chutzpah (hutz·pah) is an open source JavaScript unit test runner which 
+helps you integrate JavaScript unit testing into your website. It enables 
+you to run JavaScript unit tests from the command line and from inside of 
+Visual Studio. 
+
+It also supports running in the TeamCity continuous integration 
+client. Chutzpah supports both the QUnit, Jasmine and Mocha testing frameworks
 
 <aside role="complementary">
 
@@ -64,6 +70,7 @@ coming soon...
 
 - [JSDoc v3](http://usejsdoc.org/)
 - [XMLDoc comments](https://msdn.microsoft.com/en-us/library/bb514138.aspx)
+- [Chutzpah on GitHub](https://github.com/mmanela/chutzpah/)
 </section>
 
 <section>
@@ -73,7 +80,8 @@ coming soon...
 - [Web Essentials](https://visualstudiogallery.msdn.microsoft.com/ee6e6d8c-c837-41fb-886a-6b50ae2d06a2)
 - [JSLint](https://visualstudiogallery.msdn.microsoft.com/ede12aa8-0f80-4e6f-b15c-7a8b3499370e)
 - [DocStubJs](https://visualstudiogallery.msdn.microsoft.com/0cb7304b-ad78-4283-ba2b-42804657fcdd)
-- [Chutzpah Unit Test](https://visualstudiogallery.msdn.microsoft.com/f8741f04-bae4-4900-81c7-7c9bfb9ed1fe)
+- [Download Chutzpah Test Adapter](https://visualstudiogallery.msdn.microsoft.com/f8741f04-bae4-4900-81c7-7c9bfb9ed1fe)
+- [Download Chutzpah Context Menu](https://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0)
 </section>
 
 </aside>

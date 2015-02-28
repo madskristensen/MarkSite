@@ -16,7 +16,6 @@ x64/
 x86/
 build/
 bld/
-output/
 **/[Bb]in/*.pdb
 **/[Bb]in/*.xml
 [Oo]bj/

@@ -39,7 +39,7 @@ integrated PHP manual, project system, debugging support and more.
 
 - [Download PHP Tools](https://visualstudiogallery.msdn.microsoft.com/6eb51f05-ef01-4513-ac83-4c5f50c95fb5)
 
-## Chutzpah JavaScript unit test runner
+## Chutzpah unit test runner
 Chutzpah (hutz·pah) is an open source JavaScript unit test runner which 
 helps you integrate JavaScript unit testing into your website. It enables 
 you to run JavaScript unit tests from the command line and from inside of 
@@ -63,7 +63,7 @@ The ultimate snippet pack for web developers using the Twitter Bootstrap framewo
 - [Download Bootstrap Snippet Pack](https://visualstudiogallery.msdn.microsoft.com/ede12aa8-0f80-4e6f-b15c-7a8b3499370e)
 - [Bootstrap Snippet Pack on GitHub](https://github.com/elebetsamer/bootstrap-snippets-visual-studio/)
 
-## DocStubJs - scaffold JSDoc comments
+## DocStubJs
 This extension's goal is to provide a simple way to add documentation to 
 JavaScript and TypeScript by adding comment stubs after typing in the opening of 
 a new documentation comment.
