@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="ASP.NET"
+	pageTitle="C# / ASP.NET"
 	description="Short description of the page"
 	slug="aspnet"
     order="100"
