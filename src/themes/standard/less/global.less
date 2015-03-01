@@ -13,7 +13,7 @@ body {
 	overflow-y: scroll;
 	background: #fff;
 	font: 16px/1.5em "Segoe UI","Segoe WP Light","Segoe WP",Tahoma,Arial,sans-serif;
-	color: @text-color;	
+	color: @text-color;
 }
 
 a {
@@ -32,6 +32,24 @@ h1, h2, h3, h4 {
 	font-weight: 400;
 	margin: 25px 0;
 	line-height: 1.2;
+
+	a {
+		color: @text-color;
+
+		&:hover,
+		&:target {
+			color: @text-color;
+			outline : none;
+
+			&:after {
+				content: "§";
+				padding-left: 10px;
+				color: @link-color;
+				font-weight: bold;
+				font-size: 85%;
+			}
+		}
+	}
 }
 
 h1 {

@@ -30,10 +30,10 @@ nav {
 		ul {
 			max-height: 0;
 			overflow: hidden;
-			-moz-transition: max-height .2s linear;
-			-o-transition: max-height .2s linear;
-			-webkit-transition: max-height .2s linear;
-			transition: max-height .2s linear;
+			-moz-transition: max-height .2s ease-in-out;
+			-o-transition: max-height .2s ease-in-out;
+			-webkit-transition: max-height .2s ease-in-out;
+			transition: max-height .2s ease-in-out;
 
 			li {
 				font-size: 90%;
@@ -62,10 +62,9 @@ nav {
 		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAG1BMVEVMaXH29vb29vb29vZCQkL29vazs7PJycnU1NRCTyjsAAAABHRSTlMAQJ8QKGdt6wAAADJJREFUCNdjYMAOmGAMVZhAKpSh5go	VSIEy1FxcoQJQhpoLhMEUUV5eCmIYCgIBA1EAAKzvBmjcnChlAAAAAElFTkSuQmCC') /*/themes/standard/img/nav-open.png*/;
 
 		> ul {
-			max-height: 300px;
+			max-height: 200px;
 		}
 	}
-
 
 	a {
 		color: @menu-link-color;
@@ -76,7 +75,7 @@ nav {
 
 		&[data-spinner] {
 			position: relative;
-			background: url(/themes/standard/img/spinner2.gif) no-repeat 13px 9px;
+			background: url(/themes/standard/img/spinner.gif) no-repeat 10px 7px;
 		}
 	}
 }

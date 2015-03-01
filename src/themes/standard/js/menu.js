@@ -32,10 +32,10 @@
 
 	function onBodyClick(e) {
 
-		if (e.target.tagName !== "A")
-			return;
-
 		var href = e.target.getAttribute("href");
+
+		if (e.target.tagName !== "A" || href.indexOf("#") === 0)
+			return;
 
 		if (location.pathname === href) {
 			e.preventDefault();
@@ -75,19 +75,24 @@
 		e.preventDefault();
 		e.target.setAttribute("data-spinner", "true");
 
-		history.pushState(null, null, url);
+		history.pushState("pushed", null, url);
 		replaceContent(url, e.target);
+	}
 
-		// Close all other active menu items
-		var active = nav.getElementsByClassName("active");
-		for (var a = 0; a < active.length; a++) {
-			active[a].removeAttribute("class");
+	function setMenuActive() {
+		var actives = nav.getElementsByClassName("active");
+		for (var a = 0; a < actives.length; a++) {
+			actives[a].removeAttribute("class");
 		}
 
-		e.target.className = "active";
+		var current = nav.querySelector("[href='" + location.pathname + "']")
+		if (current)
+			current.className = "active";
 	}
 
 	function replaceContent(url, target) {
+		setMenuActive();
+
 		dataService.getPage(url, function (page) {
 
 			main.style.opacity = 0;
@@ -148,7 +153,8 @@
 	document.body.addEventListener("click", onBodyClick, false);
 
 	window.addEventListener("popstate", function (e) {
-		replaceContent(location.pathname);
+		if (e.state === "pushed")
+			replaceContent(location.pathname);
 	});
 
 	if (window.requestAnimationFrame)

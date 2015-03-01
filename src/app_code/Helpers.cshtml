@@ -43,7 +43,7 @@
 	{
 		string absolute = Server.MapPath(relative);
 		var img = Bitmap.FromFile(absolute);
-		
+
 		return string.Format("width=\"{0}\" height=\"{1}\"", img.Width, img.Height);
 	}
 }
@@ -85,13 +85,14 @@
 {
 	string link = CreateLink(page);
 	string className = page == PageSystem.GetCurrentPage(Request) ? "active" : null;
-	
+
 	<a href="@link" class="@className">@page.Title</a>
 }
 
 @helper RenderContent(MarkdownPage page)
 {
 	Regex regex = new Regex(@"<img.+(?<attr>src)=""(?<href>[^\""']+)"".*?>");
+	Regex h2rgx = new Regex(@"<(?<start>(h2|h3))>(?<inner>[^<]+)<(?<end>/\1)>");
 	string baseFolder = ConfigurationManager.AppSettings["pageFolder"].Trim('~', '/');
 
 	string html = regex.Replace(page.Content, delegate (Match match)
@@ -112,6 +113,16 @@
 		}
 
 		return value;
+	});
+
+	html = h2rgx.Replace(html, delegate (Match match)
+	{
+		string value = match.Value;
+		string inner = match.Groups["inner"].Value;
+		string id = inner.Replace(" ", "-").ToLowerInvariant();
+		string result = value.Replace(inner, "<a id=\"" + id + "\" href=\"#" + id + "\">" + inner + "</a>");
+
+		return result;
 	});
 
 	@Html.Raw(html)
