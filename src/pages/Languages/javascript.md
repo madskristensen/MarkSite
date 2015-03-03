@@ -16,6 +16,11 @@ provide the ultimate Intellisense experience.
 ![JavaScript basic auto completion](_assets/javascript-basic-auto-completion.gif)
 
 ## EcmaScript 6 support
+classes
+let, const
+template string
+fat arrows
+
 coming soon...
 
 ## Object literal Intellisense
@@ -31,7 +36,8 @@ which is a huge productivity boost.
 ![JavaScript snippets](_assets/javascript-snippets.gif)
 
 ## Go to definition
-coming soon...
+Ever needed to find the definition of a variable or function? By pressing `F12`
+you can easily jump to the definition of any identifier - even across files.
 
 ## JSDoc support
 The Intellisense engine supports JSDoc v3 as well as the older XMLDoc 

@@ -9,7 +9,7 @@ var path = "./themes/standard/";
 gulp.task("default", ["less", "scripts"]);
 
 gulp.task("scripts", function () {
-	gulp.src([path + "js/dataService.js", path + "js/menu.js", path + "js/pinned.js"])
+	gulp.src([path + "js/*.js"])
 		.pipe(concat("site.js"))
 		.pipe(gulp.dest(path + "output"));
 });

@@ -18,3 +18,8 @@ The editor provides both Intellisense and tooltips for mixins in the
 same file as well as across imported files.
 
 ![LESS mixins](_assets/less-mixins.gif)
+
+## Go to definition
+Easily jump between Mixins and variable references using `F12` to go to 
+the definition. This works for any references even across multiple files
+and imports.
