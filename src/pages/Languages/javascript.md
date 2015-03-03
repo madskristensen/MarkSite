@@ -16,12 +16,10 @@ provide the ultimate Intellisense experience.
 ![JavaScript basic auto completion](_assets/javascript-basic-auto-completion.gif)
 
 ## EcmaScript 6 support
-classes
-let, const
-template string
-fat arrows
+Visual Studio supports a broad set of EcmaScript 6 features including classes,
+let, const, fat arrows and template strings.
 
-coming soon...
+![EcmaScript 6 support](_assets/javascript-es6.png)
 
 ## Object literal Intellisense
 The Chakra execution engine is capable of reverse engineering function
