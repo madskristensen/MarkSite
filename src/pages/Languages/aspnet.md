@@ -39,7 +39,7 @@ validation client and server side
 model driven templating
 
 ### Model annotations
-Annotate your models to generate the database schema.
+Annotate your models to generate the database schema and scaffold views.
 
 ![ASP.NET model annotations](_assets/aspnet-model-annotations.gif)
 
@@ -49,7 +49,7 @@ Annotations will also ensure both server- and client-side validation.
 ![ASP.NET annotations for validation](_assets/aspnet-annotations-validation.gif)
 
 ### Scaffolding
-coming soon...
+In the works...
 
 ### Dynamic templating
 coming soon...
