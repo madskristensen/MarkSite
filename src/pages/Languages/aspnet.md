@@ -21,26 +21,32 @@ your views.
 You've got full access to the current `Model` as well
 as the entire .NET framework types available.
 
-![ASP.NET Razor](_assets/html-razor.gif)
+![ASP.NET Razor](_assets/aspnet-razor.gif)
 
 ## Tag Helpers
 coming soon...
 
 ## Tilde slash
-coming soon...
+You can use the tilde (~) character in Razor markup to indicate the root
+of the website. This is particularly useful when the root of the application
+is located in a subfolder of an existing website.
+
+![ASP.NET the tilde character](_assets/aspnet-tilde.png)
 
 ## Model driven development
 validation client and server side
+
 model driven templating
-coming soon...
 
 ### Model annotations
-db schema generation
-coming soon...
+Annotate your models to generate the database schema.
+
+![ASP.NET model annotations](_assets/aspnet-model-annotations.gif)
 
 ### Validation
-server and client side
-coming soon...
+Annotations will also ensure both server- and client-side validation.
+
+![ASP.NET annotations for validation](_assets/aspnet-annotations-validation.gif)
 
 ### Scaffolding
 coming soon...
