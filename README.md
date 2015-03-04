@@ -71,16 +71,18 @@ various aspects of the file.
 	pageTitle="FTP"
 	description="bla bla bla"
 	slug="ftp"
+    order="300"
 	keywords="ftp, deploy"
 />
 
 My markdown content goes here
 ```
 
-__pageTitle__: The title of each page  
-__description__: The description of each page  
-__keywords__: A comma separated list of keywords  
-__slug__: A Slug is what the URL should be
+- __pageTitle__: The title of each page. Required
+- __description__: The description of each page. Required
+- __slug__: A Slug is what the URL should be. Must be lower cased. Required
+- __order__: Determins the sort order of the page in the menu. Optional
+- __keywords__: A comma separated list of keywords. 3 or more required
 
 #### Screenshots/animated GIFs
 

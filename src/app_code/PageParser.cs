@@ -108,8 +108,8 @@ public class PageParser
 		else if (page.Slug.Any(c => char.IsUpper(c) || char.IsWhiteSpace(c) || char.IsSymbol(c)))
 			AddValidationError(page, "Slug must be alphanumeric and lower case only");
 
-		//if (string.IsNullOrEmpty(page.Keywords) || page.Keywords.Count(c => c == ',') < 2)
-		//	AddValidationError(page, "At least 3 comma separated keywords must be specified");
+		if (string.IsNullOrEmpty(page.Keywords) || page.Keywords.Count(c => c == ',') < 2)
+			AddValidationError(page, "At least 3 comma separated keywords must be specified");
 	}
 
 	private void AddValidationError(MarkdownPage page, string message)
