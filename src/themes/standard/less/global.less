@@ -52,6 +52,15 @@ h1, h2, h3, h4 {
 			}
 		}
 	}
+
+	// Don't show the link on the front page
+	&:only-of-type a {
+		cursor: default;
+
+		&:after {
+			content: "";
+		}
+	}
 }
 
 h1 {

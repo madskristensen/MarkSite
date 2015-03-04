@@ -41,6 +41,12 @@ var dataService = (function () {
 
 	function openMenu() {
 
+		var open = nav.getElementsByClassName("open");
+		for (var i = 0; i < open.length; i++) {
+			// this is for popstate to adjust the menu
+			open[i].removeAttribute("class");
+		}
+
 		if (location.pathname === "/")
 			return;
 
@@ -185,8 +191,10 @@ var dataService = (function () {
 	document.body.addEventListener("click", onBodyClick, false);
 
 	window.addEventListener("popstate", function (e) {
-		if (e.state === "pushed")
+		if (e.state === "pushed") {
 			replaceContent(location.pathname);
+			openMenu();
+		}
 	});
 
 	if (window.requestAnimationFrame)
