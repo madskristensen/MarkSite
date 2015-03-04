@@ -7,11 +7,12 @@
 />
 
 ## Open source
-ASP.NET 5 is completely open source from the compiler to the runtime and the
-core libraries that make up the ASP.NET Framework.
+Found a bug or got a new idea? Open an issue or send a pull request. 
+All of the ASP.NET and .NET Core CLR runtime components as well the Azure SDKs 
+for any language are all on GitHub and taking contributions. Get involved today! 
 
 It's all on [GitHub](https://github.com/aspnet/home/)
- and pull requests are more than welcome.
+and pull requests are more than welcome.
 
 ## Razor
 The ASP.NET Razor syntax allows you to inline C# directly inside
