@@ -7,7 +7,7 @@
 		main = document.getElementsByTagName("main")[0],
 		hero = document.getElementById("hero");
 
-	function openMenu() {
+	function syncMenu() {
 
 		var open = nav.getElementsByClassName("open");
 		for (var i = 0; i < open.length; i++) {
@@ -115,7 +115,7 @@
 				setFlipAheadLinks(page.next, page.prev);
 
 				main.style.opacity = 1;
-				openMenu();
+				syncMenu();
 			}, 200);
 		});
 	}
@@ -160,14 +160,13 @@
 	document.body.addEventListener("click", onBodyClick, false);
 
 	window.addEventListener("popstate", function (e) {
-		if (e.state === "pushed") {
+		if (e.state === "pushed")
 			replaceContent(location.pathname);
-		}
 	});
 
 	if (window.requestAnimationFrame)
-		window.requestAnimationFrame(openMenu)
+		window.requestAnimationFrame(syncMenu)
 	else
-		window.addEventListener("load", openMenu, false);
+		window.addEventListener("load", syncMenu, false);
 
 })();

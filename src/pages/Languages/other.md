@@ -68,7 +68,12 @@ project system, debugging support and more.
 - [Download PHP Tools](https://visualstudiogallery.msdn.microsoft.com/6eb51f05-ef01-4513-ac83-4c5f50c95fb5)
 
 ## PowerShell
-coming soon...
+Windows PowerShell® is a task-based command-line shell and scripting language 
+designed especially for system administration. Built on the .NET Framework, 
+Windows PowerShell helps IT professionals and power users control and automate the 
+administration of the Windows operating system and applications that run on Windows.
+
+![PowerShell syntax highlighting](_assets/other-powershell.png)
 
 ## Python
 Python Tools for Visual Studio includes full support for the Djano
