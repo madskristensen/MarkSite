@@ -55,7 +55,7 @@
 			expandMenuParent(e);
 		}
 		else if (href.indexOf("://") === -1) {
-			onLinkClick(e, href);
+			onLocalLinkClick(e, href);
 		}
 	}
 
@@ -77,7 +77,7 @@
 		}
 	}
 
-	function onLinkClick(e, url) {
+	function onLocalLinkClick(e, url) {
 		e.preventDefault();
 		e.target.setAttribute("data-spinner", "true");
 
@@ -163,10 +163,5 @@
 		if (e.state === "pushed")
 			replaceContent(location.pathname);
 	});
-
-	if (window.requestAnimationFrame)
-		window.requestAnimationFrame(syncMenu)
-	else
-		window.addEventListener("load", syncMenu, false);
 
 })();

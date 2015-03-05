@@ -87,7 +87,7 @@ var dataService = (function () {
 			expandMenuParent(e);
 		}
 		else if (href.indexOf("://") === -1) {
-			onLinkClick(e, href);
+			onLocalLinkClick(e, href);
 		}
 	}
 
@@ -109,7 +109,7 @@ var dataService = (function () {
 		}
 	}
 
-	function onLinkClick(e, url) {
+	function onLocalLinkClick(e, url) {
 		e.preventDefault();
 		e.target.setAttribute("data-spinner", "true");
 
@@ -195,11 +195,6 @@ var dataService = (function () {
 		if (e.state === "pushed")
 			replaceContent(location.pathname);
 	});
-
-	if (window.requestAnimationFrame)
-		window.requestAnimationFrame(syncMenu)
-	else
-		window.addEventListener("load", syncMenu, false);
 
 })();
 (function () {

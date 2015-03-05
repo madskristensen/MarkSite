@@ -46,18 +46,34 @@
 
 		return string.Format("width=\"{0}\" height=\"{1}\"", img.Width, img.Height);
 	}
+
+	public static bool IsMenuItemOpen(MarkdownPage page)
+	{
+		MarkdownPage current = PageSystem.GetCurrentPage(Request);
+
+		if (page == current && page.Children.Any())
+			return true;
+
+		foreach (MarkdownPage child in page.Children)
+		{
+			if (child == current)
+				return true;
+		}
+
+		return false;
+	}
 }
 
-@helper RenderMenu(IEnumerable<MarkdownPage> pages)
+@helper RenderMenu(IEnumerable<MarkdownPage> pages, bool isOpen = false)
 {
 	<ul>
 		@foreach (MarkdownPage page in pages.Where(p => p.ShowInMenu))
 		{
-			<li>
+			<li class="@(IsMenuItemOpen(page) ? "open" : null)">
 				@CreateAnchorTag(page)
 				@if (page.Children.Count > 0)
 				{
-					@RenderMenu(page.Children)
+					@RenderMenu(page.Children, isOpen)
 				}
 			</li>
 		}
