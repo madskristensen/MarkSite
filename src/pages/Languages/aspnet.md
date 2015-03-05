@@ -34,9 +34,9 @@ is located in a subfolder of an existing website.
 ![ASP.NET the tilde character](_assets/aspnet-tilde.png)
 
 ## Model driven development
-validation client and server side
-
-model driven templating
+The models used in an ASP.NET application can be annotated to provide
+a wide arrange of experiences such as database schema generation,
+view scaffolding, client- and server-side validation and more.
 
 ### Model annotations
 Annotate your models to generate the database schema and scaffold views.
@@ -61,9 +61,17 @@ Visual Basic compilers with rich code analysis APIs.
 It enables building code analysis tools with the same APIs that are 
 used by Visual Studio.
 
+## Environment awareness
+The app specific configuration defaults to have environment settings override
+the configuration in the projects.
+
+![ASP.NET configuration](_assets/aspnet-configuration.png)
+
 ## Code based configuration
-with environment specific awareness
-routing, identity (facebook, google, Active Directory etc.)
+Any identity, routing and database configuration is code based to give
+full fidelity to the logic need for any web app.
+
+![ASP.NET code based configuration](_assets/aspnet-code-configuration.png)
 
 <aside role="complementary">
 
