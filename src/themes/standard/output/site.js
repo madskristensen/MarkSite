@@ -147,6 +147,7 @@ var dataService = (function () {
 				setFlipAheadLinks(page.next, page.prev);
 
 				main.style.opacity = 1;
+				openMenu();
 			}, 200);
 		});
 	}
@@ -193,7 +194,6 @@ var dataService = (function () {
 	window.addEventListener("popstate", function (e) {
 		if (e.state === "pushed") {
 			replaceContent(location.pathname);
-			openMenu();
 		}
 	});
 

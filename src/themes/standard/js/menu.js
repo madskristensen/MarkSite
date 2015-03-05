@@ -115,6 +115,7 @@
 				setFlipAheadLinks(page.next, page.prev);
 
 				main.style.opacity = 1;
+				openMenu();
 			}, 200);
 		});
 	}
@@ -161,7 +162,6 @@
 	window.addEventListener("popstate", function (e) {
 		if (e.state === "pushed") {
 			replaceContent(location.pathname);
-			openMenu();
 		}
 	});
 
