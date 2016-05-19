@@ -77,16 +77,12 @@
 
 		<div class="container">
 			<main role="main">
-				@if (PageSystem.GetCurrentPage(Request).Parent != null)
-				{
-					@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
-				}
 				@RenderBody()
 			</main>
 
 			<nav id="nav" role="navigation">
 				<a href="/#" id="burger" aria-haspopup="true">Menu&nbsp;&nbsp;&nbsp;</a>
-				@Helpers.RenderMenu(PageSystem.IndexPage.Children)
+				@RenderMenu(PageSystem.IndexPage.Children)
 			</nav>
 		</div>
 	</div>
@@ -123,3 +119,50 @@
 	</div>
 </body>
 </html>
+
+@functions
+{
+	public static bool IsMenuItemOpen(HttpRequestBase request, MarkdownPage page)
+	{
+		MarkdownPage current = PageSystem.GetCurrentPage(request);
+
+		if (page == current && page.Children.Any())
+		{
+			return true;
+		}
+
+		foreach (MarkdownPage child in page.Children)
+		{
+			if (child == current)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+
+@helper RenderMenu(IEnumerable<MarkdownPage> pages, bool isOpen = false)
+{
+	<ul>
+		@foreach (MarkdownPage page in pages.Where(p => p.ShowInMenu))
+		{
+			<li class="@(IsMenuItemOpen(Request, page) ? "open" : null)">
+				@CreateAnchorTag(page)
+				@if (page.Children.Count > 0)
+				{
+					@RenderMenu(page.Children, isOpen)
+				}
+			</li>
+		}
+	</ul>
+}
+
+@helper CreateAnchorTag(MarkdownPage page)
+{
+	string link = Helpers.CreateLink(page);
+	string className = page == PageSystem.GetCurrentPage(Request) ? "active" : null;
+
+	<a href="@link" class="@className">@page.Title</a>
+}
