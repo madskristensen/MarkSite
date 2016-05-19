@@ -1,0 +1,162 @@
+﻿@using System.Configuration;
+@{
+	string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority;
+}
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/SoftwareApplication">
+<head prefix="og: http://ogp.me/ns#">
+	<meta charset="utf-8" />
+	<title>@Page.Title</title>
+	<meta name="description" content="@Page.Description" />
+	<meta name="keywords" content="@Page.Keywords" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="@Helpers.Fingerprint("/themes/" + Page.Theme + "/output/site.css")" rel="stylesheet" />
+	<link rel="prefetch" href="@Helpers.Fingerprint("/themes/" + Page.Theme + "/output/site.js")" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@("@visualstudio")" />
+	<meta name="twitter:title" content="@Page.Title" />
+	<meta name="twitter:description" content="@Page.Description" />
+	<meta name="twitter:image" content="@(baseUrl + "/themes/bootstrap/favicon/apple-touch-icon-120x120.png")" />
+	<meta name="twitter:url" content="@(baseUrl + Request.RawUrl)" />
+	<meta property="og:site_name" content="@ConfigurationManager.AppSettings["name"]" />
+	<meta property="og:title" content="@Page.Title" />
+	<meta property="og:description" content="@Page.Description" />
+	<meta property="og:type" content="product" />
+	<meta property="og:url" content="@baseUrl" />
+	<meta property="og:image" content="@(baseUrl + "/themes/bootstrap/favicon/mstile-310x310.png")" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/themes/bootstrap/favicon/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/themes/bootstrap/favicon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/themes/bootstrap/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/themes/bootstrap/favicon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/themes/bootstrap/favicon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/themes/bootstrap/favicon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/themes/bootstrap/favicon/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/themes/bootstrap/favicon/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/themes/bootstrap/favicon/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="/themes/bootstrap/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/themes/bootstrap/favicon/android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="/themes/bootstrap/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/themes/bootstrap/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/themes/bootstrap/favicon/manifest.json">
+	<link rel="shortcut icon" href="~/themes/bootstrap/favicon/favicon-32x32.png">
+	<meta name="msapplication-TileColor" content="#2d89ef">
+	<meta name="msapplication-TileImage" content="/themes/bootstrap/favicon/mstile-144x144.png">
+	<meta name="msapplication-config" content="/themes/bootstrap/favicon/browserconfig.xml">
+	<meta name="msapplication-starturl" content="/" />
+	<meta name="msapplication-task" content="name=Edit this site on GitHub; action-uri=https://github.com/madskristensen/marksite/; icon-uri=https://github.com/favicon.ico" />
+	<meta name="msapplication-task" content="name=News from the Web Team; action-uri=http://webdevblogs.azurewebsites.net/; icon-uri=http://webdevblogs.azurewebsites.net/favicon.ico" />
+	<meta name="theme-color" content="#ffffff">
+	@RenderSection("flipahead", required: false)
+
+
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand">@ConfigurationManager.AppSettings["name"]</a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar-main">
+				@RenderMenu(PageSystem.IndexPage.Children, false, true)
+
+				@*
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+					<li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+				</ul>
+				*@
+			</div>
+		</div>
+	</div>
+
+	<div class="container" id="main">
+		@RenderBody()
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">
+				<span class="ms">Microsoft</span>
+				<a class="download" href="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx">Free Visual Studio</a>
+			</p>
+		</div>
+	</footer>
+
+	<script src="@Helpers.Fingerprint("/themes/" + Page.Theme + "/output/site.js")" async></script>
+
+	<div>
+		<meta itemprop="url" content="@baseUrl" />
+		<meta itemprop="name" content="@ConfigurationManager.AppSettings["name"]" />
+		<meta itemprop="description" content="@ConfigurationManager.AppSettings["description"]" />
+		<meta itemprop="image" content="@(baseUrl + "/themes/bootstrap/favicon/mstile-310x310.png")" />
+		<meta itemprop="downloadUrl" content="http://www.visualstudio.com/en-us/products/free-developer-offers-vs.aspx" />
+		<meta itemprop="audience" content="Developers" />
+		<meta itemprop="softwareVersion version" content="2015" />
+		<meta itemprop="operatingSystem" content="Windows" />
+		<meta itemprop="applicationCategory" content="Integrated Development Environment" />
+		<meta itemprop="publisher" content="Microsoft Corp." />
+		<div itemscope itemtype="http://schema.org/Offer" itemprop="offers">
+			<meta itemprop="price" content="0" />
+			<meta itemprop="priceCurrency" content="USD" />
+			<meta itemprop="sku" content="Visual Studio Community" />
+		</div>
+		<div itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating">
+			<meta itemprop="ratingValue" content="5" />
+			<meta itemprop="ratingCount" content="100" />
+		</div>
+	</div>
+</body>
+</html>
+
+@functions 
+{
+	public static string CreateLink(MarkdownPage page)
+	{
+		var segments = new List<string>(new[] { page.Slug });
+		var parent = page.Parent;
+
+		while (parent != null)
+		{
+			segments.Add(parent.Slug);
+			parent = parent.Parent;
+		}
+
+		string path = string.Join("/", segments.Reverse<string>().Skip(1));
+		return "/" + (string.IsNullOrEmpty(path) ? string.Empty : path + "/");
+	}
+
+}
+
+@helper RenderMenu(IEnumerable<MarkdownPage> pages, bool isOpen = false, bool top = false)
+{
+	<ul class="@(top ? "nav navbar-nav" : "dropdown-menu")">
+		@foreach (var page in pages.Where(p => p.ShowInMenu))
+		{
+			if (page.Children.Count > 0) // todo:  and any children are visible...and their childrens children...
+			{
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="">@page.Title <span class="caret"></span></a>
+					@RenderMenu(page.Children, isOpen)
+				</li>
+			}
+			else
+			{
+				<li>@CreateAnchorTag(page)</li>
+			}
+		}
+	</ul>
+}
+
+@helper CreateAnchorTag(MarkdownPage page)
+{
+	string link = CreateLink(page);
+	string className = page == PageSystem.GetCurrentPage(Request) ? "active" : null;
+
+	<a href="@link" class="@className">@page.Title</a>
+}
+

@@ -31,11 +31,6 @@
 
 	if (Request.Headers["X-Content-Only"] == "1")
 	{
-		if (page.Parent != null)
-		{
-			@Helpers.RenderBreadcrumb(PageSystem.GetCurrentPage(Request))
-		}
-
 		Response.Headers.Add("X-Title", Page.Title);
 
 		if (next != null)
