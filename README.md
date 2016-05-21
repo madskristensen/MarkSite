@@ -1,7 +1,5 @@
 ## MarkSite - An ASP.NET based Markdown CMS
 
-The work on this project has continued over here: [https://github.com/aspnet/vsweb-docs](https://github.com/aspnet/vsweb-docs)
-
 A great system for:
 
 - Community driven documentation
